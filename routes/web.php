@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminCategoryComponent;
+use App\Http\Livewire\Admin\AdminAddCategoryComponent;
+use App\Http\Livewire\Admin\AdminEditCategoryComponent;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,11 +51,13 @@ Route::get('/search', SearchComponent::class)->name('product.search');
 
 // For User or Customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashboardComponent::class)->name('user.dashboard');
+    Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
 });
 
 // For Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {
-    Route::get('/admin/dashboard', \App\Http\Livewire\Admin\AdminDashboardComponent::class)->name('admin.dashboard');
-    Route::get('/admin/categories', \App\Http\Livewire\Admin\AdminCategoryComponent::class)->name('admin.categories');
+    Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
+    Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
+    Route::get('/admin/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
 });
