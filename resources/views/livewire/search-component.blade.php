@@ -54,6 +54,7 @@
 
                 </div><!--end wrap shop control-->
 
+                @if($products->count()>0)
                 <div class="row">
 
                     <ul class="product-list grid-products equal-container">
@@ -77,6 +78,11 @@
                         @endforeach
                     </ul>
                 </div>
+                @else
+                    <div class="alert alert-warning">
+                        No items found
+                    </div>
+                @endif
 
                 <div class="wrap-pagination-info"> 
                     {{$products->links()}}

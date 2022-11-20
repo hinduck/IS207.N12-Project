@@ -1,0 +1,4 @@
+<div>
+    {{-- admin categories --}} 
+    
+</div>
