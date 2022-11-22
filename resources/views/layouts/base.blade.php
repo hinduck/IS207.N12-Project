@@ -7,12 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link
-        href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
@@ -21,9 +17,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.css" integrity="sha512-qveKnGrvOChbSzAdtSs8p69eoLegyh+1hwOMbmpCViIwj7rn4oJjdmMvWOuyQlTOZgTlZA0N2PXA7iA8/2TUYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     @livewireStyles
 </head>
 
@@ -46,35 +43,23 @@
                         <div class="topbar-menu left-menu">
                             <ul>
                                 <li class="menu-item">
-                                    <a title="Hotline: (+123) 456 789" href="#"><span
-                                            class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+                                    <a title="Hotline: (+123) 456 789" href="#"><span class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="topbar-menu right-menu">
                             <ul>
                                 <li class="menu-item lang-menu menu-item-has-children parent">
-                                    <a title="English" href="#"><span class="img label-before"><img
-                                                src="assets/images/lang-en.png" alt="lang-en"></span>English<i
-                                            class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <a title="English" href="#"><span class="img label-before"><img src="assets/images/lang-en.png" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu lang">
-                                        <li class="menu-item"><a title="hungary" href="#"><span
-                                                    class="img label-before"><img src="assets/images/lang-hun.png"
-                                                        alt="lang-hun"></span>Hungary</a></li>
-                                        <li class="menu-item"><a title="german" href="#"><span
-                                                    class="img label-before"><img src="assets/images/lang-ger.png"
-                                                        alt="lang-ger"></span>German</a></li>
-                                        <li class="menu-item"><a title="french" href="#"><span
-                                                    class="img label-before"><img src="assets/images/lang-fra.png"
-                                                        alt="lang-fre"></span>French</a></li>
-                                        <li class="menu-item"><a title="canada" href="#"><span
-                                                    class="img label-before"><img src="assets/images/lang-can.png"
-                                                        alt="lang-can"></span>Canada</a></li>
+                                        <li class="menu-item"><a title="hungary" href="#"><span class="img label-before"><img src="assets/images/lang-hun.png" alt="lang-hun"></span>Hungary</a></li>
+                                        <li class="menu-item"><a title="german" href="#"><span class="img label-before"><img src="assets/images/lang-ger.png" alt="lang-ger"></span>German</a></li>
+                                        <li class="menu-item"><a title="french" href="#"><span class="img label-before"><img src="assets/images/lang-fra.png" alt="lang-fre"></span>French</a></li>
+                                        <li class="menu-item"><a title="canada" href="#"><span class="img label-before"><img src="assets/images/lang-can.png" alt="lang-can"></span>Canada</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children parent">
-                                    <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down"
-                                            aria-hidden="true"></i></a>
+                                    <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu curency">
                                         <li class="menu-item">
                                             <a title="Pound (GBP)" href="#">Pound (GBP)</a>
@@ -89,56 +74,57 @@
                                 </li>
 
                                 @if(Route::has('login'))
-                                    @auth
-                                        @if(Auth::user()->utype === "ADM")
-                                            <li class="menu-item menu-item-has-children parent">
-                                                <a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down"
-                                                        aria-hidden="true"></i></a>
-                                                <ul class="submenu curency">
-                                                    <li class="menu-item">
-                                                        <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a title="Categories" href="{{ route('admin.categories') }}">Categories</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a title="Products" href="{{ route('admin.products') }}">All Products</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a title="Manage Home Slider" href="{{ route('admin.homeslider') }}">Manage Home Slider</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a title="Manage Home Categories" href="{{ route('admin.homecategories') }}">Manage Home Categories</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="{{ route('logout')}} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                                    </li>
-                                                    <form id="logout-form" method="POST" action="{{ route('logout')}}" >
-                                                        @csrf
-                                                    </form>
-                                                </ul>
-                                            </li>
-                                        @else
-                                            <li class="menu-item menu-item-has-children parent">
-                                                <a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down"
-                                                        aria-hidden="true"></i></a>
-                                                <ul class="submenu curency">
-                                                    <li class="menu-item">
-                                                        <a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="{{ route('logout')}} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                                    </li>
-                                                    <form id="logout-form" method="POST" action="{{ route('logout')}}" >
-                                                        @csrf
-                                                    </form>
-                                                </ul>
-                                            </li>
-                                        @endif
-                                    @else
+                                @auth
+                                @if(Auth::user()->utype === "ADM")
+                                <li class="menu-item menu-item-has-children parent">
+                                    <a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu curency">
+                                        <li class="menu-item">
+                                            <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a title="Categories" href="{{ route('admin.categories') }}">Categories</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a title="Products" href="{{ route('admin.products') }}">Products</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a title="Home Sliders" href="{{ route('admin.homeslider') }}">Home Sliders</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a title="Home Categories" href="{{ route('admin.homecategories') }}">Home Categories</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a title="Manage Sales" href="{{ route('admin.onsale') }}">Manage Sales</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="{{ route('logout')}} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                        </li>
+                                        <form id="logout-form" method="POST" action="{{ route('logout')}}">
+                                            @csrf
+                                        </form>
+                                    </ul>
+                                </li>
+                                @else
+                                <li class="menu-item menu-item-has-children parent">
+                                    <a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu curency">
+                                        <li class="menu-item">
+                                            <a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="{{ route('logout')}} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                        </li>
+                                        <form id="logout-form" method="POST" action="{{ route('logout')}}">
+                                            @csrf
+                                        </form>
+                                    </ul>
+                                </li>
+                                @endif
+                                @else
                                     <li class="menu-item"><a title="Register or Login" href="{{route('login')}}">Login</a></li>
                                     <li class="menu-item"><a title="Register or Login" href="{{route('register')}}">Register</a></li>
-                                    @endif
+                                @endif
 
                                 @endif
                             </ul>
@@ -150,33 +136,15 @@
                     <div class="mid-section main-info-area">
 
                         <div class="wrap-logo-top left-section">
-                            <a href="/" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png')}}"
-                                    alt="mercado"></a>
+                            <a href="/" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png')}}" alt="mercado"></a>
                         </div>
 
                         @livewire('header-search-component')
 
                         <div class="wrap-icon right-section">
-                            <div class="wrap-icon-section wishlist">
-                                <a href="#" class="link-direction">
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                    <div class="left-info">
-                                        <span class="index">0 item</span>
-                                        <span class="title">Wishlist</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="wrap-icon-section minicart">
-                                <a href="/cart" class="link-direction">
-                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                    <div class="left-info">
-                                        @if(Cart::count() > 0)
-                                            <span class="index">{{Cart::count()}} items</span>
-                                        @endif
-                                        <span class="title">CART</span>
-                                    </div>
-                                </a>
-                            </div>
+                            @livewire('wishlist-count-component')
+
+                            @livewire('cart-count-component')
                             <div class="wrap-icon-section show-up-after-1024">
                                 <a href="#" class="mobile-navigation">
                                     <span></span>
@@ -192,18 +160,12 @@
                 <div class="nav-section header-sticky">
                     <div class="header-nav-section">
                         <div class="container">
-                            <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu"
-                                data-menuname="Sale Info">
-                                <li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span
-                                        class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span
-                                        class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">Top new items</a><span
-                                        class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">Top Selling</a><span
-                                        class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">Top rated items</a><span
-                                        class="nav-label hot-label">hot</span></li>
+                            <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info">
+                                <li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Top new items</a><span class="nav-label hot-label">hot</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Top Selling</a><span class="nav-label hot-label">hot</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Top rated items</a><span class="nav-label hot-label">hot</span></li>
                             </ul>
                         </div>
                     </div>
@@ -212,8 +174,7 @@
                         <div class="container">
                             <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu">
                                 <li class="menu-item home-icon">
-                                    <a href="/" class="link-term mercado-item-title"><i class="fa fa-home"
-                                            aria-hidden="true"></i></a>
+                                    <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
@@ -331,8 +292,7 @@
                                 <div class="item-content">
                                     <div class="wrap-newletter-footer">
                                         <form action="#" class="frm-newletter" id="frm-newletter">
-                                            <input type="email" class="input-email" name="email" value=""
-                                                placeholder="Enter your email address">
+                                            <input type="email" class="input-email" name="email" value="" placeholder="Enter your email address">
                                             <button class="btn-submit">Subscribe</button>
                                         </form>
                                     </div>
@@ -354,8 +314,7 @@
                                                 </li>
                                                 <li class="menu-item"><a href="#" class="link-term">Gift
                                                         Certificates</a></li>
-                                                <li class="menu-item"><a href="#"
-                                                        class="link-term">Affiliates</a></li>
+                                                <li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
                                                 <li class="menu-item"><a href="#" class="link-term">Wish
                                                         list</a></li>
                                             </ul>
@@ -373,8 +332,7 @@
                                                 </li>
                                                 <li class="menu-item"><a href="#" class="link-term">Site
                                                         Map</a></li>
-                                                <li class="menu-item"><a href="#"
-                                                        class="link-term">Specials</a></li>
+                                                <li class="menu-item"><a href="#" class="link-term">Specials</a></li>
                                                 <li class="menu-item"><a href="#" class="link-term">Order
                                                         History</a></li>
                                             </ul>
@@ -405,16 +363,11 @@
                                 <div class="item-content">
                                     <div class="wrap-list-item social-network">
                                         <ul>
-                                            <li><a href="#" class="link-to-item" title="twitter"><i
-                                                        class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" class="link-to-item" title="facebook"><i
-                                                        class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" class="link-to-item" title="pinterest"><i
-                                                        class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" class="link-to-item" title="instagram"><i
-                                                        class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" class="link-to-item" title="vimeo"><i
-                                                        class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                                            <li><a href="#" class="link-to-item" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="#" class="link-to-item" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#" class="link-to-item" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                            <li><a href="#" class="link-to-item" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            <li><a href="#" class="link-to-item" title="vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -427,15 +380,11 @@
                                 <div class="item-content">
                                     <div class="wrap-list-item apps-list">
                                         <ul>
-                                            <li><a href="#" class="link-to-item"
-                                                    title="our application on apple store">
-                                                    <figure><img src="assets/images/brands/apple-store.png"
-                                                            alt="apple store" width="128" height="36"></figure>
+                                            <li><a href="#" class="link-to-item" title="our application on apple store">
+                                                    <figure><img src="assets/images/brands/apple-store.png" alt="apple store" width="128" height="36"></figure>
                                                 </a></li>
-                                            <li><a href="#" class="link-to-item"
-                                                    title="our application on google play store">
-                                                    <figure><img src="assets/images/brands/google-play-store.png"
-                                                            alt="google play store" width="128" height="36">
+                                            <li><a href="#" class="link-to-item" title="our application on google play store">
+                                                    <figure><img src="assets/images/brands/google-play-store.png" alt="google play store" width="128" height="36">
                                                     </figure>
                                                 </a></li>
                                         </ul>
@@ -484,16 +433,13 @@
                                             Tablets</a></li>
                                     <li><a href="#" class="redirect-back-link" title="Calling Tablets">Calling
                                             Tablets</a></li>
-                                    <li><a href="#" class="redirect-back-link"
-                                            title="Micrumex Tablets">Micrumex Tablets</a></li>
-                                    <li><a href="#" class="redirect-back-link"
-                                            title="Lenova Tablets Bsus">Lenova Tablets Bsus</a></li>
+                                    <li><a href="#" class="redirect-back-link" title="Micrumex Tablets">Micrumex Tablets</a></li>
+                                    <li><a href="#" class="redirect-back-link" title="Lenova Tablets Bsus">Lenova Tablets Bsus</a></li>
                                     <li><a href="#" class="redirect-back-link" title="Tablets iBall">Tablets
                                             iBall</a></li>
                                     <li><a href="#" class="redirect-back-link" title="Tablets Swipe">Tablets
                                             Swipe</a></li>
-                                    <li><a href="#" class="redirect-back-link"
-                                            title="Tablets TVs, Audio">Tablets TVs, Audio</a></li>
+                                    <li><a href="#" class="redirect-back-link" title="Tablets TVs, Audio">Tablets TVs, Audio</a></li>
                                 </ul>
 
                                 <ul class="list-back-link">
@@ -510,10 +456,8 @@
                                             Earrings</a></li>
                                     <li><a href="#" class="redirect-back-link" title="Diamond Rings">Diamond
                                             Rings</a></li>
-                                    <li><a href="#" class="redirect-back-link"
-                                            title="Loose Diamond Shoes">Loose Diamond Shoes</a></li>
-                                    <li><a href="#" class="redirect-back-link"
-                                            title="BootsMen Watches">BootsMen Watches</a></li>
+                                    <li><a href="#" class="redirect-back-link" title="Loose Diamond Shoes">Loose Diamond Shoes</a></li>
+                                    <li><a href="#" class="redirect-back-link" title="BootsMen Watches">BootsMen Watches</a></li>
                                     <li><a href="#" class="redirect-back-link" title="Women Watches">Women
                                             Watches</a></li>
                                 </ul>
@@ -559,6 +503,12 @@
     <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdn.tiny.cloud/1/k9b0cjykzyfbecfy261lp9ek8ee9ztmfb8bwgvuvl5dzzlqz/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
     @livewireScripts
 

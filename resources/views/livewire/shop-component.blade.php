@@ -52,13 +52,39 @@
 
                     </div>
 
-                </div><!--end wrap shop control-->
+                </div>
+                <!--end wrap shop control-->
+
+                <style>
+                    .product-wishlist {
+                        position: absolute;
+                        top: 10%;
+                        left: 0;
+                        z-index: 99;
+                        right: 30px;
+                        padding-top: 0;
+                        text-align: right;
+                        border-radius: 0 0 0 5px;
+                    }
+                    .product-wishlist .fa {
+                        color: #cbcbcb;
+                        font-size: 32px;
+                    }
+                    .product-wishlist .fa:hover {
+                        color: #ff4004;
+                    }
+                    .fill-heart {
+                        color: #ff4004 !important;
+                    }
+                </style>
 
                 <div class="row">
-
                     <ul class="product-list grid-products equal-container">
-                        @foreach ($products as $product)
+                        @php
+                            $wproducts = Cart::instance('wishlist')->content()->pluck('id');
+                        @endphp
 
+                        @foreach ($products as $product)
                             <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                 <div class="product product-style-3 equal-elem ">
                                     <div class="product-thumnail">
@@ -68,8 +94,15 @@
                                     </div>
                                     <div class="product-info">
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}" class="product-name"><span>{{$product->name}}</span></a>
-                                        <div class="wrap-price"><span class="product-price">{{$product->regular_price}}</span></div>
+                                        <div class="wrap-price"><span class="product-price">${{$product->regular_price}}</span></div>
                                         <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})">Add To Cart</a>
+                                        <div class="product-wishlist">
+                                            @if($wproducts->contains($product->id))
+                                                <a href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fa fa-heart fill-heart"></i></a>
+                                            @else
+                                                <a href="#" wire:click.prevent="addToWishlist({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})"><i class="fa fa-heart"></i></a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -78,7 +111,7 @@
                     </ul>
                 </div>
 
-                <div class="wrap-pagination-info"> 
+                <div class="wrap-pagination-info">
                     {{$products->links()}}
                     {{-- <ul class="page-numbers">
                         <li><span class="page-number-item current" >1</span></li>
@@ -88,17 +121,18 @@
                     </ul>
                     <p class="result-count">Showing 1-8 of 12 result</p> --}}
                 </div>
-            </div><!--end main products area-->
+            </div>
+            <!--end main products area-->
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
                 <div class="widget mercado-widget categories-widget">
                     <h2 class="widget-title">All Categories</h2>
                     <div class="widget-content">
                         <ul class="list-category">
-                            @foreach($categories as $category)    
-                                <li class="category-item">
-                                    <a href="{{route('product.category', ['category_slug' => $category->slug])}}" class="cate-link">{{$category->name}}</a>
-                                </li>
+                            @foreach($categories as $category)
+                            <li class="category-item">
+                                <a href="{{route('product.category', ['category_slug' => $category->slug])}}" class="cate-link">{{$category->name}}</a>
+                            </li>
                             @endforeach
                         </ul>
                     </div>
@@ -123,17 +157,14 @@
                     </div>
                 </div><!-- brand widget-->
 
+
                 <div class="widget mercado-widget filter-widget price-filter">
-                    <h2 class="widget-title">Price</h2>
-                    <div class="widget-content">
-                        <div id="slider-range"></div>
-                        <p>
-                            <label for="amount">Price:</label>
-                            <input type="text" id="amount" readonly>
-                            <button class="filter-submit">Filter</button>
-                        </p>
+                    <h2 class="widget-title">Price <span class="text-info">${{$min_price}} - ${{$max_price}}</span></h2>
+                    <div class="widget-content" style="padding:10px 5px 40px 5px;">                                             
+                        <div id="slider" wire:ignore></div>                       
                     </div>
                 </div><!-- Price-->
+
 
                 <div class="widget mercado-widget filter-widget">
                     <h2 class="widget-title">Color</h2>
@@ -228,10 +259,37 @@
                     </div>
                 </div><!-- brand widget-->
 
-            </div><!--end sitebar-->
+            </div>
+            <!--end sitebar-->
 
-        </div><!--end row-->
+        </div>
+        <!--end row-->
 
-    </div><!--end container-->
+    </div>
+    <!--end container-->
 
 </main>
+
+@push('scripts')
+    <script>
+        var slider = document.getElementById('slider');
+        noUiSlider.create(slider,{
+            start : [1,1000],
+            connect:true,
+            range :{
+                'min' : 1,
+                'max' : 1000
+            },
+            pips:{
+                mode:'steps',
+                stepped:true,
+                density:4
+            }
+        });
+
+        slider.noUiSlider.on('update',function(value){
+            @this.set('min_price',value[0]);
+            @this.set('max_price',value[1]);
+        });
+    </script>
+@endpush
