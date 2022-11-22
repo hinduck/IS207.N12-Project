@@ -8,24 +8,49 @@ use Cart;
 class CartComponent extends Component
 {
     public function increaseQuantity($rowId) {
-        $product = Cart::get($rowId);
+        $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty + 1;
-        Cart::update($rowId, $qty);
+        Cart::instance('cart')->update($rowId, $qty);
+        $this->emitTo('cart-count-component', 'refreshComponent');
     }
 
     public function decreaseQuantity($rowId) {
-        $product = Cart::get($rowId);
+        $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty - 1;
-        Cart::update($rowId, $qty);
+        Cart::instance('cart')->update($rowId, $qty);
+        $this->emitTo('cart-count-component', 'refreshComponent');
     }
 
     public function removeItem($rowId) {
-        Cart::remove($rowId);
+        Cart::instance('cart')->remove($rowId);
+        $this->emitTo('cart-count-component', 'refreshComponent');
         session()->flash('success_message', 'Item has been removed');
     }
 
     public function removeAllItems() {
-        Cart::destroy();
+        Cart::instance('cart')->destroy();
+        $this->emitTo('cart-count-component', 'refreshComponent');
+    }
+
+    public function switchToSaveForLater($rowId) {
+        $item = Cart::instance('cart')->get($rowId);
+        Cart::instance('cart')->remove($rowId);
+        Cart::instance('saveForLater')->add($item->Id, $item->name, 1, $item->price)->associate('App\Models\Product');
+        $this->emitTo('cart-count-component', 'refreshComponent');
+        session()->flash('success_message', 'Item has been saved for later');
+    }
+
+    public function moveToCart($rowId) {
+        $item = Cart::instance('saveForLater')->get($rowId);
+        Cart::instance('saveForLater')->remove($rowId);
+        Cart::instance('cart')->add($item->Id, $item->name, 1, $item->price)->associate('App\Models\Product');
+        $this->emitTo('cart-count-component', 'refreshComponent');
+        session()->flash('s_success_message', 'Item has been moved to cart');
+    }
+    
+    public function deleteFromSaveForLater($rowId) {
+        Cart::instance('saveForLater')->remove($rowId);
+        session()->flash('s_success_message', 'Item has been removed from save for later');
     }
 
     public function render()

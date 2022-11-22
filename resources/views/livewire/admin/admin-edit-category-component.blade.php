@@ -22,6 +22,7 @@
                                 <label for="" class="col-md-4 control-label">Category Name</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Category Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug">
+                                    @error('name') <span class="text-red-600">{{ $message }}</span> @enderror
                                 </div>
                             </div>
 
@@ -29,6 +30,7 @@
                                 <label for="" class="col-md-4 control-label">Category Slug</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Category Slug" class="form-control input-md" wire:model="slug">
+                                    @error('slug') <span class="text-red-600">{{ $message }}</span> @enderror
                                 </div>
                             </div>
 
