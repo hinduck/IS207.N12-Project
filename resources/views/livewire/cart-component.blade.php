@@ -67,7 +67,8 @@
                                         <i class="fa fa-times text-danger"></i>
                                     </a>
                                 </span>
-                                <b class="index">${{number_format($discount, 2)}}</b></p>
+                                <b class="index">${{number_format($discount, 2)}}</b>
+                            </p>
                             <p class="summary-info"><span class="title">Subtotal with Discount</span><b class="index">${{number_format($subtotalAfter, 2)}}</b></p>
                             <p class="summary-info"><span class="title">Tax ({{config('cart.tax')}}%) ({{Session::get('coupon')['code']}})</span><b class="index">${{number_format($taxAfter, 2)}}</b></p>
                             <p class="summary-info total-info "><span class="title">Total</span><b class="index">${{number_format($totalAfter, 2)}}</b></p>

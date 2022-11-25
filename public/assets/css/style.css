@@ -4709,12 +4709,15 @@ article.single-post blockquote p:last-child::after{
 }
 .comment-form-rating .stars input[type=radio]:checked ~ label::before{
     color: #e6e6e6 ;
+    cursor: pointer;
 }
 .comment-form-rating .stars:hover label::before{
     color: #efce4a !important;
+    cursor: pointer;
 }
 .comment-form-rating .stars label:hover ~ label::before{
     color: #e6e6e6 !important;
+    cursor: pointer;
 }
 .comment-form-rating{
     margin-bottom: 15px;
