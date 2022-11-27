@@ -60,7 +60,6 @@
 </x-guest-layout> --}}
 
 <x-guest-layout>
-    <!--main area-->
 	<main id="main" class="main-site left-sidebar">
 
 		<div class="container">
@@ -77,7 +76,7 @@
 						<div class="wrap-login-item ">
 							<div class="register-form form-item ">
                                 <x-jet-validation-errors class="mb-4" />
-								<form class="form-stl" action="{{route('register')}}" name="frm-login" method="get" >
+								<form class="form-stl" action="{{ route('register') }}" name="frm-login" method="POST" >
                                     @csrf
 									<fieldset class="wrap-title">
 										<h3 class="form-title">Create an account</h3>
@@ -118,5 +117,4 @@
 		</div><!--end container-->
 
 	</main>
-	<!--main area-->
 </x-guest-layout>
