@@ -114,6 +114,19 @@
                                     @error('image') <span class="text-red-600">{{ $message }}</span> @enderror
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">Product Gallery</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="images" multiple>
+                                    @if ($images)
+                                        @foreach($images as $image)
+                                            <img src="{{$image->temporaryUrl()}}" width="120">
+                                        @endforeach
+                                    @endif
+                                    @error('image') <span class="text-red-600">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
                             
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Category</label>
@@ -145,27 +158,16 @@
 @push('scripts')
     <script>
         $(function() {
-            tinymce.init({
-                selector: '#short_description',
-                setup:function(editor) {
-                    editor.on('Change', function(e) {
-                        tinyMCE.triggerSave();
-                        var sd_data = $('#short_description').val();
-                        @this.set('short_description', sd_data);
-                    })
-                }
-            });
-
-            tinymce.init({
-                selector: '#description',
-                setup:function(editor) {
-                    editor.on('Change', function(e) {
-                        tinyMCE.triggerSave();
-                        var d_data = $('#description').val();
-                        @this.set('description', d_data);
-                    })
-                }
-            });
+            ClassicEditor
+            .create( document.querySelector( '#short_description' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+            ClassicEditor
+            .create( document.querySelector( '#description' ) )
+            .catch( error => {
+                console.error( error );
+            } );
         });
     </script>
     
