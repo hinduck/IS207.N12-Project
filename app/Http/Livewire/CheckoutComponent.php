@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\OrderMail;
 use Livewire\Component;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -10,6 +11,7 @@ use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Cart;
 use Exception;
+use Illuminate\Support\Facades\Mail;
 use Stripe;
 
 class CheckoutComponent extends Component
@@ -246,6 +248,8 @@ class CheckoutComponent extends Component
                 $this->thank_you = 0;
             }
         }
+
+        $this->sendOrderConfirmationEmail($order);
     }       
 
     public function verifyForCheckout() {
@@ -265,6 +269,10 @@ class CheckoutComponent extends Component
         $this->thankyou = 1;
         Cart::instance('cart')->destroy();
         session()->forget('checkout'); 
+    }
+
+    public function sendOrderConfirmationEmail($order) {
+        Mail::to($order->email)->send(new OrderMail($order));
     }
 
     public function render()

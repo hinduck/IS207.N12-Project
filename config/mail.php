@@ -101,7 +101,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', '20520450@gm.uit.edu.vn'),
-        'name' => env('MAIL_FROM_NAME', 'Laravel'),
+        'name' => env('MAIL_FROM_NAME', 'BaoThuFood'),
     ],
 
     /*
