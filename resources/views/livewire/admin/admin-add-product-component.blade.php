@@ -111,6 +111,8 @@
                                     @if ($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120">
                                     @endif
+                                    @else
+                                        <img width="120">
                                     @error('image') <span class="text-red-600">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -129,15 +131,15 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Category</label>
+                                <label class="col-md-4 control-label">Category</label>
                                 <div class="col-md-4">
-                                    <select name="" id="" class="form-control" wire:model="category_id" wire:change="changeSubcategory">
-                                        <option>Select Category</option>
-                                        @foreach($categories as $category)
+                                    <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
+                                        <option value="">Select Category</option>
+                                        @foreach ($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @endforeach
+                                        @endforeach                                        
                                     </select>
-                                    @error('category_id') <span class="text-red-600">{{ $message }}</span> @enderror
+                                    @error('category_id')  <span class="text-danger">{{$message}}</span> @enderror  
                                 </div>
                             </div>
                             
@@ -147,7 +149,7 @@
                                     <select class="form-control" wire:model="sCategory_id">
                                         <option value="0">Select Category</option>
                                         @foreach ($sCategories as $sCategory)
-                                            <option value="{{$sCategory->id}}">{{$sCategory->name}}</option>
+                                            <option value="{{$scategory->id}}">{{$sCategory->name}}</option>
                                         @endforeach                                        
                                     </select>
                                     @error('sCategory_id')  <span class="text-danger">{{$message}}</span> @enderror  
@@ -171,15 +173,20 @@
 @push('scripts')
     <script>
         $(function() {
-            ClassicEditor
-            .create( document.querySelector( '#short_description' ) )
+            ClassicEditor.create( document.querySelector('#short_description'))
+            .then ( editor => {
+                window.editor = editor;
+            })
             .catch( error => {
-                console.error( error );
+                console.error( 'There was a problem initializing the editor.', error );
             } );
-            ClassicEditor
-            .create( document.querySelector( '#description' ) )
+
+            ClassicEditor.create( document.querySelector('#description'))
+            .then ( editor => {
+                window.editor = editor;
+            })
             .catch( error => {
-                console.error( error );
+                console.error( 'There was a problem initializing the editor.', error );
             } );
         });
     </script>
