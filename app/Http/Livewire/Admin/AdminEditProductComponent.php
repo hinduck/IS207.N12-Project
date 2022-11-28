@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Subcategory;
 
 class AdminEditProductComponent extends Component
 {
@@ -30,6 +31,7 @@ class AdminEditProductComponent extends Component
 
     public $images;
     public $newImages;
+    public $sCategory_id;
 
     protected $rules = [
         'name' => 'required',
@@ -59,6 +61,7 @@ class AdminEditProductComponent extends Component
         $this->image = $product->image;
         $this->images = explode(',', $product->images);
         $this->category_id = $product->category_id;
+        $this->sCategory_id = $product->subcategory_id;
         $this->product_id = $product->id;
     }
 
@@ -131,13 +134,21 @@ class AdminEditProductComponent extends Component
         }
 
         $product->category_id = $this->category_id;
+        if ($this->sCategory_id) {
+            $product->subcategory_id = $this->sCategory_id;
+        }
         $product->save();
         session()->flash('message', 'Product has been updated successfully!');
+    }
+
+    public function changeSubcategory() {
+        $this->sCategory_id = 0;
     }
 
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.admin.admin-edit-product-component', ['categories' => $categories])->layout("layouts.base");
+        $sCategories = Subcategory::where('category_id', $this->category_id)->get(); 
+        return view('livewire.admin.admin-edit-product-component', ['categories' => $categories, 'sCategories' => $sCategories])->layout("layouts.base");
     }
 }

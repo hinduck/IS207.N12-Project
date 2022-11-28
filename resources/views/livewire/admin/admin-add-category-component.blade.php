@@ -23,6 +23,7 @@
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Category Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug">
                                     @error('name') <span class="text-red-600">{{ $message }}</span> @enderror
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -30,6 +31,19 @@
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Category Slug" class="form-control input-md" wire:model="slug">
                                     @error('slug') <span class="text-red-600">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">Parent Category</label>
+                                <div class="col-md-4">
+                                    <select name="" id="" class="form-control input-md" wire:model="category_id">
+                                        <option value="">None</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>    
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -38,6 +52,7 @@
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
