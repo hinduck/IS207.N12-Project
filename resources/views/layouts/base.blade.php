@@ -86,6 +86,9 @@
                                             <a title="Categories" href="{{ route('admin.categories') }}">Categories</a>
                                         </li>
                                         <li class="menu-item">
+                                            <a title="Attributes" href="{{ route('admin.attributes') }}">Attributes</a>
+                                        </li>
+                                        <li class="menu-item">
                                             <a title="Products" href="{{ route('admin.products') }}">Products</a>
                                         </li>
                                         <li class="menu-item">
@@ -126,6 +129,9 @@
                                         </li>
                                         <li class="menu-item">
                                             <a title="My Orders" href="{{ route('user.orders') }}">My Orders</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a title="My Profile" href="{{ route('user.profile') }}">My Profile</a>
                                         </li>
                                         <li class="menu-item">
                                             <a title="Change Password" href="{{ route('user.changepassword') }}">Change Password</a>

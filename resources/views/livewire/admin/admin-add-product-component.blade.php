@@ -66,7 +66,6 @@
                                 </div>
                             </div>
 
-                            
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">SKU</label>
                                 <div class="col-md-4">
@@ -111,8 +110,6 @@
                                     @if ($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120">
                                     @endif
-                                    @else
-                                        <img width="120">
                                     @error('image') <span class="text-red-600">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -149,12 +146,39 @@
                                     <select class="form-control" wire:model="sCategory_id">
                                         <option value="0">Select Category</option>
                                         @foreach ($sCategories as $sCategory)
-                                            <option value="{{$scategory->id}}">{{$sCategory->name}}</option>
+                                            <option value="{{$sCategory->id}}">{{$sCategory->name}}</option>
                                         @endforeach                                        
                                     </select>
                                     @error('sCategory_id')  <span class="text-danger">{{$message}}</span> @enderror  
                                 </div>
                             </div>
+                            
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Product Attributes</label>
+                                <div class="col-md-3">
+                                    <select class="form-control" wire:model="attr">
+                                        <option value="0">Select Attribute</option>
+                                        @foreach ($p_attributes as $p_attribute)
+                                            <option value="{{$p_attribute->id}}">{{$p_attribute->name}}</option>
+                                        @endforeach                                        
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" class="btn btn-info" wire:click.prevent="addAttribute">Add</button>
+                                </div>
+                            </div>
+                            
+                            @foreach($inputs as $key => $value)
+                                <div class="form-group">
+                                    <label for="" class="col-md-4 control-label">{{$p_attribute->where('id', $arr_attributes[$key])->first()->name}}</label>
+                                    <div class="col-md-3">
+                                        <input type="text" placeholder="{{$p_attribute->where('id', $arr_attributes[$key])->first()->name}}" class="form-control input-md" wire:model="attribute_values.{{$value}}">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button type="button" class="btn btn-danger btn-sm" wire:click.prevent="removeAttribute( {{$key}} )">Remove</button>
+                                    </div>
+                                </div>
+                            @endforeach
                             
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>

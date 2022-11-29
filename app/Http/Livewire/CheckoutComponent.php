@@ -48,7 +48,8 @@ class CheckoutComponent extends Component
     public $exp_month;
     public $exp_year;
 
-    public function update($fields) {
+    public function update($fields)
+    {
         $this->validateOnly($fields, [
             'first_name' => 'required',
             'last_name' => 'required',
@@ -86,7 +87,8 @@ class CheckoutComponent extends Component
         }
     }
 
-    public function makeTransaction($order_id, $status) {
+    public function makeTransaction($order_id, $status)
+    {
         $transaction = new Transaction();
         $transaction->order_id = $order_id;
         $transaction->user_id = Auth::user()->id;
@@ -95,7 +97,8 @@ class CheckoutComponent extends Component
         $transaction->save();
     }
 
-    public function placeOrder() {
+    public function placeOrder()
+    {
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -110,7 +113,7 @@ class CheckoutComponent extends Component
         ]);
 
         if ($this->payment_mode == "card") {
-            $this->validate ([
+            $this->validate([
                 'card_no' => 'required|numeric',
                 'cvc' => 'required|numeric',
                 'exp_month' => 'required|numeric',
@@ -121,13 +124,13 @@ class CheckoutComponent extends Component
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->subtotal = session()->get('checkout')['subtotal'] ??
-        100000000000000000000000000000;
+            100000000000000000000000000000;
         $order->discount = session()->get('checkout')['discount'] ??
-        100000000000000000000000000000;
+            100000000000000000000000000000;
         $order->tax = session()->get('checkout')['tax'] ??
-        100000000000000000000000000000;
+            100000000000000000000000000000;
         $order->total = session()->get('checkout')['total'] ??
-        100000000000000000000000000000;
+            100000000000000000000000000000;
         $order->status = 'ordered';
         $order->first_name = $this->first_name;
         $order->last_name = $this->last_name;
@@ -139,7 +142,7 @@ class CheckoutComponent extends Component
         $order->province = $this->province;
         $order->country = $this->country;
         $order->zip_code = $this->zip_code;
-        $order->is_shipping_different = $this->shipToDifferent ? 1:0;
+        $order->is_shipping_different = $this->shipToDifferent ? 1 : 0;
         $order->save();
 
         foreach (Cart::instance('cart')->content() as $item) {
@@ -148,6 +151,11 @@ class CheckoutComponent extends Component
             $orderItem->product_id = $item->id;
             $orderItem->price = $item->price;
             $orderItem->quantity = $item->qty;
+
+            if ($orderItem->options) {
+                $orderItem->options = serialize($item->options);
+            }
+
             $orderItem->save();
         }
 
@@ -179,12 +187,10 @@ class CheckoutComponent extends Component
             $shipping->save();
         }
 
-        if ($this->payment_mode == 'cod')
-        {
+        if ($this->payment_mode == 'cod') {
             $this->makeTransaction($order->id, 'pending');
             $this->resetCart();
-        }        
-        else if ($this->payment_mode == "card") {
+        } else if ($this->payment_mode == "card") {
             $stripe = Stripe::make(env('STRIP_KEY'));
 
             try {
@@ -237,29 +243,26 @@ class CheckoutComponent extends Component
                 if ($charge['status'] == 'succeeded') {
                     $this->makeTransaction($order->id, 'approved');
                     $this->resetCart();
-                }
-                else {
+                } else {
                     session()->flash('stripe_error', 'Transaction has an Error!');
                     $this->thank_you = 0;
                 }
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 session()->flash('stripe_error', $e->getMessage());
                 $this->thank_you = 0;
             }
         }
 
         $this->sendOrderConfirmationEmail($order);
-    }       
+    }
 
-    public function verifyForCheckout() {
+    public function verifyForCheckout()
+    {
         if (!Auth::check()) {
             return redirect()->route('login');
-        }
-        else if ($this->thank_you) {
+        } else if ($this->thank_you) {
             return redirect()->route('thankyou');
-        }
-        else if (!session()->get('checkout')) {
+        } else if (!session()->get('checkout')) {
             return redirect()->route('product.cart');
         }
     }
@@ -268,10 +271,11 @@ class CheckoutComponent extends Component
     {
         $this->thankyou = 1;
         Cart::instance('cart')->destroy();
-        session()->forget('checkout'); 
+        session()->forget('checkout');
     }
 
-    public function sendOrderConfirmationEmail($order) {
+    public function sendOrderConfirmationEmail($order)
+    {
         Mail::to($order->email)->send(new OrderMail($order));
     }
 

@@ -27,9 +27,17 @@
                                     <div class="product-image">
                                         <figure><img src="{{ asset('assets/images/products')}}/{{$item->model->image}}" alt="{{$item->model->name}}"></figure>
                                     </div>
+
                                     <div class="product-name">
                                         <a class="link-to-product" href="{{ route('product.details', ['slug' => $item->model->slug]) }}">{{$item->model->name}}</a>
                                     </div>
+
+                                    @foreach($item->options as $key => $value)
+                                        <div class="" style="vertical-align: middle; width: 180px;">
+                                            <p><b>{{$key}}: {{$value}}</b></p>
+                                        </div>
+                                    @endforeach
+
                                     <div class="price-field produtc-price"><p class="price">${{$item->model->regular_price}}</p></div>
                                     <div class="quantity">
                                         <div class="quantity-input">
@@ -41,6 +49,7 @@
                                             <a href="#" wire:click.prevent="switchToSaveForLater('{{$item->rowId}}')">Save For Later</a>
                                         </p>
                                     </div>
+
                                     <div class="price-field sub-total"><p class="price">{{$item->subtotal()}}</p></div>
                                     <div class="delete">
                                         <a href="#" class="btn btn-delete" wire:click.prevent="removeItem('{{$item->rowId}}')" title="">

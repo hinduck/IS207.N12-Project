@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Admin\AdminAddAttributeComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
@@ -16,7 +17,9 @@ use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\Admin\AdminCouponComponent;
 use App\Http\Livewire\Admin\AdminAddCouponComponent;
+use App\Http\Livewire\Admin\AdminAttributesComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
+use App\Http\Livewire\Admin\AdminEditAttributeComponent;
 use App\Http\Livewire\Admin\AdminEditCouponComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
@@ -24,8 +27,10 @@ use App\Http\Livewire\Admin\AdminSettingComponent;
 
 use App\Http\Livewire\User\UserChangePasswordComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserEditProfileComponent;
 use App\Http\Livewire\User\UserOrderComponent;
 use App\Http\Livewire\User\UserOrderDetailsComponent;
+use App\Http\Livewire\User\UserProfileComponent;
 use App\Http\Livewire\User\UserReviewComponent;
 
 /*
@@ -82,6 +87,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/orders/{order_id}', UserOrderDetailsComponent::class)->name('user.orderdetails');
     Route::get('/user/review/{order_item_id}', UserReviewComponent::class)->name('user.review');
     Route::get('/user/change-password', UserChangePasswordComponent::class)->name('user.changepassword');
+    Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
+    Route::get('/user/profile/edit', UserEditProfileComponent::class)->name('user.editprofile');
 });
 
 // For Admin
@@ -110,4 +117,8 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
 
     Route::get('/admin/contact-us', AdminContactComponent::class)->name('admin.contact');
     Route::get('/admin/settings', AdminSettingComponent::class)->name('admin.settings');
+
+    Route::get('/admin/attributes', AdminAttributesComponent::class)->name('admin.attributes');
+    Route::get('/admin/attributes/add', AdminAddAttributeComponent::class)->name('admin.add_attribute');
+    Route::get('/admin/attributes/edit/{attribute_id}', AdminEditAttributeComponent::class)->name('admin.edit_attribute');
 });
