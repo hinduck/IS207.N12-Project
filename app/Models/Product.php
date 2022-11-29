@@ -22,4 +22,8 @@ class Product extends Model
     public function subCategories() {
         return $this->belongsTo(SubCategory::class, 'subcategory_id');
     }
+
+    public function attributeValues() {
+        return $this->hasMany(AttributeValue::class, 'product_id');
+    }
 }
