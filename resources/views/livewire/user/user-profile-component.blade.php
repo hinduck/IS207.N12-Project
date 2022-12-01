@@ -3,7 +3,7 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    User Profile
+                    Hồ sơ cá nhân
                 </div>
                 <div class="panel-body">
                     <div class="col-md-4">
@@ -14,17 +14,17 @@
                         @endif
                     </div>
                     <div class="col-md-8">
-                        <p><b>Name: </b>{{$user->name}}</p>
+                        <p><b>Họ và tên: </b>{{$user->name}}</p>
                         <p><b>Email: </b>{{$user->email}}</p>
-                        <p><b>Mobile: </b>{{$user->profile->mobile}}</p>
+                        <p><b>SĐT: </b>{{$user->profile->mobile}}</p>
                         <hr>
-                        <p><b>Line 1: </b>{{$user->profile->line1}}</p>
-                        <p><b>Line 2: </b>{{$user->profile->line2}}</p>
-                        <p><b>City: </b>{{$user->profile->city}}</p>
-                        <p><b>Province: </b>{{$user->profile->province}}</p>
-                        <p><b>Country: </b>{{$user->profile->country}}</p>
+                        <p><b>Số nhà - Tổ - Khu phố: </b>{{$user->profile->line1}}</p>
+                        <p><b>Tên đường: </b>{{$user->profile->line2}}</p>
+                        <p><b>Phường/Xã: </b>{{$user->profile->city}}</p>
+                        <p><b>Tỉnh/Thành Phố: </b>{{$user->profile->province}}</p>
+                        <p><b>Quốc gia: </b>{{$user->profile->country}}</p>
                         <p><b>ZIP Code: </b>{{$user->profile->zip_code}}</p>
-                        <a href="{{ route('user.editprofile') }}" class="btn btn-info pull-right">Update Profile</a>
+                        <a href="{{ route('user.editprofile') }}" class="btn btn-info pull-right">Cập nhật hồ sơ cá nhân</a>
                     </div>
                 </div>
             </div>

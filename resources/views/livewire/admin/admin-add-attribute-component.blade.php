@@ -6,29 +6,33 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Add New Attribute
+                                Thêm Đặc Điểm
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.attributes')}}" class="btn btn-success pull-right">All Attributes</a>
+                                <a href="{{ route('admin.attributes') }}" class="btn btn-success pull-right">Danh sách
+                                    các đặc điểm</a>
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
                         @if (Session::has('message'))
-                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                            <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                         @endif
                         <form action="" class="form-horizontal" wire:submit.prevent="storeAttribute">
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Attribute Name</label>
+                                <label for="" class="col-md-4 control-label">Tên đặc điểm</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Attribute Name" class="form-control input-md" wire:model="name">
-                                    @error('name') <span class="text-red-600">{{ $message }}</span> @enderror
+                                    <input type="text" placeholder="Name..." class="form-control input-md"
+                                        wire:model="name">
+                                    @error('name')
+                                        <span class="text-red-600">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">XÁC NHẬN</button>
                                 </div>
                             </div>
 

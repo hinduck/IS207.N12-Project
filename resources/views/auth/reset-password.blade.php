@@ -43,8 +43,8 @@
 
 			<div class="wrap-breadcrumb">
 				<ul>
-					<li class="item-link"><a href="/" class="link">home</a></li>
-					<li class="item-link"><span>Reset Password</span></li>
+					<li class="item-link"><a href="/" class="link">Trang chủ</a></li>
+					<li class="item-link"><span>Khôi phục mật khẩu</span></li>
 				</ul>
 			</div>
 			<div class="row">
@@ -57,21 +57,21 @@
                                     @csrf
                                     <input type="hidden" name="token" value="{{$request->route('token')}}">
 									<fieldset class="wrap-title">
-										<h3 class="form-title">Reset Password</h3>										
+										<h3 class="form-title">Khôi phục mật khẩu</h3>										
 									</fieldset>
 
 									<fieldset class="wrap-input">
-										<label for="frm-login-uname">Email Address:</label>
-										<input type="email" id="frm-login-uname" name="email" placeholder="Type your email address" :value="old('email')" required autofocus>
+										<label for="frm-login-uname">Địa chỉ Email:</label>
+										<input type="email" id="frm-login-uname" name="email" placeholder="Địa chỉ Email của bạn..." :value="old('email')" required autofocus>
 									</fieldset>
 
                                     <fieldset class="wrap-input item-width-in-half left-item ">
-										<label for="password">Password *</label>
+										<label for="password">Mật khẩu mới <span class="text-red-600">*</span></label>
 										<input type="password" id="password" name="password" placeholder="Password" required autocomplete="new-password">
 									</fieldset>
 
 									<fieldset class="wrap-input item-width-in-half ">
-										<label for="password_confirmation">Confirm Password *</label>
+										<label for="password_confirmation">Xác nhận mật khẩu mới <span class="text-red-600">*</span></label>
 										<input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
 									</fieldset>
 

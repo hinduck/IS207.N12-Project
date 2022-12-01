@@ -4,35 +4,36 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Manage Home Categories
+                        Quản lý danh mục trang chủ
                     </div>
                     <div class="panel-body">
-                        @if(Session::has('message'))
-                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                         @endif
                         <form action="" class="form-horizontal" wire:submit.prevent="updateHomeCategory">
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Choose Category</label>
+                                <label for="" class="col-md-4 control-label">Chọn danh mục</label>
                                 <div class="col-md-4" wire:ignore>
-                                    <select name="" id="" class="sel_categories form-control" name="categories[]" multiple="multiple" wire:model="selected_categories">
-                                        @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <select name="" id="" class="sel_categories form-control"
+                                        name="categories[]" multiple="multiple" wire:model="selected_categories">
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Number of Products</label>
+                                <label for="" class="col-md-4 control-label">Số lượng sản phẩm</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control input-md" wire:model="numberOfProducts">
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary">LƯU</button>
                                 </div>
                             </div>
 

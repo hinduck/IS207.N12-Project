@@ -90,8 +90,8 @@
 
 			<div class="wrap-breadcrumb">
 				<ul>
-					<li class="item-link"><a href="/" class="link">Home</a></li>
-					<li class="item-link"><span>Forgot Password</span></li>
+					<li class="item-link"><a href="/" class="link">Trang chủ</a></li>
+					<li class="item-link"><span>Quên mật khẩu</span></li>
 				</ul>
 			</div>
 			<div class="row">
@@ -108,13 +108,13 @@
 								<form name="frm-login" method="POST" action="{{ route('password.email')}}">
                                     @csrf
 									<fieldset class="wrap-title">
-										<h3 class="form-title">Forgot Password</h3>										
+										<h3 class="form-title">Khôi phục mật khẩu</h3>										
 									</fieldset>
 									<fieldset class="wrap-input">
-										<label for="frm-login-uname">Email Address:</label>
-										<input type="email" id="frm-login-uname" name="email" placeholder="Type your email address" :value="old('email')" required autofocus>
+										<label for="frm-login-uname">Địa chỉ Email:</label>
+										<input type="email" id="frm-login-uname" name="email" placeholder="Địa chỉ Email của bạn..." :value="old('email')" required autofocus>
 									</fieldset>
-									<input type="submit" class="btn btn-submit" value="Email Password Reset Link" name="submit">
+									<input type="submit" class="btn btn-submit" value="GỬI YÊU CẦU" name="submit">
 								</form>
 							</div>												
 						</div>

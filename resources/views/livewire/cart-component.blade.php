@@ -4,8 +4,8 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="/" class="link">home</a></li>
-                <li class="item-link"><span>Cart</span></li>
+                <li class="item-link"><a href="/" class="link">Trang chủ</a></li>
+                <li class="item-link"><span>Giỏ hàng</span></li>
             </ul>
         </div>
 
@@ -15,12 +15,12 @@
                 <div class="wrap-iten-in-cart">
                     @if (Session::has('success_message'))
                         <div class="alert alert-success">
-                            <strong>Success</strong> {{ Session::get('success_message') }}
+                            <strong>Thành công</strong> {{ Session::get('success_message') }}
                         </div>
                     @endif
 
                     @if (Cart::instance('cart')->count() > 0)
-                        <h3 class="box-title">Products Name</h3>
+                        <h3 class="box-title">Tên sản phẩm</h3>
                         <ul class="products-cart">
                             @foreach (Cart::instance('cart')->content() as $item)
                                 <li class="pr-cart-item">
@@ -57,8 +57,8 @@
                                         </div>
                                         <p class="text-center">
                                             <a href="#"
-                                                wire:click.prevent="switchToSaveForLater('{{ $item->rowId }}')">Save
-                                                For Later</a>
+                                                wire:click.prevent="switchToSaveForLater('{{ $item->rowId }}')">Lưu để
+                                                sau</a>
                                         </p>
                                     </div>
 
@@ -68,7 +68,7 @@
                                     <div class="delete">
                                         <a href="#" class="btn btn-delete"
                                             wire:click.prevent="removeItem('{{ $item->rowId }}')" title="">
-                                            <span>Delete from your cart</span>
+                                            <span>Xóa khỏi giỏ hàng</span>
                                             <i class="fa fa-times-circle" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -76,7 +76,7 @@
                             @endforeach
                         </ul>
                     @else
-                        <h3>No item in Cart</h3>
+                        <h3>KHÔNG CÓ sản phẩm nào trong giỏ hàng cả</h3>
                     @endif
                 </div>
 
@@ -148,23 +148,23 @@
                 </div>
             @else
                 <div class="text-center" style="padding: 30px 0;">
-                    <h1><b>Your cart is empty!</b></h1>
-                    <p>Add items to your cart now</p>
-                    <a href="/shop" class="btn btn-success">Go to Shop</a>
+                    <h1><b>Giỏ hàng trống!</b></h1>
+                    <p>Thêm sản phẩm vào giỏ hàng ngay!</p>
+                    <a href="/shop" class="btn btn-success">VÀO CỬA HÀNG</a>
                 </div>
             @endif
 
             <div class="wrap-iten-in-cart">
                 <h3 class="title-box" style="border-bottom: 1px solid; padding-bottom: 15px;">
-                    {{ Cart::instance('saveForLater')->count() }} item(s) Saved For Later</h3>
+                    {{ Cart::instance('saveForLater')->count() }} sản phẩm lưu để sau</h3>
                 @if (Session::has('s_success_message'))
                     <div class="alert alert-success">
-                        <strong>Success</strong> {{ Session::get('s_success_message') }}
+                        <strong>Thành công</strong> {{ Session::get('s_success_message') }}
                     </div>
                 @endif
 
                 @if (Cart::instance('saveForLater')->count() > 0)
-                    <h3 class="box-title">Products Name</h3>
+                    <h3 class="box-title">Tên sản phẩm</h3>
                     <ul class="products-cart">
                         @foreach (Cart::instance('saveForLater')->content() as $item)
                             <li class="pr-cart-item">
@@ -182,15 +182,15 @@
                                 </div>
                                 <div class="quantity">
                                     <p class="text-center">
-                                        <a href="#" wire:click.prevent="moveToCart('{{ $item->rowId }}')">Move
-                                            To Cart</a>
+                                        <a href="#" wire:click.prevent="moveToCart('{{ $item->rowId }}')">Thêm
+                                            vào giỏ hàng</a>
                                     </p>
                                 </div>
                                 <div class="delete">
                                     <a href="#" class="btn btn-delete"
                                         wire:click.prevent="deleteFromSaveForLater('{{ $item->rowId }}')"
                                         title="">
-                                        <span>Delete from save for later</span>
+                                        <span>Xóa khỏi danh sách</span>
                                         <i class="fa fa-times-circle" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -198,12 +198,12 @@
                         @endforeach
                     </ul>
                 @else
-                    <h5>No item Saved For Later</h5>
+                    <h3>KHÔNG CÓ sản phẩm nào trong danh sách lưu để sau</h3>
                 @endif
             </div>
 
             <div class="wrap-show-advance-info-box style-1 box-in-site">
-                <h3 class="title-box">Most Viewed Products</h3>
+                <h3 class="title-box">ĐÁNH GIÁ CAO</h3>
                 <div class="wrap-products">
                     <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5"
                         data-loop="false" data-nav="true" data-dots="false"
