@@ -11,18 +11,20 @@ class AdminHomeCategoryComponent extends Component
     public $selected_categories = [];
     public $numberOfProducts;
 
-    public function mount() {
+    public function mount()
+    {
         $category = HomeCategory::find(1);
         $this->selected_categories = explode(',', $category->sel_categories);
         $this->numberOfProducts = $category->no_of_products;
     }
 
-    public function updateHomeCategory() {
+    public function updateHomeCategory()
+    {
         $category = HomeCategory::find(1);
         $category->sel_categories = implode(',', $this->selected_categories);
         $category->no_of_products = $this->numberOfProducts;
         $category->save();
-        session()->flash('message', 'Home Category has been updated successfully!');
+        session()->flash('message', 'Danh Mục Trang Chủ đã cập nhật thành công!');
     }
 
     public function render()

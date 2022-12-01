@@ -11,7 +11,7 @@ class AdminAttributesComponent extends Component
     {
         $p_attribute = ProductAttribute::find($id);
         $p_attribute->delete();
-        session()->flash('message', 'Attribute has been deleted successfully!');
+        session()->flash('message', 'Đặc Điểm đã xóa thành công!');
     }
 
     public function render()

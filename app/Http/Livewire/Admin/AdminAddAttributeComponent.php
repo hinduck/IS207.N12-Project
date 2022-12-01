@@ -8,20 +8,22 @@ use Livewire\Component;
 class AdminAddAttributeComponent extends Component
 {
     public $name;
-    
+
     protected $rules = ["name" => "required"];
 
-    public function update($fields) {
+    public function update($fields)
+    {
         $this->validateOnly($fields);
     }
 
-    public function storeAttribute() {
+    public function storeAttribute()
+    {
         $this->validate();
 
         $p_attribute = new ProductAttribute();
         $p_attribute->name = $this->name;
         $p_attribute->save();
-        session()->flash('message', 'Attribute has been created successfully!');
+        session()->flash('message', 'Đặc Điểm đã tạo thành công!');
     }
 
     public function render()

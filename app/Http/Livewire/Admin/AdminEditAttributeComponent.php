@@ -12,23 +12,26 @@ class AdminEditAttributeComponent extends Component
 
     protected $rules = ["name" => "required"];
 
-    public function mount($attribute_id) {
+    public function mount($attribute_id)
+    {
         $p_attribute = ProductAttribute::find($attribute_id);
         $this->attribute_id = $p_attribute->id;
         $this->name = $p_attribute->name;
     }
 
-    public function update($fields) {
+    public function update($fields)
+    {
         $this->validateOnly($fields);
     }
 
-    public function updateAttribute() {
+    public function updateAttribute()
+    {
         $this->validate();
 
         $p_attribute = ProductAttribute::find($this->attribute_id);
         $p_attribute->name = $this->name;
         $p_attribute->save();
-        session()->flash('message', 'Attribute has been updated successfully!');
+        session()->flash('message', 'Đặc Điểm đã cập nhật thành công!');
     }
 
     public function render()

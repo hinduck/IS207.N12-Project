@@ -11,16 +11,18 @@ class AdminCategoryComponent extends Component
 {
     use WithPagination;
 
-    public function deleteCategory($id) {
+    public function deleteCategory($id)
+    {
         $category = Category::find($id);
         $category->delete();
-        session()->flash('message', 'Category has been deleted successfully!');
+        session()->flash('message', 'Danh Mục đã xóa thành công!');
     }
 
-    public function deleteSubcategory($id) {
+    public function deleteSubcategory($id)
+    {
         $sCategory = Subcategory::find($id);
         $sCategory->delete();
-        session()->flash('message', 'Subcategory has been deleted successfully!');
+        session()->flash('message', 'Danh Mục Phụ đã xóa thành công!');
     }
 
     public function render()

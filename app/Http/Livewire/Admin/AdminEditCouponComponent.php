@@ -22,7 +22,8 @@ class AdminEditCouponComponent extends Component
         'expiry_date' => 'required',
     ];
 
-    public function mount($coupon_id) {
+    public function mount($coupon_id)
+    {
         $coupon = Coupon::find($coupon_id);
         $this->code = $coupon->code;
         $this->type = $coupon->type;
@@ -32,7 +33,8 @@ class AdminEditCouponComponent extends Component
         $this->coupon_id = $coupon->id;
     }
 
-    public function updated($fields) {
+    public function updated($fields)
+    {
         $this->validateOnly($fields, [
             'code' => 'required|unique',
             'type' => 'required',
@@ -42,7 +44,8 @@ class AdminEditCouponComponent extends Component
         ]);
     }
 
-    public function updateCoupon() {
+    public function updateCoupon()
+    {
         $this->validate();
 
         $coupon = Coupon::find($this->coupon_id);
@@ -52,7 +55,7 @@ class AdminEditCouponComponent extends Component
         $coupon->cart_value = $this->cart_value;
         $coupon->expiry_date = $this->expiry_date;
         $coupon->save();
-        session()->flash('message', 'Coupon has been updated successfully!');
+        session()->flash('message', 'Mã Giảm Giá đã cập nhật thành công!');
     }
 
     public function render()

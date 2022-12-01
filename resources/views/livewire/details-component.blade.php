@@ -88,7 +88,13 @@
                             </div>
                         @endif
                         <div class="stock-info in-stock">
-                            <p class="availability">Tình trạng: <b>{{ $product->stock_status }}</b></p>
+                            <p class="availability">Tình trạng:
+                                @if($product->stock_status === "in_stock")
+                                    <b>Còn Hàng</b>
+                                @else
+                                    <b>Hết Hàng</b>
+                                @endif
+                            </p>
                         </div>
 
                         <div class="">
