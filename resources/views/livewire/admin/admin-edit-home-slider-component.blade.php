@@ -5,75 +5,78 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-6">Edit Slide</div>
+                            <div class="col-md-6">Cập nhật trang chiếu</div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.homeslider')}}" class="btn btn-success pull-right">All Slides</a>
+                                <a href="{{ route('admin.homeslider') }}" class="btn btn-success pull-right">Danh sách
+                                    các trang chiếu</a>
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
-                        @if(Session::has('message'))
-                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                         @endif
                         <form action="" class="form-horizontal" wire:submit.prevent="updateSlide">
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">
-                                    Title
+                                    Tiêu đề
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Title" class="form-control input-md" wire:model="title">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="" class="col-md-4 control-label">
-                                    Subtitle
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" placeholder="Subtitle" class="form-control input-md" wire:model="subtitle">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="" class="col-md-4 control-label">
-                                    Price
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" placeholder="Price" class="form-control input-md" wire:model="price">
+                                    <input type="text" placeholder="Title..." class="form-control input-md"
+                                        wire:model="title">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">
-                                    Link
+                                    Tiêu đề phụ
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Link" class="form-control input-md" wire:model="link">
+                                    <input type="text" placeholder="Subtitle..." class="form-control input-md"
+                                        wire:model="subtitle">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">
-                                    Image
+                                    Giá
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="newImage">
-                                    @if($newImage)
-                                        <img src="{{$newImage->temporaryUrl()}}" width="120" alt="">
-                                    @else
-                                        <img src="{{asset('asset/images/sliders')}}/{{$image}}" width="120" alt="">
+                                    <input type="text" placeholder="Price..." class="form-control input-md"
+                                        wire:model="price">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">
+                                    Đường dẫn
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Link..." class="form-control input-md"
+                                        wire:model="link">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">
+                                    Banner
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="image">
+                                    @if ($image)
+                                        <img src="{{ $image->temporaryUrl() }}" width="120" alt="">
                                     @endif
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">
-                                    Status
+                                    Trạng thái trang chiếu
                                 </label>
                                 <div class="col-md-4">
                                     <select name="" id="" class="form-control" wire:model="status">
-                                        <option value="0">Inactive</option>
-                                        <option value="1">Active</option>
+                                        <option value="0">Ẩn</option>
+                                        <option value="1">Kích hoạt</option>
                                     </select>
                                 </div>
                             </div>
@@ -81,7 +84,7 @@
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-primary">CẬP NHẬT</button>
                                 </div>
                             </div>
 

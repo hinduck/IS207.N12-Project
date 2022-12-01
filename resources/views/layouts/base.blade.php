@@ -5,10 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>BaoThu Food</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
@@ -18,8 +22,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.css" integrity="sha512-qveKnGrvOChbSzAdtSs8p69eoLegyh+1hwOMbmpCViIwj7rn4oJjdmMvWOuyQlTOZgTlZA0N2PXA7iA8/2TUYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+        integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.css"
+        integrity="sha512-qveKnGrvOChbSzAdtSs8p69eoLegyh+1hwOMbmpCViIwj7rn4oJjdmMvWOuyQlTOZgTlZA0N2PXA7iA8/2TUYA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @livewireStyles
 </head>
@@ -43,210 +52,226 @@
                         <div class="topbar-menu left-menu">
                             <ul>
                                 <li class="menu-item">
-                                    <a title="Hotline: (+123) 456 789" href="#"><span class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+                                    <a title="Hotline" href="#"><span
+                                            class="icon label-before fa fa-mobile"></span>Hotline: (+84) 937-811-400</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="topbar-menu right-menu">
                             <ul>
-                                <li class="menu-item lang-menu menu-item-has-children parent">
-                                    <a title="English" href="#"><span class="img label-before"><img src="assets/images/lang-en.png" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <ul class="submenu lang">
-                                        <li class="menu-item"><a title="hungary" href="#"><span class="img label-before"><img src="assets/images/lang-hun.png" alt="lang-hun"></span>Hungary</a></li>
-                                        <li class="menu-item"><a title="german" href="#"><span class="img label-before"><img src="assets/images/lang-ger.png" alt="lang-ger"></span>German</a></li>
-                                        <li class="menu-item"><a title="french" href="#"><span class="img label-before"><img src="assets/images/lang-fra.png" alt="lang-fre"></span>French</a></li>
-                                        <li class="menu-item"><a title="canada" href="#"><span class="img label-before"><img src="assets/images/lang-can.png" alt="lang-can"></span>Canada</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children parent">
-                                    <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <ul class="submenu curency">
-                                        <li class="menu-item">
-                                            <a title="Pound (GBP)" href="#">Pound (GBP)</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Euro (EUR)" href="#">Euro (EUR)</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Dollar (USD)" href="#">Dollar (USD)</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                @if (Route::has('login'))
+                                    @auth
+                                        @if (Auth::user()->utype === 'ADM')
+                                            <li class="menu-item menu-item-has-children parent">
+                                                <a title="My Account" href="#">{{ Auth::user()->name }}<i
+                                                        class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu curency">
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{ route('admin.dashboard') }}">Bảng điều
+                                                            khiển</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Categories" href="{{ route('admin.categories') }}">Danh
+                                                            mục</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Attributes" href="{{ route('admin.attributes') }}">Đặc điểm
+                                                            mô tả</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Products" href="{{ route('admin.products') }}">Sản
+                                                            phẩm</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Home Sliders"
+                                                            href="{{ route('admin.homeslider') }}">Trang chiếu</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Home Categories"
+                                                            href="{{ route('admin.homecategories') }}">Trang danh mục</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Manage Sales" href="{{ route('admin.onsale') }}">Khuyến
+                                                            mãi</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Coupons" href="{{ route('admin.coupons') }}">Phiếu giảm
+                                                            giá</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Orders List" href="{{ route('admin.orders') }}">Danh sách
+                                                            các đơn hàng</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Contact Messages"
+                                                            href="{{ route('admin.contact') }}">Tin nhắn liên hệ</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Settings" href="{{ route('admin.settings') }}">Cài
+                                                            Đặt</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="{{ route('logout') }} "
+                                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng
+                                                            xuất</a>
+                                                    </li>
+                                                    <form id="logout-form" method="POST"
+                                                        action="{{ route('logout') }}">
+                                                        @csrf
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        @else
+                                            <li class="menu-item menu-item-has-children parent">
+                                                <a title="My Account" href="#">Xin chào,
+                                                    ({{ Auth::user()->name }})<i class="fa fa-angle-down"
+                                                        aria-hidden="true"></i></a>
+                                                <ul class="submenu curency">
+                                                    <li class="menu-item">
+                                                        <a title="Dashboard" href="{{ route('user.dashboard') }}">Bảng
+                                                            điều khiển</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="My Orders" href="{{ route('user.orders') }}">Đơn hàng
+                                                            của bạn</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="My Profile" href="{{ route('user.profile') }}">Hồ sơ cá
+                                                            nhân</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Change Password"
+                                                            href="{{ route('user.changepassword') }}">Đổi mật khẩu</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="{{ route('logout') }} "
+                                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng
+                                                            xuất</a>
+                                                    </li>
+                                                    <form id="logout-form" method="POST"
+                                                        action="{{ route('logout') }}">
+                                                        @csrf
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        @endif
+                                    @else
+                                        <li class="menu-item"><a title="Register or Login"
+                                                href="{{ route('login') }}">Đăng nhập</a></li>
+                                        <li class="menu-item"><a title="Register or Login"
+                                                href="{{ route('register') }}">Đăng ký</a></li>
+                                    @endif
 
-                                @if(Route::has('login'))
-                                @auth
-                                @if(Auth::user()->utype === "ADM")
-                                <li class="menu-item menu-item-has-children parent">
-                                    <a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <ul class="submenu curency">
-                                        <li class="menu-item">
-                                            <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Categories" href="{{ route('admin.categories') }}">Categories</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Attributes" href="{{ route('admin.attributes') }}">Attributes</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Products" href="{{ route('admin.products') }}">Products</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Home Sliders" href="{{ route('admin.homeslider') }}">Home Sliders</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Home Categories" href="{{ route('admin.homecategories') }}">Home Categories</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Manage Sales" href="{{ route('admin.onsale') }}">Manage Sales</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Coupons" href="{{ route('admin.coupons') }}">Coupons</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Orders List" href="{{ route('admin.orders') }}">Orders List</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Contact Messages" href="{{ route('admin.contact') }}">Contact Messages</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Settings" href="{{ route('admin.settings') }}">Settings</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="{{ route('logout')}} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                        </li>
-                                        <form id="logout-form" method="POST" action="{{ route('logout')}}">
-                                            @csrf
-                                        </form>
-                                    </ul>
-                                </li>
-                                @else
-                                <li class="menu-item menu-item-has-children parent">
-                                    <a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <ul class="submenu curency">
-                                        <li class="menu-item">
-                                            <a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="My Orders" href="{{ route('user.orders') }}">My Orders</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="My Profile" href="{{ route('user.profile') }}">My Profile</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a title="Change Password" href="{{ route('user.changepassword') }}">Change Password</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="{{ route('logout')}} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                        </li>
-                                        <form id="logout-form" method="POST" action="{{ route('logout')}}">
-                                            @csrf
-                                        </form>
-                                    </ul>
-                                </li>
-                                @endif
-                                @else
-                                    <li class="menu-item"><a title="Register or Login" href="{{route('login')}}">Login</a></li>
-                                    <li class="menu-item"><a title="Register or Login" href="{{route('register')}}">Register</a></li>
-                                @endif
-
-                                @endif
-                            </ul>
+                                    @endif
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="container">
-                    <div class="mid-section main-info-area">
+                    <div class="container">
+                        <div class="mid-section main-info-area">
 
-                        <div class="wrap-logo-top left-section">
-                            <a href="/" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png')}}" alt="mercado"></a>
+                            <div class="wrap-logo-top left-section">
+                                <a href="/" class="link-to-home"><img
+                                        src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+                            </div>
+
+                            @livewire('header-search-component')
+
+                            <div class="wrap-icon right-section">
+                                @livewire('wishlist-count-component')
+
+                                @livewire('cart-count-component')
+                                <div class="wrap-icon-section show-up-after-1024">
+                                    <a href="#" class="mobile-navigation">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
+                    </div>
 
-                        @livewire('header-search-component')
-
-                        <div class="wrap-icon right-section">
-                            @livewire('wishlist-count-component')
-
-                            @livewire('cart-count-component')
-                            <div class="wrap-icon-section show-up-after-1024">
-                                <a href="#" class="mobile-navigation">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </a>
+                    <div class="nav-section header-sticky">
+                        <div class="header-nav-section">
+                            <div class="container">
+                                <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu"
+                                    data-menuname="Sale Info">
+                                    <li class="menu-item"><a href="/" class="link-term">Nổi bật trong tuần</a><span
+                                            class="nav-label hot-label">hot</span></li>
+                                    <li class="menu-item"><a href="/shop" class="link-term">Khuyến mãi</a><span
+                                            class="nav-label hot-label">hot</span></li>
+                                    <li class="menu-item"><a href="/" class="link-term">Sản phẩm mới</a><span
+                                            class="nav-label hot-label">hot</span></li>
+                                    <li class="menu-item"><a href="/" class="link-term">Bán chạy nhất</a><span
+                                            class="nav-label hot-label">hot</span></li>
+                                    <li class="menu-item"><a href="/" class="link-term">Đánh giá cao</a><span
+                                            class="nav-label hot-label">hot</span></li>
+                                </ul>
                             </div>
                         </div>
 
-                    </div>
-                </div>
-
-                <div class="nav-section header-sticky">
-                    <div class="header-nav-section">
-                        <div class="container">
-                            <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info">
-                                <li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">Top new items</a><span class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">Top Selling</a><span class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">Top rated items</a><span class="nav-label hot-label">hot</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="primary-nav-section">
-                        <div class="container">
-                            <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu">
-                                <li class="menu-item home-icon">
-                                    <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="/shop" class="link-term mercado-item-title">Shop</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="/cart" class="link-term mercado-item-title">Cart</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
-                                </li>
-                            </ul>
+                        <div class="primary-nav-section">
+                            <div class="container">
+                                <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu">
+                                    <li class="menu-item home-icon">
+                                        <a href="/" class="link-term mercado-item-title"><i class="fa fa-home"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="about-us.html" class="link-term mercado-item-title">Về chúng tôi</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/shop" class="link-term mercado-item-title">Cửa hàng</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/cart" class="link-term mercado-item-title">Giỏ hàng</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/checkout" class="link-term mercado-item-title">Xác nhận thanh toán</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/contact-us" class="link-term mercado-item-title">Liên hệ</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    {{ $slot }}
+        {{ $slot }}
 
-    @livewire('footer-component')
+        @livewire('footer-component')
 
-    <script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
-    <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
-    <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
-    <script src="{{ asset('assets/js/functions.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
+        <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
+        <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
+        <script src="{{ asset('assets/js/functions.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"
+            integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js"
+            integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    @livewireScripts
+        <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 
-    @stack('scripts')
-</body>
+        @livewireScripts
 
-</html>
+        @stack('scripts')
+    </body>
+
+    </html>

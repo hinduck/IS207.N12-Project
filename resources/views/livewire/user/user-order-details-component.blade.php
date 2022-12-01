@@ -9,13 +9,13 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Order Details
+                                Chi tiết hóa đơn
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ route('user.orders') }}" class="btn btn-success pull-right">My Orders</a>
+                                <a href="{{ route('user.orders') }}" class="btn btn-success pull-right">Hóa đơn của bạn</a>
                                 @if ($order->status == 'ordered')
                                     <a href="#" wire:click.prevent="cancelOrder" style="margin-right:20px;"
-                                        class="btn btn-warning pull-right">Cancel Order</a>
+                                        class="btn btn-warning pull-right">Hủy đơn hàng</a>
                                 @endif
                             </div>
                         </div>
@@ -24,15 +24,15 @@
                         <table class="table">
                             <th>Order ID</th>
                             <td>{{ $order->id }}</td>
-                            <th>Order Date</th>
+                            <th>Ngày đặt hàng</th>
                             <td>{{ $order->created_at }}</td>
-                            <th>Status</th>
+                            <th>Trạng thái đơn hàng</th>
                             <td>{{ $order->status }}</td>
                             @if ($order->status == 'delivered')
-                                <th>Delivery Date</th>
+                                <th>Ngày giao hàng</th>
                                 <td>{{ $order->delivered_date }}</td>
                             @elseif($order->status == 'canceled')
-                                <th>Canceled Date</th>
+                                <th>Ngày hủy đơn</th>
                                 <td>{{ $order->canceled_date }}</td>
                             @endif
                         </table>
@@ -47,13 +47,13 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Ordered Items
+                                Chi tiết sản phẩm hóa đơn
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
                         <div class="wrap-iten-in-cart">
-                            <h3 class="box-title">Products Name</h3>
+                            <h3 class="box-title">Tên sản phẩm</h3>
                             <ul class="products-cart">
                                 @foreach ($order->orderItems as $item)
                                     <li class="pr-cart-item">
@@ -82,14 +82,6 @@
                                         <div class="price-field sub-total">
                                             <p class="price">${{ $item->price * $item->quantity }}</p>
                                         </div>
-                                        @if ($order->status == 'delivered' && $item->rstatus == false)
-                                            <div class="price-field sub-total">
-                                                <p class="price">
-                                                    <a href="{{ route('user.review', ['order_item_id' => $item->id]) }}"
-                                                        class="btn btn-info btn-sm">Write your Review</a>
-                                                </p>
-                                            </div>
-                                        @endif
                                     </li>
                                 @endforeach
                             </ul>
@@ -97,21 +89,21 @@
 
                         <div class="summary">
                             <div class="order-summary">
-                                <h4 class="title-box">Order Summary</h4>
+                                <h4 class="title-box">Chi tiết thanh toán</h4>
                                 <p class="summary-info">
-                                    <span class="title">Subtotal</span>
+                                    <span class="title">Tổng tiền sản phẩm</span>
                                     <b class="index">${{ $order->subtotal }}</b>
                                 </p>
                                 <p class="summary-info">
-                                    <span class="title">Tax</span>
+                                    <span class="title">Thuế</span>
                                     <b class="index">${{ $order->tax }}</b>
                                 </p>
                                 <p class="summary-info">
-                                    <span class="title">Shipping</span>
+                                    <span class="title">Phí giao hàng</span>
                                     <b class="index">Free Shipping</b>
                                 </p>
                                 <p class="summary-info">
-                                    <span class="title">Total</span>
+                                    <span class="title">Tổng hóa đơn</span>
                                     <b class="index">${{ $order->total }}</b>
                                 </p>
                             </div>
@@ -125,7 +117,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Billing Details
+                        Chi tiết hóa đơn
                     </div>
                     <div class="panel-body">
                         <table class="table">
@@ -136,27 +128,27 @@
                                 <td>{{ $order->last_name }}</td>
                             </tr>
                             <tr>
-                                <th>Phone number</th>
+                                <th>SĐT</th>
                                 <td>{{ $order->mobile }}</td>
                                 <th>Email</th>
                                 <td>{{ $order->email }}</td>
                             </tr>
                             <tr>
-                                <th>Line 1</th>
+                                <th>Số nhà - Tổ - Khu Phố</th>
                                 <td>{{ $order->line1 }}</td>
-                                <th>Line 2</th>
+                                <th>Tên đường</th>
                                 <td>{{ $order->line2 }}</td>
                             </tr>
                             <tr>
-                                <th>City</th>
+                                <th>Tỉnh/Thành Phố</th>
                                 <td>{{ $order->city }}</td>
-                                <th>Province</th>
+                                <th>Phường/Xã</th>
                                 <td>{{ $order->province }}</td>
                             </tr>
                             <tr>
-                                <th>Country</th>
+                                <th>Quốc gia</th>
                                 <td>{{ $order->country }}</td>
-                                <th>ZIP Code</th>
+                                <th>ZIP</th>
                                 <td>{{ $order->zip_code }}</td>
                             </tr>
                         </table>
@@ -166,69 +158,69 @@
         </div>
 
         @if ($order->is_shipping_different)
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Shipping Details
-                        </div>
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <th>First Name</th>
-                                    <td>{{ $order->shipping->first_name }}</td>
-                                    <th>Last Name</th>
-                                    <td>{{ $order->shipping->last_name }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Phone number</th>
-                                    <td>{{ $order->shipping->mobile }}</td>
-                                    <th>Email</th>
-                                    <td>{{ $order->shipping->email }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Line 1</th>
-                                    <td>{{ $order->shipping->line1 }}</td>
-                                    <th>Line 2</th>
-                                    <td>{{ $order->shipping->line2 }}</td>
-                                </tr>
-                                <tr>
-                                    <th>City</th>
-                                    <td>{{ $order->shipping->city }}</td>
-                                    <th>Province</th>
-                                    <td>{{ $order->shipping->province }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Country</th>
-                                    <td>{{ $order->shipping->country }}</td>
-                                    <th>ZIP Code</th>
-                                    <td>{{ $order->shipping->zip_code }}</td>
-                                </tr>
-                            </table>
-                        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Chi tiết vận chuyển
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <th>First Name</th>
+                                <td>{{ $order->shipping->first_name }}</td>
+                                <th>Last Name</th>
+                                <td>{{ $order->shipping->last_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>SDT</th>
+                                <td>{{ $order->shipping->mobile }}</td>
+                                <th>Email</th>
+                                <td>{{ $order->shipping->email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Số nhà - Tổ - Khu Phố</th>
+                                <td>{{ $order->shipping->line1 }}</td>
+                                <th>Tên đường</th>
+                                <td>{{ $order->shipping->line2 }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tỉnh/Thành phố</th>
+                                <td>{{ $order->shipping->city }}</td>
+                                <th>Phường/Xã</th>
+                                <td>{{ $order->shipping->province }}</td>
+                            </tr>
+                            <tr>
+                                <th>Quốc gia</th>
+                                <td>{{ $order->shipping->country }}</td>
+                                <th>ZIP Code</th>
+                                <td>{{ $order->shipping->zip_code }}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
+        </div>
         @endif
 
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Transaction
+                        Giao dịch
                     </div>
                     <div class="panel-body">
                         <table class="table">
                             <tr>
-                                <th>Transaction Mode</th>
+                                <th>Loại hình thanh toán</th>
                                 <td>{{ $order->transaction->mode }}</td>
                             </tr>
                             <tr>
-                                <th>Status</th>
+                                <th>Trạng thái</th>
                                 <td>{{ $order->transaction->status }}</td>
                             </tr>
                             <tr>
-                                <th>Transaction Date</th>
+                                <th>Ngày giao dịch</th>
                                 <td>{{ $order->transaction->created_at }}</td>
                             </tr>
                         </table>

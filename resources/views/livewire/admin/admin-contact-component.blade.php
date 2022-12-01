@@ -14,25 +14,25 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Contact Messages
+                        Thông tin liên hệ
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
+                                    <th>ID</th>
+                                    <th>Người liên hệ</th>
                                     <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Comment</th>
-                                    <th>Created At</th>
+                                    <th>SĐT</th>
+                                    <th>Lời nhắn</th>
+                                    <th>Thời gian</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
                                     $i = 1;
                                 @endphp
-                                @foreach($contacts as $contact)
+                                @foreach ($contacts as $contact)
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $contact->name }}</td>
@@ -44,7 +44,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$contacts->links()}}
+                        {{ $contacts->links() }}
                     </div>
                 </div>
             </div>

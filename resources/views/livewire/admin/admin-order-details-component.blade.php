@@ -6,10 +6,11 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Order Details
+                                Chi tiết đơn hàng
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.orders')}}" class="btn btn-success pull-right">All Orders</a>
+                                <a href="{{ route('admin.orders') }}" class="btn btn-success pull-right">Danh sách các
+                                    đơn hàng</a>
                             </div>
                         </div>
                     </div>
@@ -17,17 +18,17 @@
                         <table class="table">
                             <tr>
                                 <th>Order ID</th>
-                                <td>{{$order->id}}</td>
-                                <th>Order Date</th>
-                                <td>{{$order->created_ad}}</td>
-                                <th>Status</th>
-                                <td>{{$order->status}}</td>
+                                <td>{{ $order->id }}</td>
+                                <th>Ngày đặt hàng</th>
+                                <td>{{ $order->created_ad }}</td>
+                                <th>Trạng thái</th>
+                                <td>{{ $order->status }}</td>
                                 @if ($order->status == 'delivered')
-                                    <th>Delivery Date</th>
-                                    <td>{{$order->delivered_date}}</td>
+                                    <th>Ngày giao hàng</th>
+                                    <td>{{ $order->delivered_date }}</td>
                                 @elseif($order->status == 'canceled')
-                                    <th>Cancellation Date</th>
-                                    <td>{{$order->canceled_date}}</td>
+                                    <th>Ngày hủy đơn</th>
+                                    <td>{{ $order->canceled_date }}</td>
                                 @endif
                             </tr>
                         </table>
@@ -35,67 +36,71 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Ordered Items
+                                Chi tiết sản phẩm hóa đơn
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
                         <div class="wrap-iten-in-cart">
-                            <h3 class="box-title">Products Name</h3>
+                            <h3 class="box-title">Tên sản phẩm</h3>
                             <ul class="products-cart">
-                                @foreach($order->orderItems as $item)
-                                <li class="pr-cart-item">
-                                    <div class="product-image">
-                                        <figure><img src="{{ asset('assets/images/products')}}/{{$item->product->image}}" alt="{{$item->product->name}}"></figure>
-                                    </div>
-                                    <div class="product-name">
-                                        <a class="link-to-product" href="{{ route('product.details', ['slug' => $item->product->slug]) }}">{{$item->product->name}}</a>
-                                    </div>
-                                    @if($item->options)
-                                        <div class="product-option">
-                                            @foreach(unserialize($item->options) as $key => $value)
-                                                <p><b>{{ $key }}: {{ $value }}</b></p>
-                                            @endforeach
+                                @foreach ($order->orderItems as $item)
+                                    <li class="pr-cart-item">
+                                        <div class="product-image">
+                                            <figure><img
+                                                    src="{{ asset('assets/images/products') }}/{{ $item->product->image }}"
+                                                    alt="{{ $item->product->name }}"></figure>
                                         </div>
-                                    @endif
-                                    <div class="price-field produtc-price">
-                                        <p class="price">${{$item->price}}</p>
-                                    </div>
-                                    <div class="quantity">
-                                        <h5>{{$item->quantity}}</h5>
-                                    </div>
-                                    <div class="price-field sub-total">
-                                        <p class="price">${{$item->price * $item->quantity}}</p>
-                                    </div>
-                                </li>
+                                        <div class="product-name">
+                                            <a class="link-to-product"
+                                                href="{{ route('product.details', ['slug' => $item->product->slug]) }}">{{ $item->product->name }}</a>
+                                        </div>
+                                        @if ($item->options)
+                                            <div class="product-option">
+                                                @foreach (unserialize($item->options) as $key => $value)
+                                                    <p><b>{{ $key }}: {{ $value }}</b></p>
+                                                @endforeach
+                                            </div>
+                                        @endif
+                                        <div class="price-field produtc-price">
+                                            <p class="price">${{ $item->price }}</p>
+                                        </div>
+                                        <div class="quantity">
+                                            <h5>{{ $item->quantity }}</h5>
+                                        </div>
+                                        <div class="price-field sub-total">
+                                            <p class="price">${{ $item->price * $item->quantity }}</p>
+                                        </div>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
 
                         <div class="summary">
                             <div class="order-summary">
-                                <h4 class="title-box">Order Summary</h4>
+                                <h4 class="title-box">Chi tiết thanh toán</h4>
                                 <p class="summary-info">
-                                    <span class="title">Subtotal</span>
-                                    <b class="index">${{$order->subtotal}}</b>
+                                    <span class="title">Tổng tiền sản phẩm</span>
+                                    <b class="index">${{ $order->subtotal }}</b>
                                 </p>
                                 <p class="summary-info">
-                                    <span class="title">Tax</span>
-                                    <b class="index">${{$order->tax}}</b>
+                                    <span class="title">Thuế</span>
+                                    <b class="index">${{ $order->tax }}</b>
                                 </p>
                                 <p class="summary-info">
-                                    <span class="title">Shipping</span>
+                                    <span class="title">Phí giao hàng</span>
                                     <b class="index">Free Shipping</b>
                                 </p>
                                 <p class="summary-info">
-                                    <span class="title">Total</span>
-                                    <b class="index">${{$order->total}}</b>
+                                    <span class="title">Tổng hóa đơn</span>
+                                    <b class="index">${{ $order->total }}</b>
                                 </p>
                             </div>
                         </div>
@@ -108,39 +113,39 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Billing Details
+                        Chi tiết hóa đơn
                     </div>
                     <div class="panel-body">
                         <table class="table">
                             <tr>
                                 <th>First Name</th>
-                                <td>{{$order->first_name}}</td>
+                                <td>{{ $order->first_name }}</td>
                                 <th>Last Name</th>
-                                <td>{{$order->last_name}}</td>
+                                <td>{{ $order->last_name }}</td>
                             </tr>
                             <tr>
-                                <th>Phone number</th>
-                                <td>{{$order->mobile}}</td>
+                                <th>SĐT</th>
+                                <td>{{ $order->mobile }}</td>
                                 <th>Email</th>
-                                <td>{{$order->email}}</td>
+                                <td>{{ $order->email }}</td>
                             </tr>
                             <tr>
-                                <th>Line 1</th>
-                                <td>{{$order->line1}}</td>
-                                <th>Line 2</th>
-                                <td>{{$order->line2}}</td>
+                                <th>Số nhà - Tổ - Khu Phố</th>
+                                <td>{{ $order->line1 }}</td>
+                                <th>Tên đường</th>
+                                <td>{{ $order->line2 }}</td>
                             </tr>
                             <tr>
-                                <th>City</th>
-                                <td>{{$order->city}}</td>
-                                <th>Province</th>
-                                <td>{{$order->province}}</td>
+                                <th>Tỉnh/Thành Phố</th>
+                                <td>{{ $order->city }}</td>
+                                <th>Phường/Xã</th>
+                                <td>{{ $order->province }}</td>
                             </tr>
                             <tr>
-                                <th>Country</th>
-                                <td>{{$order->country}}</td>
-                                <th>ZIP Code</th>
-                                <td>{{$order->zip_code}}</td>
+                                <th>Quốc gia</th>
+                                <td>{{ $order->country }}</td>
+                                <th>ZIP</th>
+                                <td>{{ $order->zip_code }}</td>
                             </tr>
                         </table>
                     </div>
@@ -153,39 +158,39 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Shipping Details
+                            Chi tiết vận chuyển
                         </div>
                         <div class="panel-body">
                             <table class="table">
                                 <tr>
                                     <th>First Name</th>
-                                    <td>{{$order->shipping->first_name}}</td>
+                                    <td>{{ $order->shipping->first_name }}</td>
                                     <th>Last Name</th>
-                                    <td>{{$order->shipping->last_name}}</td>
+                                    <td>{{ $order->shipping->last_name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Phone number</th>
-                                    <td>{{$order->shipping->mobile}}</td>
+                                    <th>SDT</th>
+                                    <td>{{ $order->shipping->mobile }}</td>
                                     <th>Email</th>
-                                    <td>{{$order->shipping->email}}</td>
+                                    <td>{{ $order->shipping->email }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Line 1</th>
-                                    <td>{{$order->shipping->line1}}</td>
-                                    <th>Line 2</th>
-                                    <td>{{$order->shipping->line2}}</td>
+                                    <th>Số nhà - Tổ - Khu Phố</th>
+                                    <td>{{ $order->shipping->line1 }}</td>
+                                    <th>Tên đường</th>
+                                    <td>{{ $order->shipping->line2 }}</td>
                                 </tr>
                                 <tr>
-                                    <th>City</th>
-                                    <td>{{$order->shipping->city}}</td>
-                                    <th>Province</th>
-                                    <td>{{$order->shipping->province}}</td>
+                                    <th>Tỉnh/Thành phố</th>
+                                    <td>{{ $order->shipping->city }}</td>
+                                    <th>Phường/Xã</th>
+                                    <td>{{ $order->shipping->province }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Country</th>
-                                    <td>{{$order->shipping->country}}</td>
+                                    <th>Quốc gia</th>
+                                    <td>{{ $order->shipping->country }}</td>
                                     <th>ZIP Code</th>
-                                    <td>{{$order->shipping->zip_code}}</td>
+                                    <td>{{ $order->shipping->zip_code }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -198,21 +203,21 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Transaction
+                        Giao dịch
                     </div>
                     <div class="panel-body">
                         <table class="table">
                             <tr>
-                                <th>Transaction Mode</th>
-                                <td>{{$order->transaction->mode}}</td>
+                                <th>Loại hình thanh toán</th>
+                                <td>{{ $order->transaction->mode }}</td>
                             </tr>
                             <tr>
-                                <th>Status</th>
-                                <td>{{$order->transaction->status}}</td>
+                                <th>Trạng thái</th>
+                                <td>{{ $order->transaction->status }}</td>
                             </tr>
                             <tr>
-                                <th>Transaction Date</th>
-                                <td>{{$order->transaction->created_at}}</td>
+                                <th>Ngày giao dịch</th>
+                                <td>{{ $order->transaction->created_at }}</td>
                             </tr>
                         </table>
                     </div>

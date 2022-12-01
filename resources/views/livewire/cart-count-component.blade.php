@@ -1,11 +1,11 @@
 <div class="wrap-icon-section minicart">
-    <a href="{{route('product.cart')}}" class="link-direction">
+    <a href="{{ route('product.cart') }}" class="link-direction">
         <i class="fa fa-shopping-basket" aria-hidden="true"></i>
         <div class="left-info">
-            @if(Cart::instance('cart')->count() > 0)
-            <span class="index">{{Cart::instance('cart')->count()}} item</span>
+            @if (Cart::instance('cart')->count() > 0)
+                <span class="index">{{ Cart::instance('cart')->count() }} sản phẩm</span>
             @endif
-            <span class="title">CART</span>
+            <span class="title">GIỎ HÀNG</span>
         </div>
     </a>
 </div>

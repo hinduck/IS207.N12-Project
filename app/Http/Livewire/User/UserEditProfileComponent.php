@@ -20,6 +20,7 @@ class UserEditProfileComponent extends Component
     public $province;
     public $country;
     public $zip_code;
+    public $image;
     public $newImage;
 
     public function mount() {
