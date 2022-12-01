@@ -20,7 +20,7 @@ class AdminOrderComponent extends Component
         }
 
         $order->save();
-        session()->flash('order_message', 'Order status has been updated successfully!');
+        session()->flash('order_message', 'Trạng Thái Đơn Hàng đã cập nhật thành công!');
     }
 
     public function render()

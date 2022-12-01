@@ -49,27 +49,32 @@ class AdminAddProductComponent extends Component
         'category_id' => 'required'
     ];
 
-    public function addAttribute() {
+    public function addAttribute()
+    {
         if (!in_array($this->attr, $this->arr_attributes)) {
             array_push($this->inputs, $this->attr);
             array_push($this->arr_attributes, $this->attr);
         }
     }
 
-    public function removeAttribute($attr) {
+    public function removeAttribute($attr)
+    {
         unset($this->inputs[$attr]);
     }
 
-    public function mount() {
+    public function mount()
+    {
         $this->stock_status = 'in_stock';
         $this->featured = 0;
     }
 
-    public function generateSlug() {
+    public function generateSlug()
+    {
         $this->slug = Str::slug($this->name, '-');
     }
 
-    public function updated($fields) {
+    public function updated($fields)
+    {
         $this->validateOnly($fields, [
             'name' => 'required',
             'slug' => 'required|unique:products',
@@ -85,7 +90,8 @@ class AdminAddProductComponent extends Component
         ]);
     }
 
-    public function addProduct() {
+    public function addProduct()
+    {
         $this->validate();
 
         $product = new Product();
@@ -99,14 +105,14 @@ class AdminAddProductComponent extends Component
         $product->stock_status = $this->stock_status;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
-        $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
+        $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
         $this->image->storeAs('products', $imageName);
         $product->image = $imageName;
 
         if ($this->images) {
             $imagesName = '';
             foreach ($this->images as $key => $image) {
-                $img = Carbon::now()->timestamp. $key . '.' . $image->extension();
+                $img = Carbon::now()->timestamp . $key . '.' . $image->extension();
                 $image->storeAs('products', $img);
                 $imagesName = $imagesName .  ',' . $img;
             }
@@ -114,7 +120,7 @@ class AdminAddProductComponent extends Component
         }
 
         $product->category_id = $this->category_id;
-        
+
         if ($this->sCategory_id) {
             $product->subcategory_id = $this->sCategory_id;
         }
@@ -131,10 +137,11 @@ class AdminAddProductComponent extends Component
             }
         }
 
-        session()->flash('message', 'Product has been created successfully!');
+        session()->flash('message', 'Sản Phẩm đã tạo thành công!');
     }
 
-    public function changeSubcategory() {
+    public function changeSubcategory()
+    {
         $this->sCategory_id = 0;
     }
 
@@ -144,8 +151,9 @@ class AdminAddProductComponent extends Component
         $sCategories = Subcategory::where('category_id', $this->category_id)->get();
         $p_attributes = ProductAttribute::all();
         return view('livewire.admin.admin-add-product-component', [
-                                'categories' => $categories, 
-                                'sCategories' => $sCategories,
-                                'p_attributes' => $p_attributes])->layout("layouts.base");
+            'categories' => $categories,
+            'sCategories' => $sCategories,
+            'p_attributes' => $p_attributes
+        ])->layout("layouts.base");
     }
 }

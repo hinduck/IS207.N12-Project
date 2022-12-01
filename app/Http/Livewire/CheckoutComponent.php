@@ -191,7 +191,7 @@ class CheckoutComponent extends Component
             $this->makeTransaction($order->id, 'pending');
             $this->resetCart();
         } else if ($this->payment_mode == "card") {
-            $stripe = Stripe::make(env('STRIP_KEY'));
+            $stripe = Stripe::make(env('STRIPE_KEY'));
 
             try {
                 $token = $stripe->tokens()->create([
@@ -204,7 +204,7 @@ class CheckoutComponent extends Component
                 ]);
 
                 if (!isset($token['id'])) {
-                    session()->flash('stripe_error', 'The stripe token was not generated correctly!');
+                    session()->flash('stripe_error', 'Lỗi!');
                     $this->thank_you = 0;
                 }
 
@@ -244,7 +244,7 @@ class CheckoutComponent extends Component
                     $this->makeTransaction($order->id, 'approved');
                     $this->resetCart();
                 } else {
-                    session()->flash('stripe_error', 'Transaction has an Error!');
+                    session()->flash('stripe_error', 'Giao Dịch thất bại!');
                     $this->thank_you = 0;
                 }
             } catch (Exception $e) {

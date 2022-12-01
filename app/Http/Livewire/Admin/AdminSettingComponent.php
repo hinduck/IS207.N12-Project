@@ -35,8 +35,9 @@ class AdminSettingComponent extends Component
     {
         $this->validateOnly($fields);
     }
-    
-    public function saveSettings() {
+
+    public function saveSettings()
+    {
         $this->validate();
 
         $setting = Setting::find(1);
@@ -55,10 +56,11 @@ class AdminSettingComponent extends Component
         $setting->instagram = $this->instagram;
         $setting->youtube = $this->youtube;
         $setting->save();
-        session()->flash('message', 'Settings has been saved successfully!');
+        session()->flash('message', 'Thiết Lập Cài Đặt đã cập nhật thành công!');
     }
 
-    public function mount() {
+    public function mount()
+    {
         $setting = Setting::find(1);
         if ($setting) {
             $this->email = $setting->email;

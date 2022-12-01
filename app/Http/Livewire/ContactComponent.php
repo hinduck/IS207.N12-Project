@@ -20,22 +20,24 @@ class ContactComponent extends Component
         'comment' => 'required'
     ];
 
-    public function updated($fields) {
+    public function updated($fields)
+    {
         $this->validateOnly($fields);
     }
 
-    public function sendMessage() {
+    public function sendMessage()
+    {
         $this->validate();
-        
+
         $contact = new Contact();
         $contact->name = $this->name;
         $contact->email = $this->email;
         $contact->phone = $this->phone;
         $contact->comment = $this->comment;
         $contact->save();
-        session()->flash('message', 'Message has been sent successfully!');
+        session()->flash('message', 'Cảm ơn bạn đã để lại lời nhắn! Chúng tôi sẽ trả lời trong thời gian sớm nhất!');
     }
-    
+
     public function render()
     {
         $setting = Setting::find(1);

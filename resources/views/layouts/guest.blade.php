@@ -115,8 +115,8 @@
                                                             các đơn hàng</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Contact Messages"
-                                                            href="{{ route('admin.contact') }}">Tin nhắn liên hệ</a>
+                                                        <a title="Contact Messages" href="{{ route('admin.contact') }}">Tin
+                                                            nhắn liên hệ</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Settings" href="{{ route('admin.settings') }}">Cài
@@ -127,8 +127,7 @@
                                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng
                                                             xuất</a>
                                                     </li>
-                                                    <form id="logout-form" method="POST"
-                                                        action="{{ route('logout') }}">
+                                                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                         @csrf
                                                     </form>
                                                 </ul>
@@ -185,8 +184,8 @@
                     <div class="mid-section main-info-area">
 
                         <div class="wrap-logo-top left-section">
-                            <a href="index.html" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png')}}"
-                                    alt="mercado"></a>
+                            <a href="index.html" class="link-to-home"><img
+                                    src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
                         </div>
 
                         @livewire('header-search-component')
@@ -210,8 +209,7 @@
                 <div class="nav-section header-sticky">
                     <div class="header-nav-section">
                         <div class="container">
-                            <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu"
-                                data-menuname="Sale Info">
+                            <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info">
                                 <li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span
                                         class="nav-label hot-label">hot</span></li>
                                 <li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span
@@ -253,23 +251,23 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+            </div>
+        </header>
 
-    {{ $slot }}
+        {{ $slot }}
 
-    @livewire('footer-component')
+        @livewire('footer-component')
 
-    <script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
-    <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
-    <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
-    <script src="{{ asset('assets/js/functions.js') }}"></script>
-    @livewireScripts
-</body>
+        <script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
+        <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
+        <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
+        <script src="{{ asset('assets/js/functions.js') }}"></script>
+        @livewireScripts
+    </body>
 
-</html>
+    </html>

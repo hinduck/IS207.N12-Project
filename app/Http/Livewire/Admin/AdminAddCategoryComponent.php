@@ -18,11 +18,13 @@ class AdminAddCategoryComponent extends Component
         'slug' => 'required|unique:categories'
     ];
 
-    public function generateSlug() {
+    public function generateSlug()
+    {
         $this->slug = Str::slug($this->name);
     }
 
-    public function storeCategory() {
+    public function storeCategory()
+    {
         $this->validate();
         if ($this->category_id) {
             $category = new Subcategory();
@@ -30,14 +32,13 @@ class AdminAddCategoryComponent extends Component
             $category->slug = $this->slug;
             $category->category_id = $this->category_id;
             $category->save();
-        }
-        else {
+        } else {
             $category = new Category();
             $category->name = $this->name;
             $category->slug = $this->slug;
             $category->save();
         }
-        session()->flash('message', 'Category has been created successfully!');
+        session()->flash('message', 'Danh Mục đã tạo thành công!');
         $this->reset();
     }
 

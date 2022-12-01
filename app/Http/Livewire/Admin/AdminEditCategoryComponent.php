@@ -30,8 +30,7 @@ class AdminEditCategoryComponent extends Component
             $this->category_id = $sCategory->category_id;
             $this->name = $sCategory->name;
             $this->slug = $sCategory->slug;
-        } 
-        else {
+        } else {
             $this->category_slug = $category_slug;
             $category = Category::where('slug', $category_slug)->first();
             $this->category_id = $category->id;
@@ -54,14 +53,13 @@ class AdminEditCategoryComponent extends Component
             $sCategory->slug = $this->slug;
             $sCategory->category_id = $this->category_id;
             $sCategory->save();
-        }
-        else {
+        } else {
             $category = Category::find($this->category_id);
             $category->name = $this->name;
             $category->slug = $this->slug;
             $category->save();
         }
-        session()->flash('message', 'Category has been updated successfully!');
+        session()->flash('message', 'Danh Mục đã cập nhật thành công!');
     }
 
     public function render()

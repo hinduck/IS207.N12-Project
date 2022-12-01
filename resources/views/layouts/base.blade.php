@@ -75,7 +75,8 @@
                                                             mục</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Attributes" href="{{ route('admin.attributes') }}">Đặc điểm
+                                                        <a title="Attributes" href="{{ route('admin.attributes') }}">Đặc
+                                                            điểm
                                                             mô tả</a>
                                                     </li>
                                                     <li class="menu-item">
@@ -267,11 +268,11 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
-        <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
+        <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 
         @livewireScripts
 
         @stack('scripts')
     </body>
 
-    </html>
+</html>

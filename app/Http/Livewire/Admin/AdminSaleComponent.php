@@ -23,7 +23,7 @@ class AdminSaleComponent extends Component
         $sale->sale_date = $this->sale_date;
         $sale->status = $this->status;
         $sale->save();
-        session()->flash('message','Record has been updated successfully!');
+        session()->flash('message', 'Cập nhật thành công!');
     }
 
     public function render()

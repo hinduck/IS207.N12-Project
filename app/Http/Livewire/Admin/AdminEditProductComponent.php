@@ -186,7 +186,7 @@ class AdminEditProductComponent extends Component
             }
         }
 
-        session()->flash('message', 'Product has been updated successfully!');
+        session()->flash('message', 'Sản Phẩm đã cập nhật thành công!');
     }
 
     public function changeSubcategory()
