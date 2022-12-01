@@ -89,7 +89,8 @@
                                             autocomplete="name">
                                     </fieldset>
                                     <fieldset class="wrap-input">
-                                        <label for="frm-reg-email">Địa chỉ Email <span class="text-red-600">*</span></label>
+                                        <label for="frm-reg-email">Địa chỉ Email <span
+                                                class="text-red-600">*</span></label>
                                         <input type="email" id="frm-reg-email" name="email"
                                             placeholder="Email của bạn" :value="email">
                                     </fieldset>
@@ -103,7 +104,7 @@
                                     <fieldset class="wrap-title">
                                         <h3 class="form-title">Thông tin đăng nhập</h3>
                                     </fieldset>
-                                    
+
                                     <fieldset class="wrap-input item-width-in-half left-item ">
                                         <label for="frm-reg-pass">Mật khẩu <span class="text-red-600">*</span></label>
                                         <input type="password" id="frm-reg-pass" name="password" placeholder="Password"
@@ -111,28 +112,21 @@
 
                                     </fieldset>
                                     <fieldset class="wrap-input item-width-in-half ">
-                                        <label for="frm-reg-cfpass">Xác nhận mật khẩu <span class="text-red-600">*</span></label>
+                                        <label for="frm-reg-cfpass">Xác nhận mật khẩu <span
+                                                class="text-red-600">*</span></label>
                                         <input type="password" id="frm-reg-cfpass" name="password_confirmation"
                                             placeholder="Confirm Password" required autocomplete="new-password">
                                     </fieldset>
 
-                                    <fieldset>
-                                        <div class="g-recaptcha"
-                                            data-sitekey="6LeadEkjAAAAAFVFFtFyCGVXG-JQJXU3VQsL6Z0z"></div>
+                                    <fieldset class="wrap-functions">
+                                        {!! NoCaptcha::renderJs('vi', true, 'recaptchaCallback') !!}
+                                        {!! NoCaptcha::display() !!}
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="invalid-feedback">
+                                                <strong class="text-red-600">{{ $errors->first('g-recaptcha-response') }}</strong>
+                                            </span>
+                                        @endif
                                     </fieldset>
-
-                                    @php
-                                        if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
-                                            $secret = 'secret_key'; //Thay thế bằng mã Secret Key của bạn
-                                            $verify_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
-                                            $response_data = json_decode($verify_response);
-                                            if ($response_data->success) {
-                                                $message = 'Xác thực thành công';
-                                            } else {
-                                                $message = 'Không thể xác thực, vui lòng thử lại';
-                                            }
-                                        }
-                                    @endphp
 
                                     <input type="submit" class="btn btn-sign" value="ĐĂNG KÝ" name="register">
                                 </form>

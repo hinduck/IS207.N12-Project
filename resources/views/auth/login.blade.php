@@ -91,23 +91,6 @@
                                             title="Forgot password?">Quên mật khẩu?</a>
                                     </fieldset>
 
-                                    <fieldset>
-                                        <div class="g-recaptcha"
-                                            data-sitekey="6LeadEkjAAAAAFVFFtFyCGVXG-JQJXU3VQsL6Z0z"></div>
-                                    </fieldset>
-                                    @php
-                                        if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
-                                            $secret = 'secret_key'; //Thay thế bằng mã Secret Key của bạn
-                                            $verify_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
-                                            $response_data = json_decode($verify_response);
-                                            if ($response_data->success) {
-                                                $message = 'Xác thực thành công';
-                                            } else {
-                                                $message = 'Không thể xác thực, vui lòng thử lại';
-                                            }
-                                        }
-                                    @endphp
-
                                     <input type="submit" class="btn btn-submit" value="ĐĂNG NHẬP" name="submit">
                                 </form>
                             </div>
