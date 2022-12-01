@@ -28,9 +28,9 @@
                         <div class="sort-item orderby ">
                             <select name="orderby" class="use-chosen" wire:model="sorting">
                                 <option value="default" selected="selected">Mặc định</option>
-                                <option value="date">Mới nhất</option>
-                                <option value="price">Giá: Thấp đến Cao</option>
-                                <option value="price-desc">Giá: Cao đến Thấp</option>
+                                <option value="date">Sắp xếp theo ngày ra mắt</option>
+                                <option value="price">Sắp xếp theo giá: thấp đến cao</option>
+                                <option value="price-desc">Sắp xếp theo giá: cao đến thấp</option>
                             </select>
                         </div>
 

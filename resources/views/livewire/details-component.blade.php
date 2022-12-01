@@ -13,8 +13,8 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="/" class="link">home</a></li>
-                <li class="item-link"><span>detail</span></li>
+                <li class="item-link"><a href="/" class="link">Trang chủ</a></li>
+                <li class="item-link"><span>Chi tiết sản phẩm</span></li>
             </ul>
         </div>
         <div class="row">
@@ -88,7 +88,7 @@
                             </div>
                         @endif
                         <div class="stock-info in-stock">
-                            <p class="availability">Availability: <b>{{ $product->stock_status }}</b></p>
+                            <p class="availability">Tình trạng: <b>{{ $product->stock_status }}</b></p>
                         </div>
 
                         <div class="">
@@ -111,7 +111,7 @@
                         </div>
 
                         <div class="quantity" style="margin-top: 10px;">
-                            <span>Quantity:</span>
+                            <span>Số lượng:</span>
                             <div class="quantity-input">
                                 <input type="text" name="product-quatity" value="1" data-max="120"
                                     pattern="[0-9]*" wire:model="qty">
@@ -123,24 +123,27 @@
                         <div class="wrap-butons">
                             @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                                 <a href="#" class="btn add-to-cart"
-                                    wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->sale_price }})">Add
-                                    to Cart</a>
+                                    wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->sale_price }})">Thêm
+                                    vào Giỏ</a>
                             @else
                                 <a href="#" class="btn add-to-cart"
-                                    wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Add
-                                    to Cart</a>
+                                    wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Thêm
+                                    vào Giỏ</a>
                             @endif
                             <div class="wrap-btn">
-                                <a href="#" class="btn btn-compare">Add Compare</a>
-                                <a href="#" class="btn btn-wishlist">Add Wishlist</a>
+                                <a href="#" class="btn btn-compare"
+                                    wire:click.prevent="switchToSaveForLater('{{ $product->rowId }}')">Lưu để sau</a>
+                                <a href="#" class="btn btn-wishlist"
+                                    wire:click.prevent="addToWishlist({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Thêm
+                                    vào Yêu Thích</a>
                             </div>
                         </div>
                     </div>
                     <div class="advance-info">
                         <div class="tab-control normal">
-                            <a href="#description" class="tab-control-item active">description</a>
-                            <a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
-                            <a href="#review" class="tab-control-item">Reviews</a>
+                            <a href="#description" class="tab-control-item active">Mô tả</a>
+                            <a href="#add_infomation" class="tab-control-item">Chi tiết về sản phẩm</a>
+                            <a href="#review" class="tab-control-item">Đánh giá</a>
                         </div>
                         <div class="tab-contents">
                             <div class="tab-content-item active" id="description">
@@ -196,16 +199,23 @@
                                     </style>
                                     <div id="comments">
                                         <h2 class="woocommerce-Reviews-title">
-                                            {{ $product->orderItems->where('rstatus', 1)->count() }} review for
-                                            <span>{{ $product->name }}</span></h2>
+                                            {{ $product->orderItems->where('rstatus', 1)->count() }} đánh giá
+                                            <span>cho sản phẩm <b class="text-red-600">{{ $product->name }}</b></span>
+                                        </h2>
                                         <ol class="commentlist">
                                             @foreach ($product->orderItems->where('rstatus', 1) as $orderItem)
                                                 <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
                                                     id="li-comment-20">
                                                     <div id="comment-20" class="comment_container">
-                                                        <img alt="{{ $orderItem->order->user->name }}"
-                                                            src="{{ asset('assets/images/profile') }}/{{ $orderItem->order->user->image }}"
-                                                            height="80" width="80">
+                                                        @if ($orderItem->order->user->image)
+                                                            <img alt="{{ $orderItem->order->user->name }}"
+                                                                src="{{ asset('assets/images/profile') }}/{{ $orderItem->order->user->image }}"
+                                                                height="70" width="70">
+                                                        @else
+                                                            <img alt="{{ $orderItem->order->user->name }}"
+                                                                src="{{ asset('assets/images/profile/default.png') }}"
+                                                                height="70" width="70">
+                                                        @endif
                                                         <div class="comment-text">
                                                             <div class="star-rating">
                                                                 <span

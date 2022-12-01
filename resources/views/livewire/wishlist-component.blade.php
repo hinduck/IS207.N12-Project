@@ -2,8 +2,8 @@
     <div class="container">
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="/" class="link">home</a></li>
-                <li class="item-link"><span>Wishlist</span></li>
+                <li class="item-link"><a href="/" class="link">Trang chủ</a></li>
+                <li class="item-link"><span>Danh mục yêu thích</span></li>
             </ul>
         </div>
 
@@ -43,7 +43,7 @@
                         <div class="product-info">
                             <a href="{{route('product.details', ['slug' => $item->model->slug])}}" class="product-name"><span>{{$item->model->name}}</span></a>
                             <div class="wrap-price"><span class="product-price">${{$item->model->regular_price}}</span></div>
-                            <a href="#" class="btn add-to-cart" wire:click.prevent="moveProductFromWishlistToCart('{{$item->rowID}}')">Move To Cart</a>
+                            <a href="#" class="btn add-to-cart" wire:click.prevent="moveProductFromWishlistToCart('{{$item->rowID}}')">Thêm vào Giỏ</a>
                             <div class="product-wish">
                                 <a href="#" wire:click.prevent="removeFromWishlist({{$item->model->id}})"><i class="fa fa-heart fill-heart"></i></a>                                
                             </div>                                   
@@ -53,7 +53,7 @@
                 @endforeach
             </ul>
             @else
-                <h3>No item in wishlist</h3>
+                <h3 class="text-red-600"><strong>KHÔNG CÓ sản phẩm nào trong danh mục yêu thích!</strong></h3>
             @endif
         </div>
     </div>

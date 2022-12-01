@@ -8,32 +8,32 @@
                         <li class="fc-info-item">
                             <i class="fa fa-truck" aria-hidden="true"></i>
                             <div class="wrap-left-info">
-                                <h4 class="fc-name">Free Shipping</h4>
-                                <p class="fc-desc">Free On Oder Over $99</p>
+                                <h4 class="fc-name">Vận chuyển miễn phí</h4>
+                                <p class="fc-desc">Trợ giá cho 63 tỉnh thành</p>
                             </div>
 
                         </li>
                         <li class="fc-info-item">
                             <i class="fa fa-recycle" aria-hidden="true"></i>
                             <div class="wrap-left-info">
-                                <h4 class="fc-name">Guarantee</h4>
-                                <p class="fc-desc">30 Days Money Back</p>
+                                <h4 class="fc-name">Đổi trả</h4>
+                                <p class="fc-desc">Trong vòng 7 ngày</p>
                             </div>
 
                         </li>
                         <li class="fc-info-item">
                             <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                             <div class="wrap-left-info">
-                                <h4 class="fc-name">Safe Payment</h4>
-                                <p class="fc-desc">Safe your online payment</p>
+                                <h4 class="fc-name">Thanh toán an toàn</h4>
+                                <p class="fc-desc">Bảo mật đơn hàng của bạn</p>
                             </div>
 
                         </li>
                         <li class="fc-info-item">
                             <i class="fa fa-life-ring" aria-hidden="true"></i>
                             <div class="wrap-left-info">
-                                <h4 class="fc-name">Online Suport</h4>
-                                <p class="fc-desc">We Have Support 24/7</p>
+                                <h4 class="fc-name">Hỗ trợ trực tuyến</h4>
+                                <p class="fc-desc">Hỗ trợ khách hàng 24/7</p>
                             </div>
 
                         </li>
@@ -125,12 +125,12 @@
                                     <div class="item-content">
                                         <div class="wrap-vertical-nav">
                                             <ul>
-                                                <li class="menu-item"><a href="#" class="link-term">Liên hệ</a>
+                                                <li class="menu-item"><a href="/contact-us" class="link-term" target="_blank">Liên hệ</a>
                                                 </li>
                                                 <li class="menu-item"><a href="#" class="link-term">Về đầu
                                                         trang</a>
                                                 </li>
-                                                <li class="menu-item"><a href="#" class="link-term">Bản đồ</a>
+                                                <li class="menu-item"><a href="https://goo.gl/maps/DzD8FmF4JA3SuYC98" target="_blank" class="link-term">Bản đồ</a>
                                                 </li>
                                                 <li class="menu-item"><a href="#" class="link-term">Danh mục đặc
                                                         biệt</a></li>

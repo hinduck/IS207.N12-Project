@@ -188,6 +188,8 @@ return [
          * Package Service Providers...
          */
 
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -216,6 +218,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
     ])->toArray(),
 
 ];
