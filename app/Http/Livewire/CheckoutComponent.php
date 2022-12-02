@@ -272,6 +272,7 @@ class CheckoutComponent extends Component
         $this->thankyou = 1;
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
+        redirect()->route('thankyou');
     }
 
     public function sendOrderConfirmationEmail($order)

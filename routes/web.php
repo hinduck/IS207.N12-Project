@@ -68,6 +68,8 @@ Route::get('/thank-you', ThankYouComponent::class)->name('thankyou');
 
 Route::get('/contact-us', ContactComponent::class)->name('contact');
 
+Route::get('/about-us', AboutUsComponent::class)->name('about');
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
