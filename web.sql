@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2022 at 04:56 PM
+-- Generation Time: Dec 01, 2022 at 07:03 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `web`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attribute_values`
+--
+
+CREATE TABLE `attribute_values` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_attribute_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `attribute_values`
+--
+
+INSERT INTO `attribute_values` (`id`, `product_attribute_id`, `value`, `product_id`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Cấp 1', 24, '2022-11-29 00:04:42', '2022-11-29 00:04:42');
 
 -- --------------------------------------------------------
 
@@ -41,15 +63,9 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
 (1, 'quia ut', 'quia-ut', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
-(2, 'neque neque', 'neque-neque', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
-(3, 'consequatur doloremque', 'consequatur-doloremque', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
 (4, 'sapiente et', 'sapiente-et', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
 (5, 'et qui', 'et-qui', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
 (6, 'quas et', 'quas-et', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
-(7, 'praesentium ut', 'praesentium-ut', '2022-11-19 01:30:51', '2022-11-19 01:30:51'),
-(8, 'deserunt autem', 'deserunt-autem', '2022-11-19 01:30:51', '2022-11-19 01:30:51'),
-(9, 'magni voluptatibus', 'magni-voluptatibus', '2022-11-19 01:30:51', '2022-11-19 01:30:51'),
-(10, 'labore repudiandae', 'labore-repudiandae', '2022-11-19 01:30:51', '2022-11-19 01:30:51'),
 (11, 'qui voluptas', 'qui-voluptas', '2022-11-19 01:30:51', '2022-11-19 01:30:51'),
 (12, 'nulla est', 'nulla-est', '2022-11-19 01:30:51', '2022-11-19 01:30:51'),
 (13, 'minus eos', 'minus-eos', '2022-11-19 01:32:31', '2022-11-19 01:32:31'),
@@ -63,7 +79,8 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALU
 (21, 'minus id', 'minus-id', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
 (22, 'sint aut', 'sint-aut', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
 (23, 'dolorem ullam', 'dolorem-ullam', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(24, 'fuga nesciunt', 'fuga-nesciunt', '2022-11-19 01:33:26', '2022-11-19 01:33:26');
+(24, 'fuga nesciunt', 'fuga-nesciunt', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
+(36, 'Thực phẩm thiết yếu', 'thuc-pham-thiet-yeu', '2022-11-28 01:39:27', '2022-11-28 01:39:27');
 
 -- --------------------------------------------------------
 
@@ -169,14 +186,6 @@ CREATE TABLE `home_sliders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `home_sliders`
---
-
-INSERT INTO `home_sliders` (`id`, `title`, `subtitle`, `price`, `link`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'ALAL', 'AL-AL-AL', '200000', 'http://localhost:8000/shop', '1669037132.jpg', 1, '2022-11-20 23:33:30', '2022-11-21 06:25:32'),
-(4, 'Second slide demo', 'Second slide demo subtitle', '200000', 'http://localhost:8000/shop', '1669037083.jpg', 1, '2022-11-20 23:44:52', '2022-11-21 06:24:43');
-
 -- --------------------------------------------------------
 
 --
@@ -215,7 +224,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2022_11_25_144511_create_reviews_table', 10),
 (20, '2022_11_25_145450_add_rstatus_to_order_items_table', 10),
 (21, '2022_11_25_163130_create_contacts_table', 11),
-(22, '2022_11_25_170600_create_settings_table', 12);
+(22, '2022_11_25_170600_create_settings_table', 12),
+(23, '2022_11_27_171434_create_shoppingcart_table', 13),
+(24, '2022_11_28_081849_create_subcategories_table', 14),
+(25, '2022_11_28_095732_add_subcategory_id_to_products_table', 15),
+(26, '2022_11_28_122153_create_profiles_table', 16),
+(27, '2022_11_28_165845_create_product_attributes_table', 17),
+(28, '2022_11_28_182201_create_attribute_values_table', 18),
+(29, '2022_11_29_072451_add_options_to_order_items_table', 19);
 
 -- --------------------------------------------------------
 
@@ -255,7 +271,12 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `user_id`, `subtotal`, `discount`, `tax`, `total`, `first_name`, `last_name`, `mobile`, `email`, `line1`, `line2`, `city`, `province`, `country`, `zip_code`, `status`, `is_shipping_different`, `created_at`, `updated_at`, `delivered_date`, `canceled_date`) VALUES
 (3, 2, '490.00', '0.00', '102.90', '592.90', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'test1', 'test2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'canceled', 1, '2022-11-23 21:35:43', '2022-11-24 22:43:02', NULL, '2022-11-25'),
 (13, 2, '425.00', '0.00', '89.25', '514.25', 'Duc', 'Nguyen', '0931222333', 'ducnh.hindu@gmail.com', 'test1', 'test2', 'Ho Chi Minh City', '12', 'Vietnam', '70050', 'delivered', 0, '2022-11-24 08:58:13', '2022-11-24 22:42:15', '2022-11-25', NULL),
-(14, 2, '473.00', '0.00', '99.33', '572.33', 'Đức', 'Nguyễn', '0931222333', 'ducnh.hindu@gmail.com', 'demo1', 'demo2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'canceled', 0, '2022-11-25 07:40:02', '2022-11-25 07:40:33', NULL, '2022-11-25');
+(14, 2, '473.00', '0.00', '99.33', '572.33', 'Đức', 'Nguyễn', '0931222333', 'ducnh.hindu@gmail.com', 'demo1', 'demo2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'canceled', 0, '2022-11-25 07:40:02', '2022-11-25 07:40:33', NULL, '2022-11-25'),
+(15, 2, '490.00', '0.00', '102.90', '592.90', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'TEST', 'TEST2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 09:56:54', '2022-11-27 09:56:54', NULL, NULL),
+(16, 2, '555.00', '0.00', '116.55', '671.55', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'sub1', 'sub2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:04:12', '2022-11-27 10:04:12', NULL, NULL),
+(17, 2, '555.00', '0.00', '116.55', '671.55', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'demo1', 'TEST', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:04:50', '2022-11-27 10:04:50', NULL, NULL),
+(18, 2, '850.00', '0.00', '178.50', '1028.50', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', '98890', 'TEST', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:08:26', '2022-11-27 10:08:26', NULL, NULL),
+(19, 5, '850.00', '0.00', '178.50', '1028.50', 'Duc', 'Nguyen', '0931123456', 'ducnguyen06112002@gmail.com', 'Line 1', 'Line2', 'Ho Chi Minh City', 'false', 'Vietnam', '70050', 'ordered', 0, '2022-11-29 02:10:13', '2022-11-29 02:10:13', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -271,17 +292,20 @@ CREATE TABLE `order_items` (
   `quantity` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `rstatus` tinyint(1) NOT NULL DEFAULT 0
+  `rstatus` tinyint(1) NOT NULL DEFAULT 0,
+  `options` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `order_items`
 --
 
-INSERT INTO `order_items` (`id`, `product_id`, `order_id`, `price`, `quantity`, `created_at`, `updated_at`, `rstatus`) VALUES
-(3, 1, 3, '490.00', 1, '2022-11-23 21:35:43', '2022-11-23 21:35:43', 0),
-(13, 2, 13, '425.00', 1, '2022-11-24 08:58:13', '2022-11-25 08:42:38', 1),
-(14, 5, 14, '473.00', 1, '2022-11-25 07:40:02', '2022-11-25 07:40:02', 0);
+INSERT INTO `order_items` (`id`, `product_id`, `order_id`, `price`, `quantity`, `created_at`, `updated_at`, `rstatus`, `options`) VALUES
+(13, 2, 13, '425.00', 1, '2022-11-24 08:58:13', '2022-11-25 08:42:38', 1, NULL),
+(16, 24, 16, '555.00', 1, '2022-11-27 10:04:12', '2022-11-27 10:04:12', 0, NULL),
+(17, 24, 17, '555.00', 1, '2022-11-27 10:04:50', '2022-11-27 10:04:50', 0, NULL),
+(18, 2, 18, '425.00', 2, '2022-11-27 10:08:26', '2022-11-27 10:08:26', 0, NULL),
+(19, 2, 19, '425.00', 2, '2022-11-29 02:10:13', '2022-11-29 02:10:13', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -336,37 +360,75 @@ CREATE TABLE `products` (
   `images` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `category_id` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `subcategory_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `slug`, `short_description`, `description`, `regular_price`, `sale_price`, `SKU`, `stock_status`, `featured`, `quantity`, `image`, `images`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'molestiae nam', 'molestiae-nam', 'In maiores nobis ipsum ducimus esse voluptatem repellat. Rerum fuga quis in quae saepe corporis deserunt. Et est eveniet quasi.', 'Magni sunt ea pariatur officiis voluptatem blanditiis possimus. Ut quas illo ab sunt id. Velit maxime quod dolor rerum ut inventore neque. Non qui nihil nobis neque libero amet. Sed nostrum at quis et dolorum. Quos enim vero fugit officiis at. Sint adipisci autem est eveniet. Totam ab veniam ab a. Occaecati explicabo nobis alias odit. Vel et quam numquam consequatur corporis odio. Officia alias corrupti exercitationem dolores.', '490.00', '430.00', 'DIGI135', 'in_stock', 0, 163, 'digital_1.jpg', NULL, 3, '2022-11-19 01:33:26', '2022-11-22 00:32:17'),
-(2, 'mollitia optio', 'mollitia-optio', 'Quia aut quia quia voluptatem. Commodi quia modi facere qui ut necessitatibus ullam.', 'Ab molestiae libero id iusto sequi doloremque. Aliquam ullam ipsum aut quam illo veritatis. Et ut non aspernatur ut voluptates. Deserunt consequatur id soluta ullam et non officiis. Fuga distinctio repudiandae nihil voluptas. Incidunt voluptatibus delectus quo ut libero omnis eius. Voluptatum minima iure ut molestiae recusandae consequatur eos. Corporis at atque eum dolor qui maxime et. Voluptas aut ipsum maxime est. Dolore tempora est minima.', '425.00', '400.00', 'DIGI416', 'in_stock', 0, 187, 'digital_13.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-22 00:32:34'),
-(3, 'quo similique', 'quo-similique', 'Est ut architecto accusantium qui iusto. Sed ducimus amet et. Suscipit eos quis ut iure consequatur fugiat ducimus.', 'Officia error id eius nostrum et dolorum magnam. Eius nobis voluptatem consequatur vel in labore eaque. Consequatur qui aut cupiditate eos ex unde exercitationem. Aperiam quia cupiditate numquam ipsum. Rerum praesentium sed sapiente nostrum. Praesentium suscipit est omnis nobis voluptatem atque quis. Nesciunt recusandae voluptas delectus veniam. A nisi quae corrupti qui.', '94.00', '89.00', 'DIGI400', 'in_stock', 0, 106, 'digital_22.jpg', NULL, 2, '2022-11-19 01:33:26', '2022-11-22 00:34:05'),
-(4, 'aut inventore', 'aut-inventore', 'Corporis fugit explicabo et consequuntur. Velit sunt repudiandae excepturi voluptas velit saepe labore culpa. Facilis iusto numquam minima iusto alias corrupti quam quas.', 'Labore voluptates sed nesciunt nam distinctio maxime. Distinctio provident vero natus distinctio quo qui fugiat. Aut dolores mollitia cum et dignissimos. Optio deleniti hic ut repellendus. Qui vero doloribus dolores assumenda voluptatum explicabo rem officiis. Ea sequi qui voluptatum. Sint vel qui repudiandae culpa. Autem sit esse dolor provident fugit molestias. Quidem qui odio labore eaque voluptatem ullam vero.', '103.00', NULL, 'DIGI389', 'in_stock', 0, 131, 'digital_18.jpg', NULL, 1, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(5, 'consequatur similique', 'consequatur-similique', 'Praesentium et accusamus ex ducimus dicta temporibus reiciendis adipisci. Ullam vitae et molestias aut incidunt modi nam. Voluptates tenetur nostrum assumenda at alias.', 'Praesentium assumenda aut qui et maxime. Temporibus itaque non quasi id sapiente dolor rem. Laudantium voluptate commodi eos reprehenderit repellendus. Porro fugiat et tempore repudiandae et. Doloribus ipsum necessitatibus corrupti sint pariatur. Corporis magni et et vitae repellat et est. Quo officia temporibus accusantium consequatur aperiam. Debitis animi hic similique accusamus facilis est.', '473.00', NULL, 'DIGI306', 'in_stock', 0, 167, 'digital_8.jpg', NULL, 2, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(6, 'aut quia', 'aut-quia', 'Est esse odit fugiat nulla. Sint occaecati vel illo ipsum. Ipsum pariatur enim et velit ipsa architecto.', 'Temporibus nostrum dolorum officiis. Eaque qui at sit odit nobis velit. Et quia ipsam aliquid enim quisquam. Rerum sit consequatur quia culpa laboriosam dolorem quibusdam. Repellendus asperiores molestias beatae cumque illo. Iusto quia officia est voluptatem dicta et nobis. Et non magni odio voluptas iste. Doloribus quia sunt quas voluptas. Ea expedita qui velit sunt vel quasi. Officia perferendis omnis soluta reiciendis veritatis.', '387.00', NULL, 'DIGI131', 'in_stock', 0, 143, 'digital_3.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(7, 'architecto est', 'architecto-est', 'Quis iusto eaque sint voluptatem laboriosam. Excepturi illo id quia aut. Inventore expedita earum fugiat officia rerum est voluptas.', 'Pariatur dolores pariatur ducimus dolor. Totam impedit quod et voluptatem corporis. Ea et non odio qui qui. Ea et molestias excepturi. Iusto quia eum reprehenderit deserunt quod nesciunt sequi. Culpa sint quas temporibus quis voluptas. Nihil aliquid nihil at et animi et. Eveniet sit quidem dolorum. Eum doloribus molestias aut sequi. Deserunt necessitatibus aut id doloremque sed eos. Nam ut sint sunt qui veniam.', '396.00', NULL, 'DIGI139', 'in_stock', 0, 168, 'digital_7.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(8, 'nihil et', 'nihil-et', 'Veritatis rem est sed. Accusantium qui sint sunt blanditiis magni ab. Fugiat fuga totam esse et molestiae corrupti sequi. Facere nisi veritatis ut fuga commodi.', 'In sed soluta et aliquam. Totam quia itaque tempore nam. Est est similique omnis ipsam quae quis dolorem. Consequatur blanditiis rerum nostrum aut dolore quia. Rerum ratione aut nostrum. Distinctio asperiores id esse ea qui accusantium modi. Quis odio voluptatem qui. Dolor error totam impedit aspernatur. Autem voluptatem et eos commodi sit consequatur. Amet voluptas qui nesciunt at laborum at possimus. Tempore adipisci quae non voluptatem nihil dolor.', '403.00', NULL, 'DIGI408', 'in_stock', 0, 193, 'digital_9.jpg', NULL, 4, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(9, 'rem odio', 'rem-odio', 'Necessitatibus eum in suscipit repudiandae. Consequatur consectetur fuga aspernatur qui et minima iure voluptas. Ex fuga nostrum fugiat commodi consequatur consequatur.', 'Dolorem id a asperiores reiciendis error. Eos laborum dolor natus sunt eos quia. Inventore rerum non tempora dolor deleniti iste tempora. Qui rem nemo dolorem aut est sit est. Hic tenetur quis et ut eaque cumque. A ut accusantium temporibus velit harum. Et magni labore consequatur maxime voluptatem perspiciatis officia commodi. Possimus at vero illo id rerum.', '160.00', NULL, 'DIGI489', 'in_stock', 0, 161, 'digital_16.jpg', NULL, 3, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(10, 'tempore error', 'tempore-error', 'Qui iusto sapiente aut alias. Sint culpa ipsam est enim minima.', 'Provident quo est incidunt non architecto. Explicabo velit beatae rem voluptatem corporis. Sapiente quia veniam omnis autem ea. Ut cum quia inventore. Recusandae fuga aliquid consectetur consectetur officia nesciunt. Perspiciatis sit modi non et. Sit doloremque omnis non tenetur quas quia. Ex assumenda sed distinctio nemo. Cupiditate ex aspernatur distinctio aut. Inventore ab molestiae eaque in omnis. Earum totam laudantium non et.', '440.00', NULL, 'DIGI455', 'in_stock', 0, 122, 'digital_20.jpg', NULL, 2, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(11, 'omnis a', 'omnis-a', 'At ipsa distinctio voluptatem optio. Ut optio ipsam aperiam eaque voluptatem soluta. Non voluptates mollitia et odio consequatur. Consequatur expedita deserunt aliquam quos nisi sit fugiat.', 'Molestiae dolorem architecto suscipit et voluptatibus. Vel perspiciatis voluptate est fugiat soluta saepe quo consequatur. Magnam similique doloremque dolore est. Ea debitis voluptatibus cupiditate veritatis non sit culpa. Maxime recusandae hic aliquam nihil. Dolores velit voluptatibus aliquid alias neque. Voluptatum ut iure quia quod hic.', '466.00', NULL, 'DIGI281', 'in_stock', 0, 122, 'digital_17.jpg', NULL, 3, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(12, 'cupiditate porro', 'cupiditate-porro', 'Placeat quaerat eius magnam ex neque. Quisquam qui nemo earum totam non. Eaque explicabo dolorem nisi. Consequatur commodi voluptatum quia voluptas voluptates sit.', 'Qui corrupti voluptatem aut est. Soluta saepe commodi explicabo inventore eaque. Mollitia unde sit sapiente ipsam vel aperiam. Quod distinctio assumenda enim cumque ipsa. Quis minus ducimus perspiciatis ullam sed. Deleniti voluptas mollitia possimus cum voluptas et. Odio cumque ut autem id delectus qui. Atque quos tempore optio sed ex molestiae eaque. Ducimus voluptas officia temporibus earum qui similique. Itaque doloribus minus ad harum est et ullam. Dolores numquam et dolorum omnis.', '340.00', NULL, 'DIGI235', 'in_stock', 0, 130, 'digital_4.jpg', NULL, 3, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(13, 'atque dolorem', 'atque-dolorem', 'Voluptas omnis voluptas qui earum incidunt ut. Qui rerum qui delectus maxime nihil.', 'Et rerum exercitationem placeat veniam est at voluptatibus. Placeat et magnam aut sapiente aliquid eum reiciendis. Incidunt accusamus enim sint laudantium. Sint necessitatibus doloremque aut veniam laborum. Mollitia praesentium sint natus dolorem. Qui quaerat ipsam quidem eum et. Mollitia consequatur a illo qui. Quia minima sequi fugit similique aut quod magni. Sed ipsa aut dignissimos modi at. Nostrum animi quis hic et maxime repellendus minus.', '86.00', NULL, 'DIGI313', 'in_stock', 0, 168, 'digital_10.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(14, 'distinctio numquam', 'distinctio-numquam', 'Fugit non veritatis est magnam autem. Reprehenderit amet consectetur repellat ut sapiente doloribus pariatur qui. Molestiae quis error et non. Ex et qui dolor animi laborum fugiat quas.', 'Distinctio nam porro voluptas ad vel. Atque consequatur quos accusantium perspiciatis eum. Ut dolor consequatur animi recusandae. Facilis quasi magni consequatur enim suscipit dolorem. Sint adipisci sit alias minima est magni tenetur. Voluptas nisi omnis aperiam sunt natus. Commodi odit deserunt sed. Est fugiat ducimus illo animi expedita. Velit similique enim tempore atque provident cum debitis.', '400.00', NULL, 'DIGI314', 'in_stock', 0, 122, 'digital_5.jpg', NULL, 2, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(15, 'voluptates maxime', 'voluptates-maxime', 'Cumque sunt sapiente ut numquam omnis delectus aut. Dolores doloremque ab quidem et. Incidunt nesciunt quae eos sunt et quod. Enim voluptatibus consequatur eaque fugiat quo.', 'Vel incidunt sapiente quidem. Ut eum quis harum a amet sit. Suscipit est ullam repellendus iste possimus nemo ex. Officiis molestias iure doloribus reiciendis. Qui labore architecto qui id. Quis libero praesentium commodi voluptatem maxime. Nostrum qui repudiandae non ut et facilis error nulla. Dolores consequatur rerum aut in.', '180.00', NULL, 'DIGI456', 'in_stock', 0, 199, 'digital_12.jpg', NULL, 1, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(16, 'sequi enim', 'sequi-enim', 'Sunt et commodi dolores tempore expedita vel. Enim id ratione voluptatem nemo eaque corporis et. Quisquam nemo dolorum sint provident. Ut magnam veritatis labore voluptas.', 'Tempore molestiae itaque beatae qui et at esse atque. Aperiam nobis eum quae aut excepturi fugit non. Corporis autem a similique magni eum voluptate nihil. Officiis alias architecto quam eum. Dicta voluptate et fugiat quia necessitatibus sunt dignissimos. Tempora dolores reprehenderit rerum id consectetur voluptatem. Temporibus ex saepe deleniti tenetur soluta. Praesentium praesentium est enim quia saepe officiis aliquid aut.', '278.00', NULL, 'DIGI273', 'in_stock', 0, 169, 'digital_2.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(17, 'impedit ut', 'impedit-ut', 'Aut soluta ducimus atque ex atque debitis molestias. Ex distinctio quibusdam fugit blanditiis sed deleniti. Qui eius minus sed perspiciatis deserunt enim ut. Soluta quia quis fuga numquam vero.', 'Velit corrupti recusandae non quis ipsum. Laboriosam ullam eum ea nesciunt dolore. Quis sunt omnis voluptas quos molestiae ab voluptatem. Maiores non qui ut et quo soluta. Voluptatem quia quam explicabo blanditiis iure dolor voluptate et. Nulla eos aut occaecati expedita possimus voluptatem dolor eos.', '266.00', '230.00', 'DIGI189', 'in_stock', 0, 163, 'digital_14.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-22 00:33:00'),
-(18, 'eos beatae', 'eos-beatae', 'Hic nemo quaerat qui quia. Unde facere ipsum aliquid rem. Tempora et occaecati perferendis id est. Odio incidunt beatae quis illum delectus.', 'Necessitatibus rem incidunt ducimus et omnis. Voluptatibus et numquam nisi unde delectus placeat. Consectetur doloribus architecto iure omnis occaecati optio. Sint dolore et harum. Adipisci tenetur quisquam quia odit voluptatem corporis repellat. Quam velit velit aperiam. Cum est maiores unde eligendi excepturi voluptatum tempore. Labore quos non ut beatae sed architecto. Et in ab ea quis est veniam nostrum.', '372.00', NULL, 'DIGI262', 'in_stock', 0, 106, 'digital_15.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(19, 'accusamus aut', 'accusamus-aut', 'Et omnis molestiae dolores nihil quos mollitia veniam. Qui magnam odit quos assumenda blanditiis est. Necessitatibus ut eum quis sapiente libero. Repudiandae omnis enim minima quis ut impedit enim.', 'Et iste et ipsa eaque. Exercitationem quibusdam molestias optio dicta repellat vero et. Excepturi iusto exercitationem magni vitae eum accusantium atque. Iste non sunt numquam officiis nemo pariatur et. Architecto tenetur facilis repellendus. Id non odio recusandae labore error nisi. Distinctio quod nihil occaecati sequi vel delectus. Architecto voluptatem consequuntur laborum nostrum aut deleniti doloribus. Commodi mollitia exercitationem voluptas voluptate ut.', '333.00', '299.00', 'DIGI297', 'in_stock', 0, 111, 'digital_6.jpg', NULL, 3, '2022-11-19 01:33:26', '2022-11-22 00:33:20'),
-(20, 'non itaque', 'non-itaque', 'Tenetur molestias reiciendis incidunt ut et id. Autem veritatis sequi et ad aliquam in. Omnis alias tempore repellat omnis ipsam deleniti velit sunt.', 'Similique at et eos reprehenderit aliquid quis amet ea. Ullam minima consequatur eligendi officiis. Cupiditate unde earum quia ducimus est voluptatem eum. Possimus explicabo sit quo porro deleniti. Nisi aut possimus eos. Voluptatem voluptas molestias rerum ut unde. Eos voluptate harum architecto soluta aliquid. Ut vitae temporibus porro nesciunt. Velit sed praesentium et distinctio harum sint reprehenderit. Commodi quam alias ea accusamus ut rerum. Expedita ipsa quo vel.', '411.00', NULL, 'DIGI282', 'in_stock', 0, 149, 'digital_19.jpg', NULL, 3, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(21, 'a omnis', 'a-omnis', 'Soluta consequuntur labore aperiam qui sed. Aliquid voluptate dolor porro nemo itaque omnis illum. Et consectetur qui velit excepturi veritatis animi esse.', 'Omnis earum alias non tempore delectus delectus. Iste qui quod ea aut possimus et pariatur omnis. Enim et vel soluta tenetur quo pariatur provident. Consequatur quod minima vel voluptas dolorem ut mollitia quo. Quis alias quia esse consequuntur. Quia earum ab voluptatem ut est. Labore iste at qui eum distinctio qui dolor. Eius nam veniam natus non perspiciatis. Officia ut et non reiciendis deleniti non est unde. Soluta error voluptas suscipit officiis. Ipsam id quia animi eius est.', '310.00', NULL, 'DIGI364', 'in_stock', 0, 115, 'digital_21.jpg', NULL, 3, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(22, 'corrupti fugiat', 'corrupti-fugiat', 'Facere nobis voluptatum rerum nesciunt. Omnis ut ut magni non dolorem in. Doloremque sint quod iusto.', 'Dolores velit vel dolorum. Vitae consequatur omnis saepe mollitia nobis. Non ut qui quod ipsum ea dolores. Reprehenderit dolores et id assumenda et nisi. Vitae dolor fugit quaerat perspiciatis accusamus. Aspernatur quis officiis animi ad. Autem dolorem nesciunt est eaque culpa. Facilis quod voluptatem deleniti. Aut quis est molestias atque sit porro. Quisquam qui et quia numquam ut eligendi cumque. Sed id aut in quibusdam occaecati aut.', '282.00', NULL, 'DIGI198', 'in_stock', 0, 135, 'digital_11.jpg', NULL, 3, '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(24, 'New test product 1', 'new-test-product-1', '<p><strong>New test product 1&nbsp;</strong>short description</p>', '<p><strong>New test product 1</strong>&nbsp;description</p>', '555.00', '650.00', 'DIGI434', 'in_stock', 0, 11, '1669542685.jpg', ',16695426850.jpg,16695426851.jpg', 5, '2022-11-27 02:51:25', '2022-11-27 02:51:25');
+INSERT INTO `products` (`id`, `name`, `slug`, `short_description`, `description`, `regular_price`, `sale_price`, `SKU`, `stock_status`, `featured`, `quantity`, `image`, `images`, `category_id`, `created_at`, `updated_at`, `subcategory_id`) VALUES
+(2, 'mollitia optio', 'mollitia-optio', 'Quia aut quia quia voluptatem. Commodi quia modi facere qui ut necessitatibus ullam.', 'Ab molestiae libero id iusto sequi doloremque. Aliquam ullam ipsum aut quam illo veritatis. Et ut non aspernatur ut voluptates. Deserunt consequatur id soluta ullam et non officiis. Fuga distinctio repudiandae nihil voluptas. Incidunt voluptatibus delectus quo ut libero omnis eius. Voluptatum minima iure ut molestiae recusandae consequatur eos. Corporis at atque eum dolor qui maxime et. Voluptas aut ipsum maxime est. Dolore tempora est minima.', '425.00', '400.00', 'DIGI416', 'in_stock', 0, 187, 'digital_13.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-22 00:32:34', NULL),
+(4, 'aut inventore', 'aut-inventore', 'Corporis fugit explicabo et consequuntur. Velit sunt repudiandae excepturi voluptas velit saepe labore culpa. Facilis iusto numquam minima iusto alias corrupti quam quas.', 'Labore voluptates sed nesciunt nam distinctio maxime. Distinctio provident vero natus distinctio quo qui fugiat. Aut dolores mollitia cum et dignissimos. Optio deleniti hic ut repellendus. Qui vero doloribus dolores assumenda voluptatum explicabo rem officiis. Ea sequi qui voluptatum. Sint vel qui repudiandae culpa. Autem sit esse dolor provident fugit molestias. Quidem qui odio labore eaque voluptatem ullam vero.', '103.00', NULL, 'DIGI389', 'in_stock', 0, 131, 'digital_18.jpg', NULL, 1, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
+(6, 'aut quia', 'aut-quia', 'Est esse odit fugiat nulla. Sint occaecati vel illo ipsum. Ipsum pariatur enim et velit ipsa architecto.', 'Temporibus nostrum dolorum officiis. Eaque qui at sit odit nobis velit. Et quia ipsam aliquid enim quisquam. Rerum sit consequatur quia culpa laboriosam dolorem quibusdam. Repellendus asperiores molestias beatae cumque illo. Iusto quia officia est voluptatem dicta et nobis. Et non magni odio voluptas iste. Doloribus quia sunt quas voluptas. Ea expedita qui velit sunt vel quasi. Officia perferendis omnis soluta reiciendis veritatis.', '387.00', NULL, 'DIGI131', 'in_stock', 0, 143, 'digital_3.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
+(7, 'architecto est', 'architecto-est', 'Quis iusto eaque sint voluptatem laboriosam. Excepturi illo id quia aut. Inventore expedita earum fugiat officia rerum est voluptas.', 'Pariatur dolores pariatur ducimus dolor. Totam impedit quod et voluptatem corporis. Ea et non odio qui qui. Ea et molestias excepturi. Iusto quia eum reprehenderit deserunt quod nesciunt sequi. Culpa sint quas temporibus quis voluptas. Nihil aliquid nihil at et animi et. Eveniet sit quidem dolorum. Eum doloribus molestias aut sequi. Deserunt necessitatibus aut id doloremque sed eos. Nam ut sint sunt qui veniam.', '396.00', NULL, 'DIGI139', 'in_stock', 0, 168, 'digital_7.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
+(8, 'nihil et', 'nihil-et', 'Veritatis rem est sed. Accusantium qui sint sunt blanditiis magni ab. Fugiat fuga totam esse et molestiae corrupti sequi. Facere nisi veritatis ut fuga commodi.', 'In sed soluta et aliquam. Totam quia itaque tempore nam. Est est similique omnis ipsam quae quis dolorem. Consequatur blanditiis rerum nostrum aut dolore quia. Rerum ratione aut nostrum. Distinctio asperiores id esse ea qui accusantium modi. Quis odio voluptatem qui. Dolor error totam impedit aspernatur. Autem voluptatem et eos commodi sit consequatur. Amet voluptas qui nesciunt at laborum at possimus. Tempore adipisci quae non voluptatem nihil dolor.', '403.00', NULL, 'DIGI408', 'in_stock', 0, 193, 'digital_9.jpg', NULL, 4, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
+(13, 'atque dolorem', 'atque-dolorem', 'Voluptas omnis voluptas qui earum incidunt ut. Qui rerum qui delectus maxime nihil.', 'Et rerum exercitationem placeat veniam est at voluptatibus. Placeat et magnam aut sapiente aliquid eum reiciendis. Incidunt accusamus enim sint laudantium. Sint necessitatibus doloremque aut veniam laborum. Mollitia praesentium sint natus dolorem. Qui quaerat ipsam quidem eum et. Mollitia consequatur a illo qui. Quia minima sequi fugit similique aut quod magni. Sed ipsa aut dignissimos modi at. Nostrum animi quis hic et maxime repellendus minus.', '86.00', NULL, 'DIGI313', 'in_stock', 0, 168, 'digital_10.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
+(15, 'voluptates maxime', 'voluptates-maxime', 'Cumque sunt sapiente ut numquam omnis delectus aut. Dolores doloremque ab quidem et. Incidunt nesciunt quae eos sunt et quod. Enim voluptatibus consequatur eaque fugiat quo.', 'Vel incidunt sapiente quidem. Ut eum quis harum a amet sit. Suscipit est ullam repellendus iste possimus nemo ex. Officiis molestias iure doloribus reiciendis. Qui labore architecto qui id. Quis libero praesentium commodi voluptatem maxime. Nostrum qui repudiandae non ut et facilis error nulla. Dolores consequatur rerum aut in.', '180.00', NULL, 'DIGI456', 'in_stock', 0, 199, 'digital_12.jpg', NULL, 1, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
+(16, 'sequi enim', 'sequi-enim', 'Sunt et commodi dolores tempore expedita vel. Enim id ratione voluptatem nemo eaque corporis et. Quisquam nemo dolorum sint provident. Ut magnam veritatis labore voluptas.', 'Tempore molestiae itaque beatae qui et at esse atque. Aperiam nobis eum quae aut excepturi fugit non. Corporis autem a similique magni eum voluptate nihil. Officiis alias architecto quam eum. Dicta voluptate et fugiat quia necessitatibus sunt dignissimos. Tempora dolores reprehenderit rerum id consectetur voluptatem. Temporibus ex saepe deleniti tenetur soluta. Praesentium praesentium est enim quia saepe officiis aliquid aut.', '278.00', NULL, 'DIGI273', 'in_stock', 0, 169, 'digital_2.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
+(17, 'impedit ut', 'impedit-ut', 'Aut soluta ducimus atque ex atque debitis molestias. Ex distinctio quibusdam fugit blanditiis sed deleniti. Qui eius minus sed perspiciatis deserunt enim ut. Soluta quia quis fuga numquam vero.', 'Velit corrupti recusandae non quis ipsum. Laboriosam ullam eum ea nesciunt dolore. Quis sunt omnis voluptas quos molestiae ab voluptatem. Maiores non qui ut et quo soluta. Voluptatem quia quam explicabo blanditiis iure dolor voluptate et. Nulla eos aut occaecati expedita possimus voluptatem dolor eos.', '266.00', '230.00', 'DIGI189', 'in_stock', 0, 163, 'digital_14.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-22 00:33:00', NULL),
+(18, 'eos beatae', 'eos-beatae', 'Hic nemo quaerat qui quia. Unde facere ipsum aliquid rem. Tempora et occaecati perferendis id est. Odio incidunt beatae quis illum delectus.', 'Necessitatibus rem incidunt ducimus et omnis. Voluptatibus et numquam nisi unde delectus placeat. Consectetur doloribus architecto iure omnis occaecati optio. Sint dolore et harum. Adipisci tenetur quisquam quia odit voluptatem corporis repellat. Quam velit velit aperiam. Cum est maiores unde eligendi excepturi voluptatum tempore. Labore quos non ut beatae sed architecto. Et in ab ea quis est veniam nostrum.', '372.00', NULL, 'DIGI262', 'in_stock', 0, 106, 'digital_15.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
+(24, 'New test product 1', 'new-test-product-1', '<p><strong>New test product 1&nbsp;</strong>short description</p>', '<p><strong>New test product 1</strong>&nbsp;description</p>', '555.00', '650.00', 'DIGI434', 'in_stock', 0, 11, '1669542685.jpg', ',16695426850.jpg,16695426851.jpg', 5, '2022-11-27 02:51:25', '2022-11-27 02:51:25', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_attributes`
+--
+
+CREATE TABLE `product_attributes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_attributes`
+--
+
+INSERT INTO `product_attributes` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(2, 'Cay', '2022-11-28 23:50:22', '2022-11-28 23:50:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profiles`
+--
+
+CREATE TABLE `profiles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `line1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `line2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `province` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `zip_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `profiles`
+--
+
+INSERT INTO `profiles` (`id`, `user_id`, `image`, `mobile`, `line1`, `line2`, `city`, `province`, `country`, `zip_code`, `created_at`, `updated_at`) VALUES
+(1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-28 05:53:10', '2022-11-28 05:53:10'),
+(2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-01 00:55:03', '2022-12-01 00:55:03');
 
 -- --------------------------------------------------------
 
@@ -431,10 +493,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('4IpFO9j2STj4xXZibPOgEcD2AsvhmPbuy8NQXQGY', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.56', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVjBodVE2NG9CMkY2NVVsZVNoQU1DTVl2OXhXdnFYaEZkcllySkVCNCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fX0=', 1669552258),
-('RxeUviQ8DNqDNppgFD4ysfJO9CDmhyBef8U9u5zz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.56', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieVJvdWp1QUtCRmdvclB1VUl0d296VVZyTDZCbkJrbk1TWHg2NmxwRiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9mb3Jnb3QtcGFzc3dvcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1669549224),
-('SScxye65ihjbS3kX8rz33YzXJQZHgEeBxsz908N7', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.56', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiajdLaW9ia3pYNFE1SnBYWjN5NExhTVY4TEZ0VGVQTFVUMVFoemM1cyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fX0=', 1669544721),
-('YJbsGxsn0iArU0wcN5TpdSD9z8ZFsSh94wwJJrCm', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.56', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTXdMNlF4dHVUTk5Ca2c3dWplcHpmS3I5WUxrVzFHaHhOaUNPT0xoQiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0L25ldy10ZXN0LXByb2R1Y3QtMSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo0OiJjYXJ0IjthOjE6e3M6NDoiY2FydCI7TzoyOToiSWxsdW1pbmF0ZVxTdXBwb3J0XENvbGxlY3Rpb24iOjI6e3M6ODoiACoAaXRlbXMiO2E6MTp7czozMjoiZWZiMjZlMmM2YWI2YmQ0ZDEzMjMyODg5MjM1MjJkNGUiO086MzI6Ikdsb3VkZW1hbnNcU2hvcHBpbmdjYXJ0XENhcnRJdGVtIjo5OntzOjU6InJvd0lkIjtzOjMyOiJlZmIyNmUyYzZhYjZiZDRkMTMyMzI4ODkyMzUyMmQ0ZSI7czoyOiJpZCI7aTo0O3M6MzoicXR5IjtpOjE7czo0OiJuYW1lIjtzOjEzOiJhdXQgaW52ZW50b3JlIjtzOjU6InByaWNlIjtkOjEwMztzOjc6Im9wdGlvbnMiO086Mzk6Ikdsb3VkZW1hbnNcU2hvcHBpbmdjYXJ0XENhcnRJdGVtT3B0aW9ucyI6Mjp7czo4OiIAKgBpdGVtcyI7YTowOnt9czoyODoiACoAZXNjYXBlV2hlbkNhc3RpbmdUb1N0cmluZyI7YjowO31zOjQ5OiIAR2xvdWRlbWFuc1xTaG9wcGluZ2NhcnRcQ2FydEl0ZW0AYXNzb2NpYXRlZE1vZGVsIjtzOjE4OiJBcHBcTW9kZWxzXFByb2R1Y3QiO3M6NDE6IgBHbG91ZGVtYW5zXFNob3BwaW5nY2FydFxDYXJ0SXRlbQB0YXhSYXRlIjtpOjIxO3M6NDE6IgBHbG91ZGVtYW5zXFNob3BwaW5nY2FydFxDYXJ0SXRlbQBpc1NhdmVkIjtiOjA7fX1zOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7fX1zOjg6ImNoZWNrb3V0IjthOjQ6e3M6ODoiZGlzY291bnQiO2k6MDtzOjg6InN1YnRvdGFsIjtzOjY6IjEwMy4wMCI7czozOiJ0YXgiO3M6NToiMjEuNjMiO3M6NToidG90YWwiO3M6NjoiMTI0LjYzIjt9fQ==', 1669564312);
+('7VpDrsYybXNw5iTG3nKKkCyyjqgkw9T8wj1qBojA', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.56', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUWdIT3BFdUMxSnNxbzhiRlJUTUVlVVlUSUo5WXFKcVMwb3JiNW1KNyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1669905584),
+('gYxFiCW6UPSHVZx0gezl0vFpgnayTOHh8m1nsMnm', NULL, '127.0.0.1', 'PostmanRuntime/7.29.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSXNLVXhjSDA4ckNVWUIzZlRDeVk1UWZrQ0F5QnNpaXA3UzFQZE1aUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1669903214),
+('ioKFVFDkCwAsMGvKqMtukfynbXIhhucnYsLV5AVk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.56', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWHNqbXpMMFhiaHNnd2tGWHBKS0lOZ1pGNkRMQm9EN2ZubkUzZWdISCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1669913971);
 
 -- --------------------------------------------------------
 
@@ -498,6 +559,55 @@ INSERT INTO `shippings` (`id`, `order_id`, `first_name`, `last_name`, `email`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `shoppingcart`
+--
+
+CREATE TABLE `shoppingcart` (
+  `identifier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `instance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `shoppingcart`
+--
+
+INSERT INTO `shoppingcart` (`identifier`, `instance`, `content`, `created_at`, `updated_at`) VALUES
+('admin@admin.com', 'cart', 'O:29:\"Illuminate\\Support\\Collection\":2:{s:8:\"\0*\0items\";a:0:{}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}', '2022-12-01 03:32:31', NULL),
+('admin@admin.com', 'wishlist', 'O:29:\"Illuminate\\Support\\Collection\":2:{s:8:\"\0*\0items\";a:0:{}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}', '2022-11-30 04:15:52', NULL),
+('user@user.com', 'cart', 'O:29:\"Illuminate\\Support\\Collection\":2:{s:8:\"\0*\0items\";a:2:{s:32:\"027c91341fd5cf4d2579b49c4b6a90da\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":9:{s:5:\"rowId\";s:32:\"027c91341fd5cf4d2579b49c4b6a90da\";s:2:\"id\";i:1;s:3:\"qty\";i:2;s:4:\"name\";s:13:\"molestiae nam\";s:5:\"price\";d:490;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":2:{s:8:\"\0*\0items\";a:0:{}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:18:\"App\\Models\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0isSaved\";b:0;}s:32:\"370d08585360f5c568b18d1f2e4ca1df\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":9:{s:5:\"rowId\";s:32:\"370d08585360f5c568b18d1f2e4ca1df\";s:2:\"id\";i:2;s:3:\"qty\";i:1;s:4:\"name\";s:14:\"mollitia optio\";s:5:\"price\";d:425;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":2:{s:8:\"\0*\0items\";a:0:{}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:18:\"App\\Models\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0isSaved\";b:0;}}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}', '2022-11-29 02:00:06', NULL),
+('user@user.com', 'wishlist', 'O:29:\"Illuminate\\Support\\Collection\":2:{s:8:\"\0*\0items\";a:2:{s:32:\"6aa0d4b8fac3c55a3e83b7e2b7d1cb97\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":9:{s:5:\"rowId\";s:32:\"6aa0d4b8fac3c55a3e83b7e2b7d1cb97\";s:2:\"id\";i:24;s:3:\"qty\";i:1;s:4:\"name\";s:18:\"New test product 1\";s:5:\"price\";d:555;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":2:{s:8:\"\0*\0items\";a:0:{}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:18:\"App\\Models\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0isSaved\";b:0;}s:32:\"370d08585360f5c568b18d1f2e4ca1df\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":9:{s:5:\"rowId\";s:32:\"370d08585360f5c568b18d1f2e4ca1df\";s:2:\"id\";i:2;s:3:\"qty\";i:1;s:4:\"name\";s:14:\"mollitia optio\";s:5:\"price\";d:425;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":2:{s:8:\"\0*\0items\";a:0:{}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:18:\"App\\Models\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0isSaved\";b:0;}}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}', '2022-11-29 01:39:32', NULL),
+('user2@user.com', 'cart', 'O:29:\"Illuminate\\Support\\Collection\":2:{s:8:\"\0*\0items\";a:1:{s:32:\"370d08585360f5c568b18d1f2e4ca1df\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":9:{s:5:\"rowId\";s:32:\"370d08585360f5c568b18d1f2e4ca1df\";s:2:\"id\";i:2;s:3:\"qty\";i:1;s:4:\"name\";s:14:\"mollitia optio\";s:5:\"price\";d:425;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":2:{s:8:\"\0*\0items\";a:0:{}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:18:\"App\\Models\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0isSaved\";b:0;}}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}', '2022-12-01 04:48:14', NULL),
+('user2@user.com', 'wishlist', 'O:29:\"Illuminate\\Support\\Collection\":2:{s:8:\"\0*\0items\";a:0:{}s:28:\"\0*\0escapeWhenCastingToString\";b:0;}', '2022-12-01 04:48:14', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subcategories`
+--
+
+CREATE TABLE `subcategories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subcategories`
+--
+
+INSERT INTO `subcategories` (`id`, `name`, `slug`, `category_id`, `created_at`, `updated_at`) VALUES
+(1, 'Lương Thực', 'luong-thuc', 36, '2022-11-28 01:39:42', '2022-11-28 02:56:33'),
+(2, 'Rau Củ', 'rau-cu', 36, '2022-11-28 01:41:03', '2022-11-28 02:56:21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transactions`
 --
 
@@ -518,7 +628,12 @@ CREATE TABLE `transactions` (
 INSERT INTO `transactions` (`id`, `user_id`, `order_id`, `mode`, `status`, `created_at`, `updated_at`) VALUES
 (1, 2, 3, 'cod', 'pending', '2022-11-23 21:35:43', '2022-11-23 21:35:43'),
 (2, 2, 13, 'card', 'approved', '2022-11-24 08:58:17', '2022-11-24 08:58:17'),
-(3, 2, 14, 'card', 'approved', '2022-11-25 07:40:05', '2022-11-25 07:40:05');
+(3, 2, 14, 'card', 'approved', '2022-11-25 07:40:05', '2022-11-25 07:40:05'),
+(4, 2, 15, 'cod', 'pending', '2022-11-27 09:56:54', '2022-11-27 09:56:54'),
+(5, 2, 16, 'cod', 'pending', '2022-11-27 10:04:12', '2022-11-27 10:04:12'),
+(6, 2, 17, 'cod', 'pending', '2022-11-27 10:04:50', '2022-11-27 10:04:50'),
+(7, 2, 18, 'cod', 'pending', '2022-11-27 10:08:26', '2022-11-27 10:08:26'),
+(8, 5, 19, 'cod', 'pending', '2022-11-29 02:10:13', '2022-11-29 02:10:13');
 
 -- --------------------------------------------------------
 
@@ -550,11 +665,20 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `utype`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@admin.com', NULL, '$2y$10$iXSztOs6B7/pwRNRZBLRRupwR8nPlGPP7p7/Euj2H2eILgn.Fsy..', NULL, NULL, NULL, NULL, NULL, NULL, 'ADM', '2022-11-18 09:48:20', '2022-11-18 09:48:20'),
 (2, 'User', 'user@user.com', NULL, '$2y$10$ouL.E/kSIkbDOQXJE/nfo.LF7NV4kojh0wsqovBR9OUlvbsAmwike', NULL, NULL, NULL, NULL, NULL, NULL, 'USR', '2022-11-18 09:48:54', '2022-11-25 09:26:47'),
-(4, 'Duc Nguyen', '20520450@gm.uit.edu.vn', NULL, '$2y$10$KQlk2jAZ5VWdAJMGbTr6eebQS/5XUwpCK2ktQlt/u7n.OJFbAMjIK', NULL, NULL, NULL, 'd7Dz0QHUN29PgUcauFCkykhcP9fCsa5r6zGFnIpERPAaPXhCcSpCJ7kSAaid', NULL, NULL, 'USR', '2022-11-27 05:14:22', '2022-11-27 05:30:57');
+(4, 'Duc Nguyen', '20520450@gm.uit.edu.vn', NULL, '$2y$10$KQlk2jAZ5VWdAJMGbTr6eebQS/5XUwpCK2ktQlt/u7n.OJFbAMjIK', NULL, NULL, NULL, 'd7Dz0QHUN29PgUcauFCkykhcP9fCsa5r6zGFnIpERPAaPXhCcSpCJ7kSAaid', NULL, NULL, 'USR', '2022-11-27 05:14:22', '2022-11-27 05:30:57'),
+(5, 'User2', 'user2@user.com', NULL, '$2y$10$N5iPwPBfgLSkC2rjYqkikeQr..Lcvrs6Poa0qwPXZqNHGM4L8LGBS', NULL, NULL, NULL, NULL, NULL, NULL, 'USR', '2022-11-28 05:20:53', '2022-11-28 05:20:53');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `attribute_values`
+--
+ALTER TABLE `attribute_values`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `attribute_values_product_attribute_id_foreign` (`product_attribute_id`),
+  ADD KEY `attribute_values_product_id_foreign` (`product_id`);
 
 --
 -- Indexes for table `categories`
@@ -637,7 +761,21 @@ ALTER TABLE `personal_access_tokens`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `products_slug_unique` (`slug`),
-  ADD KEY `products_category_id_foreign` (`category_id`);
+  ADD KEY `products_category_id_foreign` (`category_id`),
+  ADD KEY `products_subcategory_id_foreign` (`subcategory_id`);
+
+--
+-- Indexes for table `product_attributes`
+--
+ALTER TABLE `product_attributes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profiles_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `reviews`
@@ -674,6 +812,19 @@ ALTER TABLE `shippings`
   ADD KEY `shippings_order_id_foreign` (`order_id`);
 
 --
+-- Indexes for table `shoppingcart`
+--
+ALTER TABLE `shoppingcart`
+  ADD PRIMARY KEY (`identifier`,`instance`);
+
+--
+-- Indexes for table `subcategories`
+--
+ALTER TABLE `subcategories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subcategories_category_id_foreign` (`category_id`);
+
+--
 -- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
@@ -693,10 +844,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `attribute_values`
+--
+ALTER TABLE `attribute_values`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -732,19 +889,19 @@ ALTER TABLE `home_sliders`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -757,6 +914,18 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `product_attributes`
+--
+ALTER TABLE `product_attributes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `profiles`
+--
+ALTER TABLE `profiles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -783,20 +952,33 @@ ALTER TABLE `shippings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `subcategories`
+--
+ALTER TABLE `subcategories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `attribute_values`
+--
+ALTER TABLE `attribute_values`
+  ADD CONSTRAINT `attribute_values_product_attribute_id_foreign` FOREIGN KEY (`product_attribute_id`) REFERENCES `product_attributes` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `attribute_values_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `orders`
@@ -815,7 +997,14 @@ ALTER TABLE `order_items`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `products_subcategory_id_foreign` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD CONSTRAINT `profiles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `reviews`
@@ -828,6 +1017,12 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `shippings`
   ADD CONSTRAINT `shippings_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `subcategories`
+--
+ALTER TABLE `subcategories`
+  ADD CONSTRAINT `subcategories_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `transactions`
