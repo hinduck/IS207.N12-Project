@@ -15,7 +15,13 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Danh sách các đơn hàng
+                        <div class="row">
+                            <div class="col-md-6">Danh sách các đơn hàng</div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Search..."
+                                    wire:model="searchTerm">
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-body">
                         @if (Session::has('order_message'))
@@ -57,13 +63,13 @@
                                         <td>
                                             <a href="{{ route('admin.orderdetails', ['order_id' => $order->id]) }}"
                                                 class="btn btn-info btn-sm">
-                                                Details
+                                                Chi tiết
                                             </a>
                                         </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button class="btn btn-success btn-sm dropdown-toggle" type="button"
-                                                    data-toggle="dropdown">Status
+                                                    data-toggle="dropdown">Trạng thái
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu">

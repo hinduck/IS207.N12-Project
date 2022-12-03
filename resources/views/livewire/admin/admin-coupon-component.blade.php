@@ -14,10 +14,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-6">Danh sách các mã giảm giá</div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">Danh sách các mã giảm giá</div>
+                            <div class="col-md-4">
                                 <a href="{{ route('admin.addcoupon') }}" class="btn btn-success pull-right">Thêm mã giảm
                                     giá mới</a>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="Search..."
+                                    wire:model="searchTerm">
                             </div>
                         </div>
                     </div>

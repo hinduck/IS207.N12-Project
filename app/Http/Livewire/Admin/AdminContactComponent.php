@@ -7,6 +7,12 @@ use Livewire\Component;
 
 class AdminContactComponent extends Component
 {
+    public function deleteContact($id) {
+        $contact = Contact::find($id);
+        $contact->delete();
+        session()->flash('message', 'Liên hệ đã xóa thành công!');
+    }
+    
     public function render()
     {
         $contacts = Contact::paginate(12);

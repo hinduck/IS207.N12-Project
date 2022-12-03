@@ -21,31 +21,31 @@
                                 <form name="frm-contact" wire:submit.prevent="sendMessage">
 
                                     <label for="name">Họ và tên <span>*</span></label>
+                                    @error('name')
+                                        <span class="text-red-600">{{ $message }}</span>
+                                    @enderror
                                     <input type="text" value="" id="name" name="name"
                                         wire:model="name">
-                                    @error('name')
-                                        <span class="error">{{ $message }}</span>
-                                    @enderror
-
+                                    
                                     <label for="email">Email <span>*</span></label>
+                                    @error('email')
+                                        <span class="text-red-600">{{ $message }}</span>
+                                    @enderror
                                     <input type="text" value="" id="email" name="email"
                                         wire:model="email">
-                                    @error('email')
-                                        <span class="error">{{ $message }}</span>
-                                    @enderror
 
-                                    <label for="phone">Số điện thoại</label>
+                                    <label for="phone">Số điện thoại <span>*</span></label>
+                                    @error('phone')
+                                        <span class="text-red-600">{{ $message }}</span>
+                                    @enderror
                                     <input type="text" value="" id="phone" name="phone"
                                         wire:model="phone">
-                                    @error('phone')
-                                        <span class="error">{{ $message }}</span>
-                                    @enderror
 
-                                    <label for="comment">Lời nhắn của bạn</label>
-                                    <textarea name="comment" id="comment" wire:model="comment"></textarea>
+                                    <label for="comment">Lời nhắn của bạn <span>*</span></label>
                                     @error('comment')
-                                        <span class="error">{{ $message }}</span>
+                                        <span class="text-red-600">{{ $message }}</span>
                                     @enderror
+                                    <textarea name="comment" id="comment" wire:model="comment"></textarea>
 
                                     <input type="submit" name="ok" value="GỬI">
 

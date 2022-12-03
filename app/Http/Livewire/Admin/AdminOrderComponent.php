@@ -8,6 +8,8 @@ use Livewire\Component;
 
 class AdminOrderComponent extends Component
 {
+    public $searchTerm;
+
     public function updateOrderStatus($order_id, $status) {
         $order = Order::find($order_id);
         $order->status = $status;
@@ -25,7 +27,18 @@ class AdminOrderComponent extends Component
 
     public function render()
     {
-        $orders = Order::orderBy('created_at', 'DESC')->paginate(12);
+        $search = '%' . $this->searchTerm . '%';
+        $orders = Order::where('subtotal', 'LIKE', $search)
+                    ->orWhere('discount', 'LIKE', $search)
+                    ->orWhere('tax', 'LIKE', $search)
+                    ->orWhere('total', 'LIKE', $search)
+                    ->orWhere('first_name', 'LIKE', $search)
+                    ->orWhere('last_name', 'LIKE', $search)
+                    ->orWhere('mobile', 'LIKE', $search)
+                    ->orWhere('email', 'LIKE', $search)
+                    ->orWhere('zip_code', 'LIKE', $search)
+                    ->orWhere('status', 'LIKE', $search)
+                    ->orderBy('created_at', 'DESC')->paginate(10);
         return view('livewire.admin.admin-order-component', ['orders' => $orders])->layout("layouts.base");
     }
 }
