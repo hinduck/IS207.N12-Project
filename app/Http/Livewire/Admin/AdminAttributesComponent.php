@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class AdminAttributesComponent extends Component
 {
+    public $searchTerm;
+
     public function deleteAttribute($id)
     {
         $p_attribute = ProductAttribute::find($id);
@@ -16,7 +18,8 @@ class AdminAttributesComponent extends Component
 
     public function render()
     {
-        $p_attributes = ProductAttribute::paginate(10);
+        $search = '%' . $this->searchTerm . '%';
+        $p_attributes = ProductAttribute::where('name', 'LIKE', $search)->paginate(5);
         return view('livewire.admin.admin-attributes-component', ['p_attributes' => $p_attributes])->layout("layouts.base");
     }
 }

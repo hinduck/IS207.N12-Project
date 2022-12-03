@@ -28,10 +28,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-6">Danh sách các danh mục</div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">Danh sách các danh mục</div>
+                            <div class="col-md-4">
                                 <a href="{{ route('admin.addcategory') }}" class="btn btn-success pull-right">Thêm danh
                                     mục mới</a>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="Search..."
+                                    wire:model="searchTerm">
                             </div>
                         </div>
                     </div>

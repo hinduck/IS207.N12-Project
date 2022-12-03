@@ -17,6 +17,9 @@
                         Thông tin liên hệ
                     </div>
                     <div class="panel-body">
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+                        @endif
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -26,6 +29,7 @@
                                     <th>SĐT</th>
                                     <th>Lời nhắn</th>
                                     <th>Thời gian</th>
+                                    <th colspan="2">Phản hồi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,12 +38,25 @@
                                 @endphp
                                 @foreach ($contacts as $contact)
                                     <tr>
-                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $contact->id }}</td>
                                         <td>{{ $contact->name }}</td>
                                         <td>{{ $contact->email }}</td>
                                         <td>{{ $contact->phone }}</td>
                                         <td>{{ $contact->comment }}</td>
                                         <td>{{ $contact->created_at }}</td>
+                                        <td>
+                                            <a href="mailto:{{ $contact->email }}">
+                                                <i class="fa fa-paper-plane fa-2x"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a class="sub-link" href="#"
+                                            onclick="return confirm('Bạn có chắc muốn XÓA tin nhắn liên hệ này?') || event.stopImmediatePropagation()"
+                                            style="margin-left: 10px;"
+                                            wire:click.prevent="deleteContact({{ $contact->id }})">
+                                                <i class="fa fa-times fa-2x text-danger"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
