@@ -14,14 +14,17 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-4">
-                                Danh sách các sản phẩm
+                            <div class="col-md-3">
+                                <h4>Danh sách các sản phẩm</h4>
                             </div>
-                            <div class="col-md-4">
-                                <a href="{{ route('admin.addproduct') }}" class="btn btn-success pull-right">Thêm sản
+                            <div class="col-md-6">
+                                <a href="{{ route('admin.exportproductpdf') }}" class="btn btn-danger">
+                                    <i class="fa fa-print"></i>
+                                    Xuất PDF</a>
+                                <a href="{{ route('admin.addproduct') }}" class="btn btn-success">Thêm sản
                                     phẩm mới</a>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" placeholder="Search..."
                                     wire:model="searchTerm">
                             </div>

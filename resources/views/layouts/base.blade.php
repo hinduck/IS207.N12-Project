@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BaoThu Food</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
@@ -29,7 +28,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.css"
         integrity="sha512-qveKnGrvOChbSzAdtSs8p69eoLegyh+1hwOMbmpCViIwj7rn4oJjdmMvWOuyQlTOZgTlZA0N2PXA7iA8/2TUYA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     @livewireStyles
 </head>
 
@@ -269,6 +267,20 @@
 
         <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
         <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+
+        {{-- <script src="{{ asset('vendors/base/vendor.bundle.base.js') }}"></script>
+        <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
+        <script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+
+        <script src="{{ asset('js/off-canvas.js') }}"></script>
+        <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
+        <script src="{{ asset('js/template.js') }}"></script>
+
+        <script src="{{ asset('js/dashboard.js') }}"></script>
+        <script src="{{ asset('js/data-table.js') }}"></script>
+        <script src="{{ asset('js/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('js/dataTables.bootstrap4.js') }}"></script> --}}
 
         <!--Start of Tawk.to Script-->
         <script type="text/javascript">

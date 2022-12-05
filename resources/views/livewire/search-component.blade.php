@@ -20,7 +20,7 @@
 
                 <div class="wrap-shop-control">
 
-                    <h1 class="shop-title">Digital & Electronics</h1>
+                    <h1 class="shop-title">Danh mục sản phẩm</h1>
 
                     <div class="wrap-right">
 
@@ -87,7 +87,7 @@
                     </div>
                 @else
                     <div class="alert alert-warning">
-                        No items found
+                        Không tìm thấy sản phẩm phù hợp
                     </div>
                 @endif
 
