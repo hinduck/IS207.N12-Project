@@ -23,13 +23,13 @@
         <!--BANNER-->
         <div class="wrap-banner style-twin-default">
             <div class="banner-item">
-                <a href="#" class="link-banner banner-effect-1">
+                <a href="/shop" class="link-banner banner-effect-1">
                     <figure><img src="{{ asset('assets/images/home-1-banner-1.jpg') }}" alt="" width="580"
                             height="190"></figure>
                 </a>
             </div>
             <div class="banner-item">
-                <a href="#" class="link-banner banner-effect-1">
+                <a href="/shop" class="link-banner banner-effect-1">
                     <figure><img src="{{ asset('assets/images/home-1-banner-2.jpg') }}" alt="" width="580"
                             height="190"></figure>
                 </a>
@@ -38,6 +38,7 @@
 
         <!--On Sale-->
         @if ($sproducts->count() > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+        {{-- @if ($sproducts->count() > 0) --}}
             <div class="wrap-show-advance-info-box style-1 has-countdown">
                 <h3 class="title-box">Đang khuyến mãi</h3>
                 <div class="wrap-countdown mercado-countdown"

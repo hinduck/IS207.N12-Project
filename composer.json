@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0.2",
         "anhskohbo/no-captcha": "^3.4",
+        "barryvdh/laravel-dompdf": "^2.0",
         "cartalyst/stripe-laravel": "^14.0",
         "guzzlehttp/guzzle": "^7.2",
         "hardevine/shoppingcart": "^3.1",
@@ -15,6 +16,8 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
+        "maatwebsite/excel": "^3.1",
+        "psr/simple-cache": "2.0",
         "pusher/pusher-php-server": "^7.2"
     },
     "require-dev": {

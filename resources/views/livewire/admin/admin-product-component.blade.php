@@ -14,14 +14,17 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-4">
-                                Danh sách các sản phẩm
+                            <div class="col-md-3">
+                                <h4>Danh sách các sản phẩm</h4>
                             </div>
-                            <div class="col-md-4">
-                                <a href="{{ route('admin.addproduct') }}" class="btn btn-success pull-right">Thêm sản
+                            <div class="col-md-6">
+                                <button wire:click="export('pdf')" href="{{ route('admin.exportproductpdf') }}" class="btn btn-danger">
+                                    <i class="fa fa-print"></i>
+                                    Xuất PDF</button>
+                                <a href="{{ route('admin.addproduct') }}" class="btn btn-success">Thêm sản
                                     phẩm mới</a>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" placeholder="Search..."
                                     wire:model="searchTerm">
                             </div>
@@ -35,6 +38,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>ID</th>
                                     <th>Hình ảnh</th>
                                     <th>Tên</th>
@@ -49,6 +53,9 @@
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
+                                        <td>
+                                            <input type="checkbox" wire:model="selectedProducts.{{ $product->id }}">
+                                        </td>
                                         <td>{{ $product->id }}</td>
                                         <td>
                                             <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
@@ -76,7 +83,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $products->links() }}
+                        {{-- {{ $products->links() }} --}}
                     </div>
                 </div>
             </div>

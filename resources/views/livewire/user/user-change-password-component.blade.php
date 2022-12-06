@@ -15,7 +15,7 @@
                         @endif
                         <form action="" class="form-horizontal" wire:submit.prevent="changePassword">
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Mật khẩu cũ<span
+                                <label for="" class="col-md-4 control-label">Mật khẩu cũ <span
                                         class="text-red-600">*</span></label>
                                 <div class="col-md-4">
                                     <input type="password" placeholder="Old Password..." class="form-control input-md"
@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Mật khẩu mới<span
+                                <label for="" class="col-md-4 control-label">Mật khẩu mới <span
                                         class="text-red-600">*</span></label>
                                 <div class="col-md-4">
                                     <input type="password" placeholder="New Password..." class="form-control input-md"
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Xác nhận mật khẩu mới<span
+                                <label for="" class="col-md-4 control-label">Xác nhận mật khẩu mới <span
                                         class="text-red-600">*</span></label>
                                 <div class="col-md-4">
                                     <input type="password" placeholder="Confirm Password..."

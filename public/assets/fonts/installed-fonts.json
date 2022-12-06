@@ -1,0 +1,8 @@
+{
+    "montserrat": {
+        "normal": "D:\\xampp\\htdocs\\IS207.N12-Project\\vendor\\dompdf\\dompdf\/lib\/fonts\/Montserrat-Regular",
+        "bold": "D:\\xampp\\htdocs\\IS207.N12-Project\\vendor\\dompdf\\dompdf\/lib\/fonts\/Montserrat-Regular",
+        "italic": "D:\\xampp\\htdocs\\IS207.N12-Project\\vendor\\dompdf\\dompdf\/lib\/fonts\/Montserrat-Regular",
+        "bold_italic": "D:\\xampp\\htdocs\\IS207.N12-Project\\vendor\\dompdf\\dompdf\/lib\/fonts\/Montserrat-Regular"
+    }
+}

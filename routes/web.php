@@ -21,6 +21,7 @@ use App\Http\Livewire\Admin\AdminAttributesComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminEditAttributeComponent;
 use App\Http\Livewire\Admin\AdminEditCouponComponent;
+use App\Http\Livewire\Admin\AdminExportPDF;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminSettingComponent;
@@ -70,6 +71,7 @@ Route::get('/contact-us', ContactComponent::class)->name('contact');
 
 Route::get('/about-us', AboutUsComponent::class)->name('about');
 
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
@@ -99,9 +101,11 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}/{sCategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/products/add', AdminAddProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/products/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
+    Route::get('/admin/products/pdf', AdminExportPDF::class)->name('admin.exportproductpdf');
 
     Route::get('/admin/slider', AdminHomeSliderComponent::class)->name('admin.homeslider');
     Route::get('/admin/slider/add', AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
@@ -123,4 +127,5 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/attributes', AdminAttributesComponent::class)->name('admin.attributes');
     Route::get('/admin/attributes/add', AdminAddAttributeComponent::class)->name('admin.add_attribute');
     Route::get('/admin/attributes/edit/{attribute_id}', AdminEditAttributeComponent::class)->name('admin.edit_attribute');
+    
 });

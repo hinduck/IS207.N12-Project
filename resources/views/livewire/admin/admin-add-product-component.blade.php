@@ -238,21 +238,27 @@
 @push('scripts')
     <script>
         $(function() {
-            ClassicEditor.create(document.querySelector('#short_description'))
-                .then(editor => {
-                    window.editor = editor;
-                })
-                .catch(error => {
-                    console.error('There was a problem initializing the editor.', error);
-                });
+            tinymce.init({
+                selector: '#short_description',
+                setup: function(editor) {
+                    editor.on('Change', function(e) {
+                        tinyMCE.triggerSave();
+                        var sd_data = $('#short_description').val();
+                        @this.set('short_description', sd_data);
+                    });
+                }
+            });
 
-            ClassicEditor.create(document.querySelector('#description'))
-                .then(editor => {
-                    window.editor = editor;
-                })
-                .catch(error => {
-                    console.error('There was a problem initializing the editor.', error);
-                });
+            tinymce.init({
+                selector: '#description',
+                setup: function(editor) {
+                    editor.on('Change', function(e) {
+                        tinyMCE.triggerSave();
+                        var d_data = $('#description').val();
+                        @this.set('description', d_data);
+                    });
+                }
+            });
         });
     </script>
 @endpush
