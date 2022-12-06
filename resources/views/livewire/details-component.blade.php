@@ -24,8 +24,8 @@
                     <div class="detail-media">
                         <div class="product-gallery" wire:ignore>
                             <ul class="slides">
-                                <li data-thumb="{{ asset('assets/images/products/') }}/{{ $product->image }}">
-                                    <img src="{{ asset('assets/images/products/') }}/{{ $product->image }}"
+                                <li data-thumb="{{ asset('assets/images/products') }}/{{ $product->image }}">
+                                    <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
                                         alt="{{ $product->name }}" />
                                 </li>
                                 @php
@@ -33,8 +33,8 @@
                                 @endphp
                                 @foreach ($images as $image)
                                     @if ($image)
-                                        <li data-thumb="{{ asset('assets/images/products/') }}/{{ $image }}">
-                                            <img src="{{ asset('assets/images/products/') }}/{{ $image }}"
+                                        <li data-thumb="{{ asset('assets/images/products') }}/{{ $image }}">
+                                            <img src="{{ asset('assets/images/products') }}/{{ $image }}"
                                                 alt="{{ $product->name }}" />
                                         </li>
                                     @endif

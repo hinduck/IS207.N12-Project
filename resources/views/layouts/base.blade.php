@@ -265,8 +265,7 @@
             integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
-        <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+            <script src="https://cdn.tiny.cloud/1/7md9f3e2agh8oez2j2e5rniqcuvffhdn56a5k5mwhzjidm5u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>        <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 
         {{-- <script src="{{ asset('vendors/base/vendor.bundle.base.js') }}"></script>
         <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>

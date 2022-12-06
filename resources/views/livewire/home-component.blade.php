@@ -38,6 +38,7 @@
 
         <!--On Sale-->
         @if ($sproducts->count() > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+        {{-- @if ($sproducts->count() > 0) --}}
             <div class="wrap-show-advance-info-box style-1 has-countdown">
                 <h3 class="title-box">Đang khuyến mãi</h3>
                 <div class="wrap-countdown mercado-countdown"

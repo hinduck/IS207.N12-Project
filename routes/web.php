@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ExportPDF;
 use App\Http\Livewire\Admin\AdminAddAttributeComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
@@ -22,6 +21,7 @@ use App\Http\Livewire\Admin\AdminAttributesComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminEditAttributeComponent;
 use App\Http\Livewire\Admin\AdminEditCouponComponent;
+use App\Http\Livewire\Admin\AdminExportPDF;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminSettingComponent;
@@ -105,7 +105,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/products/add', AdminAddProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/products/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
-    Route::get('/admin/products/pdf', [ExportPDF::class, 'exportProduct'])->name('admin.exportproductpdf');
+    Route::get('/admin/products/pdf', AdminExportPDF::class)->name('admin.exportproductpdf');
 
     Route::get('/admin/slider', AdminHomeSliderComponent::class)->name('admin.homeslider');
     Route::get('/admin/slider/add', AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');

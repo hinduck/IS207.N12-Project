@@ -30,8 +30,7 @@ class AdminCategoryComponent extends Component
     {
         $search = '%' . $this->searchTerm . '%';
         $categories = Category::where('name', 'LIKE', $search)
-            ->orWhere('slug', 'LIKE', $search)
-            ->orderBy('id', 'DESC')->paginate(5);
+            ->orWhere('slug', 'LIKE', $search)->paginate(5);
         return view('livewire.admin.admin-category-component', ['categories' => $categories])->layout("layouts.base");
     }
 }

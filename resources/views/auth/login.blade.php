@@ -91,6 +91,11 @@
                                             title="Forgot password?">Quên mật khẩu?</a>
                                     </fieldset>
 
+                                    <fieldset class="wrap-input">
+                                        {!! NoCaptcha::renderJs('en-GB', false, 'onloadCallback') !!}
+                                        {!! NoCaptcha::display() !!}                              
+                                    </fieldset>
+
                                     <input type="submit" class="btn btn-submit" value="ĐĂNG NHẬP" name="submit">
                                 </form>
                             </div>
@@ -107,3 +112,9 @@
     </main>
     <!--main area-->
 </x-base-layout>
+
+<script>
+    var onloadCallback = function() {
+        alert("grecaptcha is ready!");
+    }
+</script>

@@ -13,16 +13,20 @@ class AdminSaleComponent extends Component
     public function mount()
     {
         $sale = Sale::find(1);
-        $this->sale_date = $sale->sale_date;
-        $this->status = $sale->status;
+        if ($sale) {
+            $this->sale_date = $sale->sale_date;
+            $this->status = $sale->status;
+        }
     }
 
     public function updateSale()
     {
         $sale = Sale::find(1);
-        $sale->sale_date = $this->sale_date;
-        $sale->status = $this->status;
-        $sale->save();
+        if ($sale) {
+            $sale->sale_date = $this->sale_date;
+            $sale->status = $this->status;
+            $sale->save();
+        }
         session()->flash('message', 'Cập nhật thành công!');
     }
 

@@ -137,7 +137,7 @@ class AdminAddProductComponent extends Component
             }
         }
 
-        session()->flash('message', 'Sản Phẩm đã tạo thành công!');
+        session()->flash('message', 'Sản Phẩm đã tạo thành công!');   
     }
 
     public function changeSubcategory()
