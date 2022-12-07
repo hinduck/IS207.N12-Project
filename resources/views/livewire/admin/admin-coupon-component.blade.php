@@ -48,7 +48,7 @@
                                         <td>{{ $coupon->code }}</td>
                                         <td>{{ $coupon->type }}</td>
                                         @if ($coupon->type == 'fixed')
-                                            <td>${{ $coupon->value }}</td>
+                                            <td>{{ $coupon->value }}đ</td>
                                         @else
                                             <td>{{ $coupon->value }}%</td>
                                         @endif

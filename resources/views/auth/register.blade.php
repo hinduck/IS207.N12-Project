@@ -129,6 +129,7 @@
                                     </fieldset>
 
                                     <input type="submit" class="btn btn-sign" value="ĐĂNG KÝ" name="register">
+                                    <a class="btn btn-submit pull-right" href="{{ route('login') }}" title="Login?">ĐÃ CÓ TÀI KHOẢN? ĐĂNG NHẬP NGAY</a>
                                 </form>
                             </div>
                         </div>

@@ -65,10 +65,10 @@
                                     class="product-name"><span>{{ $sproduct->name }}</span></a>
                                 <div class="wrap-price">
                                     <ins>
-                                        <p class="product-price">${{ $sproduct->sale_price }}</p>
+                                        <p class="product-price">{{ $sproduct->sale_price }}đ</p>
                                     </ins>
                                     <del>
-                                        <p class="product-price">${{ $sproduct->regular_price }}</p>
+                                        <p class="product-price">{{ $sproduct->regular_price }}đ</p>
                                     </del>
                                 </div>
                             </div>

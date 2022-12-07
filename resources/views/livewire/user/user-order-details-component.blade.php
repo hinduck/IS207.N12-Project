@@ -74,13 +74,13 @@
                                             </div>
                                         @endif
                                         <div class="price-field produtc-price">
-                                            <p class="price">${{ $item->price }}</p>
+                                            <p class="price">{{ $item->price }}đ</p>
                                         </div>
                                         <div class="quantity">
                                             <h5>{{ $item->quantity }}</h5>
                                         </div>
                                         <div class="price-field sub-total">
-                                            <p class="price">${{ $item->price * $item->quantity }}</p>
+                                            <p class="price">{{ $item->price * $item->quantity }}đ</p>
                                         </div>
                                     </li>
                                 @endforeach
@@ -92,11 +92,11 @@
                                 <h4 class="title-box">Chi tiết thanh toán</h4>
                                 <p class="summary-info">
                                     <span class="title">Tổng tiền sản phẩm</span>
-                                    <b class="index">${{ $order->subtotal }}</b>
+                                    <b class="index">{{ $order->subtotal }}đ</b>
                                 </p>
                                 <p class="summary-info">
                                     <span class="title">Thuế</span>
-                                    <b class="index">${{ $order->tax }}</b>
+                                    <b class="index">{{ $order->tax }}đ</b>
                                 </p>
                                 <p class="summary-info">
                                     <span class="title">Phí giao hàng</span>
@@ -104,7 +104,7 @@
                                 </p>
                                 <p class="summary-info">
                                     <span class="title">Tổng hóa đơn</span>
-                                    <b class="index">${{ $order->total }}</b>
+                                    <b class="index">{{ $order->total }}đ</b>
                                 </p>
                             </div>
                         </div>
