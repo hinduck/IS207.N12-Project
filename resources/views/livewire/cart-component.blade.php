@@ -43,7 +43,7 @@
                                     @endforeach
 
                                     <div class="price-field produtc-price">
-                                        <p class="price">${{ $item->model->regular_price }}</p>
+                                        <p class="price">{{ $item->model->regular_price }}đ</p>
                                     </div>
 
                                     <div class="quantity">
@@ -84,7 +84,7 @@
                     <div class="order-summary">
                         <h4 class="title-box">Thông tin đơn hàng</h4>
                         <p class="summary-info"><span class="title">Tổng tiền sản phẩm</span><b
-                                class="index">${{ Cart::instance('cart')->subtotal() }}</b></p>
+                                class="index">{{ Cart::instance('cart')->subtotal() }}đ</b></p>
                         @if (Session::has('coupon'))
                             <p class="summary-info">
                                 <span class="title">Chiết khấu ({{ Session::get('coupon')['code'] }})
@@ -92,22 +92,22 @@
                                         <i class="fa fa-times text-danger"></i>
                                     </a>
                                 </span>
-                                <b class="index">${{ number_format($discount, 2) }}</b>
+                                <b class="index">{{ number_format($discount, 2) }}đ</b>
                             </p>
                             <p class="summary-info"><span class="title">Tổng sau chiết khấu</span><b
-                                    class="index">${{ number_format($subtotalAfter, 2) }}</b></p>
+                                    class="index">{{ number_format($subtotalAfter, 2) }}đ</b></p>
                             <p class="summary-info"><span class="title">Thuế ({{ config('cart.tax') }}%)
                                     ({{ Session::get('coupon')['code'] }})</span><b
-                                    class="index">${{ number_format($taxAfter, 2) }}</b></p>
+                                    class="index">{{ number_format($taxAfter, 2) }}đ</b></p>
                             <p class="summary-info total-info "><span class="title">Total</span><b
-                                    class="index">${{ number_format($totalAfter, 2) }}</b></p>
+                                    class="index">{{ number_format($totalAfter, 2) }}đ</b></p>
                         @else
                             <p class="summary-info"><span class="title">Thuế</span><b
-                                    class="index">${{ Cart::instance('cart')->tax() }}</b></p>
+                                    class="index">{{ Cart::instance('cart')->tax() }}đ</b></p>
                             <p class="summary-info"><span class="title">Phí vận chuyển</span><b class="index">Miễn
                                     phí</b></p>
                             <p class="summary-info total-info "><span class="title">Tổng tiền hóa đơn</span><b
-                                    class="index">${{ Cart::instance('cart')->total() }}</b></p>
+                                    class="index">{{ Cart::instance('cart')->total() }}đ</b></p>
                         @endif
                     </div>
 
@@ -178,7 +178,7 @@
                                         href="{{ route('product.details', ['slug' => $item->model->slug]) }}">{{ $item->model->name }}</a>
                                 </div>
                                 <div class="price-field produtc-price">
-                                    <p class="price">${{ $item->model->regular_price }}</p>
+                                    <p class="price">{{ $item->model->regular_price }}đ</p>
                                 </div>
                                 <div class="quantity">
                                     <p class="text-center">

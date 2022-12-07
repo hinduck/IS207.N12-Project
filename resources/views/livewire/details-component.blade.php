@@ -78,13 +78,13 @@
                         </div>
                         @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                             <div class="wrap-price">
-                                <span class="product-price">${{ $product->sale_price }}</span>
+                                <span class="product-price">{{ $product->sale_price }}đ</span>
                                 <del>
-                                    <span class="product-price regprice">${{ $product->regular_price }}</span>
+                                    <span class="product-price regprice">{{ $product->regular_price }}đ</span>
                                 </del>
                             </div>
                         @else
-                            <div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span>
+                            <div class="wrap-price"><span class="product-price">{{ $product->regular_price }}đ</span>
                             </div>
                         @endif
                         <div class="stock-info in-stock">
@@ -263,9 +263,9 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-truck" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Free Shipping</b>
-                                        <span class="subtitle">On Oder Over $99</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <b class="title">Giao hàng miễn phí</b>
+                                        <span class="subtitle">Trợ giá 0 đồng</span>
+                                        <p class="desc">Giao hàng tận nơi với mức giá 0 đồng</p>
                                     </div>
                                 </a>
                             </li>
@@ -274,9 +274,9 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-gift" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Special Offer</b>
-                                        <span class="subtitle">Get a gift!</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <b class="title">Ưu đãi đặc biệt</b>
+                                        <span class="subtitle">Nhận ngay ưu đãi</span>
+                                        <p class="desc">Chương trình khuyến mãi vẫn đang diễn ra</p>
                                     </div>
                                 </a>
                             </li>
@@ -285,9 +285,9 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-reply" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Order Return</b>
-                                        <span class="subtitle">Return within 7 days</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <b class="title">Hoàn trả sản phẩm</b>
+                                        <span class="subtitle">Trong vòng 3 ngày</span>
+                                        <p class="desc">Áp dụng đối với sản phẩm đóng hộp (sản phẩm tươi sống trong ngày)</p>
                                     </div>
                                 </a>
                             </li>
@@ -296,7 +296,7 @@
                 </div><!-- Categories widget-->
 
                 <div class="widget mercado-widget widget-product">
-                    <h2 class="widget-title">Popular Products</h2>
+                    <h2 class="widget-title">Phổ biến</h2>
                     <div class="widget-content">
                         <ul class="products">
                             @foreach ($popular_products as $p_product)
@@ -314,7 +314,7 @@
                                             <a href="{{ route('product.details', ['slug' => $p_product->slug]) }}"
                                                 class="product-name"><span>{{ $p_product->name }}</span></a>
                                             <div class="wrap-price"><span
-                                                    class="product-price">{{ $p_product->regular_price }}</span></div>
+                                                    class="product-price">{{ $p_product->regular_price }}đ</span></div>
                                         </div>
                                     </div>
                                 </li>
@@ -328,7 +328,7 @@
 
             <div class="single-advance-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wrap-show-advance-info-box style-1 box-in-site">
-                    <h3 class="title-box">Related Products</h3>
+                    <h3 class="title-box">Đánh giá cao</h3>
                     <div class="wrap-products">
                         <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5"
                             data-loop="false" data-nav="true" data-dots="false"
@@ -344,17 +344,17 @@
                                             </figure>
                                         </a>
                                         <div class="group-flash">
-                                            <span class="flash-item new-label">new</span>
+                                            <span class="flash-item new-label">Mới</span>
                                         </div>
                                         <div class="wrap-btn">
-                                            <a href="#" class="function-link">quick view</a>
+                                            <a href="#" class="function-link">Chi tiết</a>
                                         </div>
                                     </div>
                                     <div class="product-info">
                                         <a href="{{ route('product.details', ['slug' => $r_product->slug]) }}"
                                             class="product-name"><span>{{ $r_product->name }}</span></a>
                                         <div class="wrap-price"><span
-                                                class="product-price">{{ $r_product->regular_price }}</span></div>
+                                                class="product-price">{{ $r_product->regular_price }}đ</span></div>
                                     </div>
                                 </div>
                             @endforeach

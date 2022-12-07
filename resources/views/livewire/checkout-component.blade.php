@@ -291,7 +291,7 @@
                         @if (Session::has('checkout'))
                             <p class="summary-info grand-total">
                                 <span>TỔNG ĐƠN HÀNG</span>
-                                <span class="grand-total-price">${{ Session::get('checkout')['total'] }}</span>
+                                <span class="grand-total-price">{{ Session::get('checkout')['total'] }}đ</span>
                             </p>
                         @endif
 

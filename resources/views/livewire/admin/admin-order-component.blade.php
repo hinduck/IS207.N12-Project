@@ -49,10 +49,10 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->id }}</td>
-                                        <td>${{ $order->subtotal }}</td>
-                                        <td>${{ $order->discount }}</td>
-                                        <td>${{ $order->tax }}</td>
-                                        <td>${{ $order->total }}</td>
+                                        <td>{{ $order->subtotal }}đ</td>
+                                        <td>{{ $order->discount }}đ</td>
+                                        <td>{{ $order->tax }}đ</td>
+                                        <td>{{ $order->total }}đ</td>
                                         <td>{{ $order->first_name }}</td>
                                         <td>{{ $order->last_name }}</td>
                                         <td>{{ $order->mobile }}</td>

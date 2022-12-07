@@ -91,12 +91,8 @@
                                             title="Forgot password?">Quên mật khẩu?</a>
                                     </fieldset>
 
-                                    <fieldset class="wrap-input">
-                                        {!! NoCaptcha::renderJs('en-GB', false, 'onloadCallback') !!}
-                                        {!! NoCaptcha::display() !!}                              
-                                    </fieldset>
-
-                                    <input type="submit" class="btn btn-submit" value="ĐĂNG NHẬP" name="submit">
+                                    <input type="submit" class="btn btn-submit pull-left" value="ĐĂNG NHẬP" name="submit">
+                                    <a class="btn btn-submit pull-right" href="{{ route('register') }}" title="Register?">CHƯA CÓ TÀI KHOẢN? ĐĂNG KÝ NGAY</a>
                                 </form>
                             </div>
                         </div>
@@ -112,9 +108,3 @@
     </main>
     <!--main area-->
 </x-base-layout>
-
-<script>
-    var onloadCallback = function() {
-        alert("grecaptcha is ready!");
-    }
-</script>

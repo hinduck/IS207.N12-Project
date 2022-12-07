@@ -104,7 +104,7 @@
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
                                             class="product-name"><span>{{ $product->name }}</span></a>
                                         <div class="wrap-price"><span
-                                                class="product-price">${{ $product->regular_price }}</span></div>
+                                                class="product-price">{{ $product->regular_price }}đ</span></div>
                                         <a href="#" class="btn add-to-cart"
                                             wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Add
                                             To Cart</a>
@@ -161,8 +161,8 @@
                 </div><!-- Categories widget-->
 
                 <div class="widget mercado-widget filter-widget price-filter">
-                    <h2 class="widget-title">Giá: <span class="text-info">${{ $min_price }} -
-                            ${{ $max_price }}</span></h2>
+                    <h2 class="widget-title">Giá: <span class="text-info">{{ $min_price }}đ -
+                            {{ $max_price }}đ</span></h2>
                     <div class="widget-content" style="padding: 10px 5px 40px 5px;">
                         <div id="slider" wire:ignore></div>
                     </div>
@@ -259,11 +259,11 @@
     <script>
         var slider = document.getElementById('slider');
         noUiSlider.create(slider, {
-            start: [1, 1000],
+            start: [1000, 999999],
             connect: true,
             range: {
-                'min': 1,
-                'max': 1000
+                'min': 1000,
+                'max': 999999
             },
             pips: {
                 mode: 'steps',

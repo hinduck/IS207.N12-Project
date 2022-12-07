@@ -57,6 +57,8 @@ Route::get('/cart', CartComponent::class)->name('product.cart');
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
+Route::get('/checkout/create-paypal', CreatePaypal::class)->name('create.paypal');
+
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 Route::get('/product-category/{category_slug}/{sCategory_slug?}', CategoryComponent::class)->name('product.category');
@@ -72,6 +74,7 @@ Route::get('/contact-us', ContactComponent::class)->name('contact');
 Route::get('/about-us', AboutUsComponent::class)->name('about');
 
 
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
@@ -81,7 +84,6 @@ Route::get('/about-us', AboutUsComponent::class)->name('about');
 //         return view('dashboard');
 //     })->name('dashboard');
 // });
-
 
 
 // For User or Customer

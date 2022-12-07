@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-xs-8 text-left">
                             <span class="icon-stat-label">TỔNG DOANH SỐ</span>
-                            <span class="icon-stat-value">${{ $totalRevenue }}</span>
+                            <span class="icon-stat-value">{{ $totalRevenue }}đ</span>
                         </div>
                         <div class="col-xs-4 text-center">
                             <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
@@ -97,7 +97,7 @@
                     <div class="row">
                         <div class="col-xs-8 text-left">
                             <span class="icon-stat-label">DOANH SỐ HÔM NAY</span>
-                            <span class="icon-stat-value">${{ $todayRevenue }}</span>
+                            <span class="icon-stat-value">{{ $todayRevenue }}đ</span>
                         </div>
                         <div class="col-xs-4 text-center">
                             <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
@@ -154,10 +154,10 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->id }}</td>
-                                        <td>${{ $order->subtotal }}</td>
-                                        <td>${{ $order->discount }}</td>
-                                        <td>${{ $order->tax }}</td>
-                                        <td>${{ $order->total }}</td>
+                                        <td>{{ $order->subtotal }}đ</td>
+                                        <td>{{ $order->discount }}đ</td>
+                                        <td>{{ $order->tax }}đ</td>
+                                        <td>{{ $order->total }}đ</td>
                                         <td>{{ $order->first_name }}</td>
                                         <td>{{ $order->last_name }}</td>
                                         <td>{{ $order->mobile }}</td>
