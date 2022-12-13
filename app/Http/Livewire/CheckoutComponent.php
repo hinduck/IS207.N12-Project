@@ -11,8 +11,11 @@ use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Cart;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Stripe;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class CheckoutComponent extends Component
 {
@@ -47,6 +50,19 @@ class CheckoutComponent extends Component
     public $cvc;
     public $exp_month;
     public $exp_year;
+
+    protected $listeners = [
+        'validationForAll',
+        'transactionEmit' => 'paidOnlineOrder'
+    ];
+
+    public function paidOnlineOrder($value) {
+        $this->makeTransaction($)
+    }
+
+    public function validationForAll() {
+        $this->validate();
+    }
 
     public function update($fields)
     {
@@ -253,7 +269,6 @@ class CheckoutComponent extends Component
                 $this->thank_you = 0;
             }
         }
-
         $this->sendOrderConfirmationEmail($order);
     }
 
@@ -279,6 +294,92 @@ class CheckoutComponent extends Component
     public function sendOrderConfirmationEmail($order)
     {
         Mail::to($order->email)->send(new OrderMail($order));
+    }
+
+    /**
+     * process transaction.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function processTransaction(Request $request)
+    {
+        $total = Session::get('total_paypal');
+
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $paypalToken = $provider->getAccessToken();
+
+        $response = $provider->createOrder([
+            "intent" => "CAPTURE",
+            "application_context" => [
+                "return_url" => route('successTransaction'),
+                "cancel_url" => route('cancelTransaction'),
+            ],
+            "purchase_units" => [
+                0 => [
+                    "amount" => [
+                        "currency_code" => "USD",
+                        "value" => $total
+                    ]
+                ]
+            ]
+        ]);
+
+        if (isset($response['id']) && $response['id'] != null) {
+
+            // redirect to approve href
+            foreach ($response['links'] as $links) {
+                if ($links['rel'] == 'approve') {
+                    return redirect()->away($links['href']);
+                }
+            }
+
+            return redirect()
+                ->route('checkout')
+                ->with('error', 'Thanh toán không thành công! Vui lòng thử lại.');
+        } 
+        else {
+            return redirect()
+                ->route('checkout')
+                ->with('error', $response['message'] ?? 'Thanh toán không thành công! Vui lòng thử lại.');
+        }
+    }
+
+    /**
+     * success transaction.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function successTransaction(Request $request)
+    {
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $provider->getAccessToken();
+        $response = $provider->capturePaymentOrder($request['token']);
+
+        if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            Session::put('success_paypal', true);
+            return redirect()
+                ->route('checkout')
+                ->with('success', 'Thanh toán Paypal thành công!');
+        } 
+        else {
+            return redirect()
+                ->route('checkout')
+                ->with('error', $response['message'] ?? 'Thanh toán không thành công! Vui lòng thử lại');
+        }
+    }
+
+    /**
+     * cancel transaction.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cancelTransaction(Request $request)
+    {
+        return redirect()
+            ->route('checkout')
+            ->with('error', $response['message'] ?? 'Bạn đã đóng giao dịch Paypal hiện tại.');
     }
 
     public function render()

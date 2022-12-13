@@ -25,7 +25,7 @@ use App\Http\Livewire\Admin\AdminExportPDF;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminSettingComponent;
-
+use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\User\UserChangePasswordComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\UserEditProfileComponent;
@@ -57,23 +57,19 @@ Route::get('/cart', CartComponent::class)->name('product.cart');
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
-Route::get('/checkout/create-paypal', CreatePaypal::class)->name('create.paypal');
-
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 Route::get('/product-category/{category_slug}/{sCategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::get('/search', SearchComponent::class)->name('product.search');
 
-Route::get('/wishlist',WishlistComponent::class)->name('product.wishlist');
+Route::get('/wishlist', WishlistComponent::class)->name('product.wishlist');
 
 Route::get('/thank-you', ThankYouComponent::class)->name('thankyou');
 
 Route::get('/contact-us', ContactComponent::class)->name('contact');
 
 Route::get('/about-us', AboutUsComponent::class)->name('about');
-
-
 
 // Route::middleware([
 //     'auth:sanctum',

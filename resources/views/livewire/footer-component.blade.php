@@ -17,7 +17,7 @@
                             <i class="fa fa-recycle" aria-hidden="true"></i>
                             <div class="wrap-left-info">
                                 <h4 class="fc-name">Đổi trả</h4>
-                                <p class="fc-desc">Trong vòng 7 ngày</p>
+                                <p class="fc-desc">Trong vòng 3 ngày</p>
                             </div>
 
                         </li>

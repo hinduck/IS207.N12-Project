@@ -11,7 +11,7 @@ class WishlistComponent extends Component
     {
         foreach (Cart::instance('wishlist')->content() as $wproducts) {
             if ($wproducts->id == $product_id) {
-                Cart::instance('wishlist')->remove($wproducts->rowID);
+                Cart::instance('wishlist')->remove($wproducts->rowId);
                 $this->emitTo('wishlist-count-component', 'refreshComponent');
                 return;
             }

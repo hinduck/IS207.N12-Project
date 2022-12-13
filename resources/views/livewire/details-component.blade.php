@@ -10,7 +10,16 @@
     </style>
 
     <div class="container">
-
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
         <div class="wrap-breadcrumb">
             <ul>
                 <li class="item-link"><a href="/" class="link">Trang chủ</a></li>
@@ -78,18 +87,20 @@
                         </div>
                         @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                             <div class="wrap-price">
-                                <span class="product-price">{{ $product->sale_price }}đ</span>
+                                <span class="product-price">{{ currency_format($product->sale_price) }}</span>
                                 <del>
-                                    <span class="product-price regprice">{{ $product->regular_price }}đ</span>
+                                    <span
+                                        class="product-price regprice">{{ currency_format($product->regular_price) }}</span>
                                 </del>
                             </div>
                         @else
-                            <div class="wrap-price"><span class="product-price">{{ $product->regular_price }}đ</span>
+                            <div class="wrap-price"><span
+                                    class="product-price">{{ currency_format($product->regular_price) }}</span>
                             </div>
                         @endif
                         <div class="stock-info in-stock">
                             <p class="availability">Tình trạng:
-                                @if($product->stock_status === "in_stock")
+                                @if ($product->stock_status === 'in_stock')
                                     <b>Còn Hàng</b>
                                 @else
                                     <b>Hết Hàng</b>
@@ -130,15 +141,13 @@
                             @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                                 <a href="#" class="btn add-to-cart"
                                     wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->sale_price }})">Thêm
-                                    vào Giỏ</a>
+                                    vào Giỏ Hàng</a>
                             @else
                                 <a href="#" class="btn add-to-cart"
                                     wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Thêm
-                                    vào Giỏ</a>
+                                    vào Giỏ Hàng</a>
                             @endif
                             <div class="wrap-btn">
-                                <a href="#" class="btn btn-compare"
-                                    wire:click.prevent="switchToSaveForLater('{{ $product->rowId }}')">Lưu để sau</a>
                                 <a href="#" class="btn btn-wishlist"
                                     wire:click.prevent="addToWishlist({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Thêm
                                     vào Yêu Thích</a>
@@ -287,7 +296,8 @@
                                     <div class="right-content">
                                         <b class="title">Hoàn trả sản phẩm</b>
                                         <span class="subtitle">Trong vòng 3 ngày</span>
-                                        <p class="desc">Áp dụng đối với sản phẩm đóng hộp (sản phẩm tươi sống trong ngày)</p>
+                                        <p class="desc">Áp dụng đối với sản phẩm đóng hộp (sản phẩm tươi sống trong
+                                            ngày)</p>
                                     </div>
                                 </a>
                             </li>
@@ -314,7 +324,8 @@
                                             <a href="{{ route('product.details', ['slug' => $p_product->slug]) }}"
                                                 class="product-name"><span>{{ $p_product->name }}</span></a>
                                             <div class="wrap-price"><span
-                                                    class="product-price">{{ $p_product->regular_price }}đ</span></div>
+                                                    class="product-price">{{ currency_format($p_product->regular_price) }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -354,7 +365,8 @@
                                         <a href="{{ route('product.details', ['slug' => $r_product->slug]) }}"
                                             class="product-name"><span>{{ $r_product->name }}</span></a>
                                         <div class="wrap-price"><span
-                                                class="product-price">{{ $r_product->regular_price }}đ</span></div>
+                                                class="product-price">{{ currency_format($r_product->regular_price) }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

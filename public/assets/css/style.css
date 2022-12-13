@@ -1839,7 +1839,7 @@ li.menu-item .nav-label.sale-label::before{
 .product-style-2 .product-info .wrap-price span.product-price{
     font-family: 'Lato', san-serif;
     font-weight: 700;
-    color: #222222;
+    color: #ff2832;
 }
 .wrap-product-detail .detail-info .wrap-price ins>p,
 .product .product-info .wrap-price ins>p,
@@ -4333,7 +4333,7 @@ article.single-post blockquote p:last-child::after{
     right: 8px;
 }
 .wrap-product-detail .detail-info .product-name{
-    font-size: 16px;
+    font-size: 20px;
     color: #222222;
     line-height: 18px;
     margin: 0 ;
@@ -4970,6 +4970,7 @@ table.shop_attributes tbody{
 }
 .summary-item .summary-info.grand-total span.grand-total-price{
     margin-left: 37px;
+    color: #ff2832;
 }
 .summary-item .btn.btn-medium{
     max-width: 249px;

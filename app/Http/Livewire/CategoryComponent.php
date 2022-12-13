@@ -16,12 +16,18 @@ class CategoryComponent extends Component
     public $category_slug;
     public $sCategory_slug;
 
+    public $min_price;
+    public $max_price;
+
     public function mount($category_slug, $sCategory_slug = null)
     {
         $this->sorting = "default";
         $this->pagesize = 12;
         $this->category_slug = $category_slug;
         $this->sCategory_slug = $sCategory_slug;
+
+        $this->min_price = 1000;
+        $this->max_price = 999999;
     }
 
     public function store($product_id, $product_name, $product_price)
@@ -51,13 +57,44 @@ class CategoryComponent extends Component
         }
 
         if ($this->sorting == 'date') {
-            $products = Product::where($filter . 'category_id', $category_id)->orderBy('created_at', 'DESC')->paginate($this->pagesize);
+            $products = Product::whereBetween(
+                'regular_price',
+                [
+                    $this->min_price,
+                    $this->max_price
+                ])
+                ->where($filter . 'category_id', $category_id)
+                ->orderBy('created_at', 'DESC')
+                ->paginate($this->pagesize);
         } else if ($this->sorting == "price") {
-            $products = Product::where($filter . 'category_id', $category_id)->orderBy('regular_price', 'ASC')->paginate($this->pagesize);
+            $products = Product::whereBetween(
+                'regular_price',
+                [
+                    $this->min_price,
+                    $this->max_price
+                ])
+                ->where($filter . 'category_id', $category_id)
+                ->orderBy('regular_price', 'ASC')
+                ->paginate($this->pagesize);
         } else if ($this->sorting == "price-desc") {
-            $products = Product::where($filter . 'category_id', $category_id)->orderBy('regular_price', 'DESC')->paginate($this->pagesize);
+            $products = Product::whereBetween(
+                'regular_price',
+                [
+                    $this->min_price,
+                    $this->max_price
+                ])
+                ->where($filter . 'category_id', $category_id)
+                ->orderBy('regular_price', 'DESC')
+                ->paginate($this->pagesize);
         } else {
-            $products = Product::where($filter . 'category_id', $category_id)->paginate($this->pagesize);
+            $products = Product::whereBetween(
+                'regular_price',
+                [
+                    $this->min_price,
+                    $this->max_price
+                ])
+                ->where($filter . 'category_id', $category_id)
+                ->paginate($this->pagesize);
         }
 
         $categories = Category::all();
