@@ -1,6 +1,15 @@
 <main id="main">
     <div class="container">
-
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
         <!--MAIN SLIDE-->
         <div class="wrap-main-slide">
             <div class="slide-carousel owl-carousel style-nav-1" data-items="1" data-loop="1" data-nav="true"
@@ -38,7 +47,7 @@
 
         <!--On Sale-->
         @if ($sproducts->count() > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
-        {{-- @if ($sproducts->count() > 0) --}}
+            {{-- @if ($sproducts->count() > 0) --}}
             <div class="wrap-show-advance-info-box style-1 has-countdown">
                 <h3 class="title-box">Đang khuyến mãi</h3>
                 <div class="wrap-countdown mercado-countdown"
@@ -65,10 +74,10 @@
                                     class="product-name"><span>{{ $sproduct->name }}</span></a>
                                 <div class="wrap-price">
                                     <ins>
-                                        <p class="product-price">{{ $sproduct->sale_price }}đ</p>
+                                        <p class="product-price">{{ currency_format($sproduct->sale_price) }}</p>
                                     </ins>
                                     <del>
-                                        <p class="product-price">{{ $sproduct->regular_price }}đ</p>
+                                        <p class="product-price">{{ currency_format($sproduct->regular_price) }}</p>
                                     </del>
                                 </div>
                             </div>
@@ -109,7 +118,8 @@
                                             <a href="{{ route('product.details', ['slug' => $lproduct->slug]) }}"
                                                 class="product-name"><span>{{ $lproduct->name }}</span></a>
                                             <div class="wrap-price"><span
-                                                    class="product-price">{{ $lproduct->regular_price }}</span></div>
+                                                    class="product-price">{{ currency_format($lproduct->regular_price) }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -167,7 +177,7 @@
                                                 <a href="{{ route('product.details', ['slug' => $cat_product->slug]) }}"
                                                     class="product-name"><span>{{ $cat_product->name }}</span></a>
                                                 <div class="wrap-price"><span
-                                                        class="product-price">{{ $cat_product->regular_price }}</span>
+                                                        class="product-price">{{ currency_format($cat_product->regular_price) }}</span>
                                                 </div>
                                             </div>
                                         </div>

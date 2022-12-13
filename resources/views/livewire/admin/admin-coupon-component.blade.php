@@ -9,6 +9,16 @@
         }
     </style>
     <div class="container" style="padding: 30px 0;">
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -48,7 +58,7 @@
                                         <td>{{ $coupon->code }}</td>
                                         <td>{{ $coupon->type }}</td>
                                         @if ($coupon->type == 'fixed')
-                                            <td>{{ $coupon->value }}đ</td>
+                                            <td>{{ currency_format($coupon->value) }}</td>
                                         @else
                                             <td>{{ $coupon->value }}%</td>
                                         @endif

@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Cart;
 use App\Models\Category;
+use App\Models\Sale;
 use Illuminate\Support\Facades\Auth;
 
 class ShopComponent extends Component
@@ -22,14 +23,14 @@ class ShopComponent extends Component
         $this->sorting = "default";
         $this->pagesize = 12;
 
-        $this->min_price = 1;
-        $this->max_price = 1000;
+        $this->min_price = 1000;
+        $this->max_price = 999999;
     }
 
     public function store($product_id, $product_name, $product_price)
     {
         Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
-        session()->flash('success_message', 'Item added in Cart');
+        session()->flash('success_message', 'Thêm sản phẩm vào giỏ hàng');
         return redirect()->route('product.cart');
     }
 
@@ -51,8 +52,13 @@ class ShopComponent extends Component
     }
 
     use WithPagination;
+    
     public function render()
     {
+        $product = Product::first();
+        $popular_products = Product::inRandomOrder()->limit(4)->get();
+        $related_products = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(5)->get();
+        $sale = Sale::find(1);
         if ($this->sorting == 'date') {
             $products = Product::whereBetween(
                 'regular_price',
@@ -97,8 +103,12 @@ class ShopComponent extends Component
         return view(
             'livewire.shop-component',
             [
+                'product' => $product,
                 'products' => $products,
-                'categories' => $categories
+                'categories' => $categories,
+                'popular_products' => $popular_products,
+                'related_products' => $related_products,
+                'sale' => $sale
             ]
         )->layout("layouts.base");
     }

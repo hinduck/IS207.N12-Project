@@ -59,13 +59,23 @@
         }
     </style>
     <div class="container">
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <div class="icon-stat">
                     <div class="row">
                         <div class="col-xs-8 text-left">
                             <span class="icon-stat-label">TỔNG DOANH SỐ</span>
-                            <span class="icon-stat-value">{{ $totalRevenue }}đ</span>
+                            <span class="icon-stat-value">{{ currency_format($totalRevenue) }}</span>
                         </div>
                         <div class="col-xs-4 text-center">
                             <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
@@ -97,7 +107,7 @@
                     <div class="row">
                         <div class="col-xs-8 text-left">
                             <span class="icon-stat-label">DOANH SỐ HÔM NAY</span>
-                            <span class="icon-stat-value">{{ $todayRevenue }}đ</span>
+                            <span class="icon-stat-value">{{ currency_format($todayRevenue) }}</span>
                         </div>
                         <div class="col-xs-4 text-center">
                             <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
@@ -154,10 +164,10 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->id }}</td>
-                                        <td>{{ $order->subtotal }}đ</td>
-                                        <td>{{ $order->discount }}đ</td>
-                                        <td>{{ $order->tax }}đ</td>
-                                        <td>{{ $order->total }}đ</td>
+                                        <td>{{ currency_format($order->subtotal) }}</td>
+                                        <td>{{ currency_format($order->discount) }}</td>
+                                        <td>{{ currency_format($order->tax) }}</td>
+                                        <td>{{ currency_format($order->total) }}</td>
                                         <td>{{ $order->first_name }}</td>
                                         <td>{{ $order->last_name }}</td>
                                         <td>{{ $order->mobile }}</td>

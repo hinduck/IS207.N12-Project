@@ -1,5 +1,15 @@
 <div>
     <div class="container" style="padding: 30px 0;">
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -70,13 +80,13 @@
                                             </div>
                                         @endif
                                         <div class="price-field produtc-price">
-                                            <p class="price">{{ $item->price }}đ</p>
+                                            <p class="price">{{ currency_format($item->price) }}</p>
                                         </div>
                                         <div class="quantity">
                                             <h5>{{ $item->quantity }}</h5>
                                         </div>
                                         <div class="price-field sub-total">
-                                            <p class="price">{{ $item->price * $item->quantity }}đ</p>
+                                            <p class="price">{{ currency_format($item->price * $item->quantity) }}</p>
                                         </div>
                                     </li>
                                 @endforeach
@@ -88,11 +98,11 @@
                                 <h4 class="title-box">Chi tiết thanh toán</h4>
                                 <p class="summary-info">
                                     <span class="title">Tổng tiền sản phẩm</span>
-                                    <b class="index">{{ $order->subtotal }}đ</b>
+                                    <b class="index">{{ currency_format($order->subtotal) }}</b>
                                 </p>
                                 <p class="summary-info">
                                     <span class="title">Thuế</span>
-                                    <b class="index">{{ $order->tax }}đ</b>
+                                    <b class="index">{{ currency_format($order->tax) }}</b>
                                 </p>
                                 <p class="summary-info">
                                     <span class="title">Phí giao hàng</span>
@@ -100,7 +110,7 @@
                                 </p>
                                 <p class="summary-info">
                                     <span class="title">Tổng hóa đơn</span>
-                                    <b class="index">{{ $order->total }}đ</b>
+                                    <b class="index">{{ currency_format($order->total) }}</b>
                                 </p>
                             </div>
                         </div>

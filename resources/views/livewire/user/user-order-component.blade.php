@@ -1,5 +1,4 @@
 <div>
-
     <style>
         nav svg {
             height: 20px;
@@ -11,6 +10,16 @@
     </style>
 
     <div class="container" style="padding: 30px 0;">
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -43,10 +52,10 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->id }}</td>
-                                        <td>{{ $order->subtotal }}đ</td>
-                                        <td>{{ $order->discount }}đ</td>
-                                        <td>{{ $order->tax }}đ</td>
-                                        <td>{{ $order->total }}đ</td>
+                                        <td>{{ currency_format($order->subtotal) }}</td>
+                                        <td>{{ currency_format($order->discount) }}</td>
+                                        <td>{{ currency_format($order->tax) }}</td>
+                                        <td>{{ currency_format($order->total) }}</td>
                                         <td>{{ $order->first_name }}</td>
                                         <td>{{ $order->last_name }}</td>
                                         <td>{{ $order->mobile }}</td>

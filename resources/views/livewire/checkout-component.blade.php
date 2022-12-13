@@ -16,6 +16,16 @@
     </style>
 
     <div class="container">
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
 
         <div class="wrap-breadcrumb">
             <ul>
@@ -31,17 +41,17 @@
                             <h3 class="box-title">Địa chỉ đơn hàng</h3>
                             <div class="billing-address">
                                 <p class="row-in-form">
-                                    <label for="fname">First name <span>*</span></label>
+                                    <label for="fname">Họ <span>*</span></label>
                                     <input type="text" name="fname" value="" placeholder="Your first name..."
-                                        wire:model="first_name">
+                                        wire:model="first_name" id="first_name">
                                     @error('first_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </p>
                                 <p class="row-in-form">
-                                    <label for="lname">Last name <span>*</span></label>
+                                    <label for="lname">Tên <span>*</span></label>
                                     <input type="text" name="lname" value="" placeholder="Your last name..."
-                                        wire:model="last_name">
+                                        wire:model="last_name" id="last_name">
                                     @error('last_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -49,7 +59,7 @@
                                 <p class="row-in-form">
                                     <label for="email">Địa chỉ Email <span>*</span></label>
                                     <input type="email" name="email" value="" placeholder="Type your email..."
-                                        wire:model="email">
+                                        wire:model="email" id="email">
                                     @error('email')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -58,7 +68,7 @@
                                     <label for="phone">Số Điện Thoại <span>*</span></label>
                                     <input type="number" name="phone" value=""
                                         placeholder="Phone number (10 digits)" pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                        required wire:model="mobile">
+                                        required wire:model="mobile" id="mobile">
                                     @error('mobile')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -66,7 +76,7 @@
                                 <p class="row-in-form">
                                     <label for="add">Số nhà - Tổ - Khu Phố</label>
                                     <input type="text" name="add" value=""
-                                        placeholder="Quarter and Sub-quarter" wire:model="line1">
+                                        placeholder="Quarter and Sub-quarter" wire:model="line1" id="line1">
                                     @error('line1')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -74,7 +84,7 @@
                                 <p class="row-in-form">
                                     <label for="add">Tên Đường</label>
                                     <input type="text" name="add" value=""
-                                        placeholder="Street at apartment number" wire:model="line2">
+                                        placeholder="Street at apartment number" wire:model="line2" id="line2">
                                     @error('line2')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -82,7 +92,7 @@
                                 <p class="row-in-form">
                                     <label for="city">Phường/Xã <span>*</span></label>
                                     <input type="text" name="province" value="" placeholder="Your province"
-                                        wire:model="province">
+                                        wire:model="province" id="province">
                                     @error('province')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -90,7 +100,7 @@
                                 <p class="row-in-form">
                                     <label for="city">Tỉnh/Thành Phố <span>*</span></label>
                                     <input type="text" name="city" value="" placeholder="Your City"
-                                        wire:model="city">
+                                        wire:model="city" id="city">
                                     @error('city')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -98,7 +108,7 @@
                                 <p class="row-in-form">
                                     <label for="country">Quốc gia <span>*</span></label>
                                     <input type="text" name="country" value="" placeholder="Your country"
-                                        wire:model="country">
+                                        wire:model="country" id="country">
                                     @error('country')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -106,7 +116,7 @@
                                 <p class="row-in-form">
                                     <label for="zip-code">Postcode / ZIP</label>
                                     <input ode" type="number" name="zip-code" value=""
-                                        placeholder="Your postal code" wire:model="zip_code">
+                                        placeholder="Your postal code" wire:model="zip_code" id="zip_code">
                                     @error('zip_code')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -115,7 +125,8 @@
                                     <label class="checkbox-field">
                                         <input name="different-add" id="different-add" value="1"
                                             type="checkbox" wire:model="shipToDifferent">
-                                        <span>Bạn muốn giao hàng đến <b class="text-red-600">ĐỊA CHỈ KHÁC</b> ?</span>
+                                        <span>Bạn muốn giao hàng đến <b class="text-red-600">ĐỊA CHỈ KHÁC</b>
+                                            ?</span>
                                     </label>
                                 </p>
                             </div>
@@ -128,17 +139,17 @@
                                 <h3 class="box-title">Địa chỉ giao hàng</h3>
                                 <div class="billing-address">
                                     <p class="row-in-form">
-                                        <label for="fname">First name <span>*</span></label>
+                                        <label for="fname">Họ <span>*</span></label>
                                         <input type="text" name="fname" value=""
-                                            placeholder="Your first name..." wire:model="first_name">
+                                            placeholder="Your first name..." wire:model="first_name" id="first_name">
                                         @error('first_name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </p>
                                     <p class="row-in-form">
-                                        <label for="lname">Last name <span>*</span></label>
+                                        <label for="lname">Tên <span>*</span></label>
                                         <input type="text" name="lname" value=""
-                                            placeholder="Your last name..." wire:model="last_name">
+                                            placeholder="Your last name..." wire:model="last_name" id="last_name">
                                         @error('last_name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -146,7 +157,7 @@
                                     <p class="row-in-form">
                                         <label for="email">Địa chỉ Email <span>*</span></label>
                                         <input type="email" name="email" value=""
-                                            placeholder="Type your email..." wire:model="email">
+                                            placeholder="Type your email..." wire:model="email" id="email">
                                         @error('email')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -155,7 +166,8 @@
                                         <label for="phone">Số Điện Thoại <span>*</span></label>
                                         <input type="number" name="phone" value=""
                                             placeholder="Phone number (10 digits)"
-                                            pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}" required wire:model="mobile">
+                                            pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}" required wire:model="mobile"
+                                            id="mobile">
                                         @error('mobile')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -163,7 +175,7 @@
                                     <p class="row-in-form">
                                         <label for="add">Số nhà - Tổ - Khu Phố</label>
                                         <input type="text" name="add" value=""
-                                            placeholder="Quarter and Sub-quarter" wire:model="line1">
+                                            placeholder="Quarter and Sub-quarter" wire:model="line1" id="line1">
                                         @error('line1')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -171,7 +183,8 @@
                                     <p class="row-in-form">
                                         <label for="add">Tên Đường</label>
                                         <input type="text" name="add" value=""
-                                            placeholder="Street at apartment number" wire:model="line2">
+                                            placeholder="Street at apartment number" wire:model="line2"
+                                            id="line2">
                                         @error('line2')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -179,7 +192,7 @@
                                     <p class="row-in-form">
                                         <label for="city">Phường/Xã <span>*</span></label>
                                         <input type="text" name="province" value=""
-                                            placeholder="Your province" wire:model="province">
+                                            placeholder="Your province" wire:model="province" id="province">
                                         @error('province')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -187,7 +200,7 @@
                                     <p class="row-in-form">
                                         <label for="city">Tỉnh/Thành Phố <span>*</span></label>
                                         <input type="text" name="city" value="" placeholder="Your City"
-                                            wire:model="city">
+                                            wire:model="city" id="city">
                                         @error('city')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -195,7 +208,7 @@
                                     <p class="row-in-form">
                                         <label for="country">Quốc gia <span>*</span></label>
                                         <input type="text" name="country" value=""
-                                            placeholder="Your country" wire:model="country">
+                                            placeholder="Your country" wire:model="country" id="country">
                                         @error('country')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -203,7 +216,7 @@
                                     <p class="row-in-form">
                                         <label for="zip-code">Postcode / ZIP</label>
                                         <input ode" type="number" name="zip-code" value=""
-                                            placeholder="Your postal code" wire:model="zip_code">
+                                            placeholder="Your postal code" wire:model="zip_code" id="zip_code">
                                         @error('zip_code')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -217,6 +230,15 @@
                 <div class="summary summary-checkout">
                     <div class="summary-item payment-method">
                         <h4 class="title-box">Phương thức thanh toán</h4>
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                            {{ Session::forget('error') }}
+                        @endif
+
+                        @if (Session::has('success'))
+                            <div class="alert alert-success">{{ Session::get('success') }}</div>
+                            {{ Session::forget('success') }}
+                        @endif
                         @if ($payment_mode == 'card')
                             <div class="wrap-address-billing">
                                 @if (Session::has('stripe_error'))
@@ -264,6 +286,7 @@
                             </div>
                         @endif
 
+
                         <div class="choose-payment-methods">
                             <label class="payment-method">
                                 <input name="payment-method" id="payment-method-bank" value="cod" type="radio"
@@ -277,21 +300,26 @@
                                 <span>Thẻ tín dụng / Thẻ ghi nợ</span>
                                 <span class="payment-desc">Vui lòng điền đầy đủ thông tin để xác nhận thanh toán</span>
                             </label>
-                            <label class="payment-method">
-                                <input name="payment-method" id="payment-method-paypal" value="paypal"
-                                    type="radio" wire:model="payment_mode">
-                                <span>Paypal</span>
-                                <span class="payment-desc">You can pay with your credit</span>
-                                <span class="payment-desc">card if you don't have a paypal account</span>
-                            </label>
+                            hoặc
+                            <div style="padding-top: 10px;" id="paypal-button-container" value="paypal" wire:model="payment_mode" wire:ignore></div>
                             @error('payment_mode')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        @php
+                            $vnd = Session::get('checkout')['total'];
+                            $usd = $vnd / 23925;
+                            $total_paypal = round($usd, 2);
+                            Session::put('total_paypal', $total_paypal);
+                        @endphp
+
                         @if (Session::has('checkout'))
                             <p class="summary-info grand-total">
-                                <span>TỔNG ĐƠN HÀNG</span>
-                                <span class="grand-total-price">{{ Session::get('checkout')['total'] }}đ</span>
+                                <span>THÀNH TIỀN:</span>
+                                <span class="grand-total-price"
+                                    value="{{ $total_paypal }} "><b>{{ currency_format($vnd) }}</b>
+                                </span>
                             </p>
                         @endif
 
@@ -308,11 +336,13 @@
 
                     <div class="summary-item shipping-method">
                         <h4 class="title-box f-title">Phương thức vận chuyển</h4>
-                        <p class="summary-info"><span class="title"><b>CÔNG TY CỔ PHẦN GIAO HÀNG TIẾT KIỆM</b></span></p>
+                        <p class="summary-info"><span class="title"><b>CÔNG TY CỔ PHẦN GIAO HÀNG TIẾT KIỆM</b></span>
+                        </p>
                         <a href="https://giaohangtietkiem.vn/" target="_blank"><img
                                 src="{{ asset('assets/images/brands/Logo-GHTK.png') }}" alt=""></a>
-                        <p class="summary-info"><h3 class="title">Trợ giá <b class="text-red-600">0 đồng</b></h3></p>
-
+                        <p class="summary-info">
+                        <h3 class="title">Trợ giá <b class="text-red-600">0 đồng</b></h3>
+                        </p>
                     </div>
                 </div>
             </form>
@@ -323,3 +353,35 @@
     <!--end container-->
 
 </main>
+
+@push('scripts')
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AawEuua7BSrWK6hraVKElNDWaKgyIDoQ_xW_FBYILMijvkfuSro-58WfSxNSzSSRlMqy2nbieiXAk72I&currency=USD&intent=capture"
+        data-sdk-integration-source="integrationbuilder"></script>
+
+    <script>
+        paypal.Buttons({
+            // Sets up the transaction when a payment button is clicked
+            createOrder: (data, actions) => {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '{{ $total_paypal }}' // Can also reference a variable or function
+                        }
+                    }]
+                });
+            },
+            // Finalize the transaction after payer approval
+            onApprove: (data, actions) => {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For dev/demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    const transaction = orderData.purchase_units[0].payments.captures[0];
+                    if (transaction.status == "COMPLETED") {
+                        Livewire.emit('transactionEmit', transaction.id)
+                    }
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+@endpush

@@ -20,7 +20,7 @@ class UserOrderDetailsComponent extends Component
         $order->status = 'canceled';
         $order->canceled_date = DB::raw('CURRENT_DATE');
         $order->save();
-        session()->flash('order_message', 'Order has been canceled!');
+        session()->flash('order_message', 'Đơn hàng đã hủy thành công!');
     }
 
     public function render()

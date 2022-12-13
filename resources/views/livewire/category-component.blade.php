@@ -1,7 +1,16 @@
 <main id="main" class="main-site left-sidebar">
 
     <div class="container">
-
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
         <div class="wrap-breadcrumb">
             <ul>
                 <li class="item-link"><a href="/" class="link">Trang chủ</a></li>
@@ -120,14 +129,10 @@
                 </div><!-- Categories widget-->
 
                 <div class="widget mercado-widget filter-widget price-filter">
-                    <h2 class="widget-title">Giá</h2>
-                    <div class="widget-content">
-                        <div id="slider-range"></div>
-                        <p>
-                            <label for="amount">Giá:</label>
-                            <input type="text" id="amount" readonly>
-                            <button class="filter-submit">Lọc</button>
-                        </p>
+                    <h2 class="widget-title">Giá: <span class="text-info">{{ currency_format($min_price) }} -
+                        {{ currency_format($max_price) }}</span></h2>
+                    <div class="widget-content" style="padding: 10px 5px 40px 5px;">
+                        <div id="slider" wire:ignore></div>
                     </div>
                 </div><!-- Price-->
 
@@ -217,3 +222,27 @@
     <!--end container-->
 
 </main>
+
+@push('scripts')
+    <script>
+        var slider = document.getElementById('slider');
+        noUiSlider.create(slider, {
+            start: [1000, 999999],
+            connect: true,
+            range: {
+                'min': 1000,
+                'max': 999999
+            },
+            pips: {
+                mode: 'steps',
+                stepped: true,
+                density: 4
+            }
+        });
+
+        slider.noUiSlider.on('update', function(value) {
+            @this.set('min_price', value[0]);
+            @this.set('max_price', value[1]);
+        });
+    </script>
+@endpush
