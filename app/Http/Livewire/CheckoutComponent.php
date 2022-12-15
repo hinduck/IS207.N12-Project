@@ -57,7 +57,7 @@ class CheckoutComponent extends Component
     ];
 
     public function paidOnlineOrder($value) {
-        $this->makeTransaction($)
+        $this->makeTransaction($value);
     }
 
     public function validationForAll() {
