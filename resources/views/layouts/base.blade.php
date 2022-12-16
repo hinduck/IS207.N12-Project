@@ -199,11 +199,11 @@
                                             class="nav-label hot-label">hot</span></li>
                                 <li class="menu-item"><a href="/shop" class="link-term">Khuyến mãi</a><span
                                             class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="/" class="link-term">Sản phẩm mới</a><span
+                                <li class="menu-item"><a href="/" class="link-term">Các món mới</a><span
                                             class="nav-label hot-label">hot</span></li>
                                 <li class="menu-item"><a href="/" class="link-term">Bán chạy nhất</a><span
                                             class="nav-label hot-label">hot</span></li>
-                                <li class="menu-item"><a href="/" class="link-term">Đánh giá cao</a><span
+                                <li class="menu-item"><a href="/" class="link-term">Đặt hàng ngay</a><span
                                             class="nav-label hot-label">hot</span></li>
                             </ul>
                         </div>
@@ -217,16 +217,16 @@
                                                 aria-hidden="true"></i></a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/about-us" class="link-term mercado-item-title">Về chúng tôi</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="/shop" class="link-term mercado-item-title">Cửa hàng</a>
+                                    <a href="/shop" class="link-term mercado-item-title">Đặt hàng ngay</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/cart" class="link-term mercado-item-title">Giỏ hàng</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/checkout" class="link-term mercado-item-title">Xác nhận thanh toán</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/about-us" class="link-term mercado-item-title">Về chúng tôi</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/contact-us" class="link-term mercado-item-title">Liên hệ</a>
