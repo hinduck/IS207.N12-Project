@@ -23,21 +23,21 @@
                     <div class="aboutus-box-score equal-elem ">
                         <b class="box-score-title">1000</b>
                         <span class="sub-title">sản phẩm</span>
-                        <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since the 1500s...</p>
+                        <p class="desc">Những sản phẩm của chúng tôi đều cam kết luôn tươi ngon và đảm bảo vệ sinh an toàn thực phẩm tuyệt đối</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="aboutus-box-score equal-elem ">
                         <b class="box-score-title">95%</b>
                         <span class="sub-title">khách hàng quay lại lần thứ 2 trở lên</span>
-                        <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since the 1500s...</p>
+                        <p class="desc">Khách hàng luôn tin tưởng sản phẩm của chúng tôi sau lần đầu thưởng thức những sản phẩm của chúng tôi với chất lượng tốt, đảm bảo cho sức khỏe.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="aboutus-box-score equal-elem ">
-                        <b class="box-score-titles">500000</b>
+                        <b class="box-score-title">500000</b>
                         <span class="sub-title">khách hàng đang trải nghiệm</span>
-                        <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since the 1500s...</p>
+                        <p class="desc">Số lượng khách hàng luôn đồng hành và chung tay trong sự phát triển của BaoThuFood chính là động lực để chúng tôi ngày càng phát triển hơn.</p>
                     </div>
                 </div>
             </div>
