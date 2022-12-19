@@ -56,9 +56,9 @@ class CheckoutComponent extends Component
         'transactionEmit' => 'paidOnlineOrder'
     ];
 
-    public function paidOnlineOrder($value) {
-        $this->makeTransaction($value);
-    }
+    //public function paidOnlineOrder($value) {
+   //     $this->makeTransaction($value);
+    //}
 
     public function validationForAll() {
         $this->validate();

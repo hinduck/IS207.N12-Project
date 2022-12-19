@@ -92,6 +92,13 @@
                                         <div class="price-field sub-total">
                                             <p class="price">{{ currency_format($item->price * $item->quantity) }}</p>
                                         </div>
+                                        @if($order->status == 'delivered' && $item->rstatus == false)
+                                            <div class="price-field sub-total">
+                                                <p class="price">
+                                                    <a href="{{route('user.review', ['order_item_id' => $item->id])}}">Đánh giá tại đây!</a>
+                                                </p>
+                                            </div>
+                                        @endif
                                     </li>
                                 @endforeach
                             </ul>
@@ -110,7 +117,7 @@
                                 </p>
                                 <p class="summary-info">
                                     <span class="title">Phí giao hàng</span>
-                                    <b class="index">Free Shipping</b>
+                                    <b class="index">Giao hàng miễn phí</b>
                                 </p>
                                 <p class="summary-info">
                                     <span class="title">Tổng hóa đơn</span>

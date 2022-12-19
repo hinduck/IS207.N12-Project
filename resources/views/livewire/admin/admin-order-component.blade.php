@@ -39,7 +39,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>OrderID</th>
+                                    <th>Mã đơn hàng</th>
                                     <th>Tổng tiền sản phẩm</th>
                                     <th>Chiết khấu</th>
                                     <th>Thuế</th>
