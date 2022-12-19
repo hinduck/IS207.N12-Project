@@ -46,7 +46,7 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="aboutus-info style-small-left">
-                        <b class="box-title">What we really do?</b>
+                        <b class="box-title">Sứ mệnh</b>
                         <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
                     </div>
                     <div class="aboutus-info style-small-left">
