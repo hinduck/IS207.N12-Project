@@ -8,16 +8,16 @@
                         <li class="fc-info-item">
                             <i class="fa fa-truck" aria-hidden="true"></i>
                             <div class="wrap-left-info">
-                                <h4 class="fc-name">Vận chuyển miễn phí</h4>
-                                <p class="fc-desc">Trợ giá cho 63 tỉnh thành</p>
+                                <h4 class="fc-name">Ship thần tốc</h4>
+                                <p class="fc-desc">Trợ giá cho đơn hàng nội thành</p>
                             </div>
 
                         </li>
                         <li class="fc-info-item">
                             <i class="fa fa-recycle" aria-hidden="true"></i>
                             <div class="wrap-left-info">
-                                <h4 class="fc-name">Đổi trả</h4>
-                                <p class="fc-desc">Trong vòng 3 ngày</p>
+                                <h4 class="fc-name">Đảm bảo nóng hổi</h4>
+                                <p class="fc-desc">Trong vòng 30 phút</p>
                             </div>
 
                         </li>
@@ -25,7 +25,7 @@
                             <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                             <div class="wrap-left-info">
                                 <h4 class="fc-name">Thanh toán an toàn</h4>
-                                <p class="fc-desc">Bảo mật đơn hàng của bạn</p>
+                                <p class="fc-desc">Bảo mật khách hàng</p>
                             </div>
 
                         </li>
@@ -213,9 +213,9 @@
 
                 <div class="wrap-back-link">
                     <div class="container">
-                        <div class="back-link-box">
+                        <!-- <div class="back-link-box">
                             <h3 class="backlink-title">Đường dẫn nhanh</h3>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

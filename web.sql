@@ -62,25 +62,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'quia ut', 'quia-ut', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
-(4, 'sapiente et', 'sapiente-et', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
-(5, 'et qui', 'et-qui', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
-(6, 'quas et', 'quas-et', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
-(11, 'qui voluptas', 'qui-voluptas', '2022-11-19 01:30:51', '2022-11-19 01:30:51'),
-(12, 'nulla est', 'nulla-est', '2022-11-19 01:30:51', '2022-11-19 01:30:51'),
-(13, 'minus eos', 'minus-eos', '2022-11-19 01:32:31', '2022-11-19 01:32:31'),
-(14, 'pariatur laborum', 'pariatur-laborum', '2022-11-19 01:32:31', '2022-11-19 01:32:31'),
-(15, 'aut sit', 'aut-sit', '2022-11-19 01:32:31', '2022-11-19 01:32:31'),
-(16, 'reiciendis et', 'reiciendis-et', '2022-11-19 01:32:31', '2022-11-19 01:32:31'),
-(17, 'vel reiciendis', 'vel-reiciendis', '2022-11-19 01:32:31', '2022-11-19 01:32:31'),
-(18, 'pariatur fuga', 'pariatur-fuga', '2022-11-19 01:32:31', '2022-11-19 01:32:31'),
-(19, 'et sed', 'et-sed', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(20, 'libero non', 'libero-non', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(21, 'minus id', 'minus-id', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(22, 'sint aut', 'sint-aut', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(23, 'dolorem ullam', 'dolorem-ullam', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(24, 'fuga nesciunt', 'fuga-nesciunt', '2022-11-19 01:33:26', '2022-11-19 01:33:26'),
-(36, 'Thực phẩm thiết yếu', 'thuc-pham-thiet-yeu', '2022-11-28 01:39:27', '2022-11-28 01:39:27');
+(1, 'Menu chính', 'menu-chinh', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
+(2, 'Menu điểm tâm', 'menu-diem-tam', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
+(3, 'Menu đồ uống', 'menu-do-uong', '2022-11-19 01:29:23', '2022-11-19 01:29:23'),
+(4, 'Menu ăn vặt', 'menu-an-vat', '2022-11-19 01:29:23', '2022-11-19 01:29:23')
 
 -- --------------------------------------------------------
 
@@ -126,10 +111,10 @@ CREATE TABLE `coupons` (
 -- Dumping data for table `coupons`
 --
 
-INSERT INTO `coupons` (`id`, `code`, `type`, `value`, `cart_value`, `created_at`, `updated_at`, `expiry_date`) VALUES
-(1, 'OFF100', 'fixed', '100.00', '1000.00', '2022-11-23 02:52:04', '2022-11-23 04:35:50', '2022-11-24'),
-(3, 'OFF20P', 'percent', '20.00', '1200.00', '2022-11-23 02:54:37', '2022-11-23 02:54:37', '2022-11-23'),
-(4, 'OFF30P', 'percent', '30.00', '1500.00', '2022-11-23 04:27:29', '2022-11-23 04:32:36', '2022-12-01');
+-- INSERT INTO `coupons` (`id`, `code`, `type`, `value`, `cart_value`, `created_at`, `updated_at`, `expiry_date`) VALUES
+-- (1, 'OFF100', 'fixed', '100.00', '1000.00', '2022-11-23 02:52:04', '2022-11-23 04:35:50', '2022-11-24'),
+-- (3, 'OFF20P', 'percent', '20.00', '1200.00', '2022-11-23 02:54:37', '2022-11-23 02:54:37', '2022-11-23'),
+-- (4, 'OFF30P', 'percent', '30.00', '1500.00', '2022-11-23 04:27:29', '2022-11-23 04:32:36', '2022-12-01');
 
 -- --------------------------------------------------------
 
@@ -166,7 +151,7 @@ CREATE TABLE `home_categories` (
 --
 
 INSERT INTO `home_categories` (`id`, `sel_categories`, `no_of_products`, `created_at`, `updated_at`) VALUES
-(1, '1,5,10', 6, '2022-11-21 07:50:54', '2022-11-21 01:05:31');
+(1, '1,2,3,4', 6, '2022-11-21 07:50:54', '2022-11-21 01:05:31');
 
 -- --------------------------------------------------------
 
@@ -269,14 +254,14 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `subtotal`, `discount`, `tax`, `total`, `first_name`, `last_name`, `mobile`, `email`, `line1`, `line2`, `city`, `province`, `country`, `zip_code`, `status`, `is_shipping_different`, `created_at`, `updated_at`, `delivered_date`, `canceled_date`) VALUES
-(3, 2, '490.00', '0.00', '102.90', '592.90', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'test1', 'test2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'canceled', 1, '2022-11-23 21:35:43', '2022-11-24 22:43:02', NULL, '2022-11-25'),
-(13, 2, '425.00', '0.00', '89.25', '514.25', 'Duc', 'Nguyen', '0931222333', 'ducnh.hindu@gmail.com', 'test1', 'test2', 'Ho Chi Minh City', '12', 'Vietnam', '70050', 'delivered', 0, '2022-11-24 08:58:13', '2022-11-24 22:42:15', '2022-11-25', NULL),
-(14, 2, '473.00', '0.00', '99.33', '572.33', 'Đức', 'Nguyễn', '0931222333', 'ducnh.hindu@gmail.com', 'demo1', 'demo2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'canceled', 0, '2022-11-25 07:40:02', '2022-11-25 07:40:33', NULL, '2022-11-25'),
-(15, 2, '490.00', '0.00', '102.90', '592.90', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'TEST', 'TEST2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 09:56:54', '2022-11-27 09:56:54', NULL, NULL),
-(16, 2, '555.00', '0.00', '116.55', '671.55', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'sub1', 'sub2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:04:12', '2022-11-27 10:04:12', NULL, NULL),
-(17, 2, '555.00', '0.00', '116.55', '671.55', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'demo1', 'TEST', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:04:50', '2022-11-27 10:04:50', NULL, NULL),
-(18, 2, '850.00', '0.00', '178.50', '1028.50', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', '98890', 'TEST', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:08:26', '2022-11-27 10:08:26', NULL, NULL),
-(19, 5, '850.00', '0.00', '178.50', '1028.50', 'Duc', 'Nguyen', '0931123456', 'ducnguyen06112002@gmail.com', 'Line 1', 'Line2', 'Ho Chi Minh City', 'false', 'Vietnam', '70050', 'ordered', 0, '2022-11-29 02:10:13', '2022-11-29 02:10:13', NULL, NULL);
+(1, 1, '490.00', '0.00', '102.90', '592.90', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'test1', 'test2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'canceled', 1, '2022-11-23 21:35:43', '2022-11-24 22:43:02', NULL, '2022-11-25'),
+(2, 3, '425.00', '0.00', '89.25', '514.25', 'Duc', 'Nguyen', '0931222333', 'ducnh.hindu@gmail.com', 'test1', 'test2', 'Ho Chi Minh City', '12', 'Vietnam', '70050', 'delivered', 0, '2022-11-24 08:58:13', '2022-11-24 22:42:15', '2022-11-25', NULL),
+(3, 3, '473.00', '0.00', '99.33', '572.33', 'Đức', 'Nguyễn', '0931222333', 'ducnh.hindu@gmail.com', 'demo1', 'demo2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'canceled', 0, '2022-11-25 07:40:02', '2022-11-25 07:40:33', NULL, '2022-11-25'),
+(4, 3, '490.00', '0.00', '102.90', '592.90', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'TEST', 'TEST2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 09:56:54', '2022-11-27 09:56:54', NULL, NULL),
+(5, 3, '555.00', '0.00', '116.55', '671.55', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'sub1', 'sub2', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:04:12', '2022-11-27 10:04:12', NULL, NULL),
+(6, 1, '555.00', '0.00', '116.55', '671.55', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', 'demo1', 'TEST', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:04:50', '2022-11-27 10:04:50', NULL, NULL),
+(7, 1, '850.00', '0.00', '178.50', '1028.50', 'Duc', 'Nguyen', '0937811400', '20520450@gm.uit.edu.vn', '98890', 'TEST', 'Ho Chi Minh City', '12', 'Vietnam', '70000', 'ordered', 0, '2022-11-27 10:08:26', '2022-11-27 10:08:26', NULL, NULL),
+(8, 2, '850.00', '0.00', '178.50', '1028.50', 'Duc', 'Nguyen', '0931123456', 'ducnguyen06112002@gmail.com', 'Line 1', 'Line2', 'Ho Chi Minh City', 'false', 'Vietnam', '70050', 'ordered', 0, '2022-11-29 02:10:13', '2022-11-29 02:10:13', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -301,11 +286,7 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`id`, `product_id`, `order_id`, `price`, `quantity`, `created_at`, `updated_at`, `rstatus`, `options`) VALUES
-(13, 2, 13, '425.00', 1, '2022-11-24 08:58:13', '2022-11-25 08:42:38', 1, NULL),
-(16, 24, 16, '555.00', 1, '2022-11-27 10:04:12', '2022-11-27 10:04:12', 0, NULL),
-(17, 24, 17, '555.00', 1, '2022-11-27 10:04:50', '2022-11-27 10:04:50', 0, NULL),
-(18, 2, 18, '425.00', 2, '2022-11-27 10:08:26', '2022-11-27 10:08:26', 0, NULL),
-(19, 2, 19, '425.00', 2, '2022-11-29 02:10:13', '2022-11-29 02:10:13', 0, NULL);
+(9, 1, 1, '50000', 2, '2022-11-24 08:58:13', '2022-11-25 08:42:38', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -369,17 +350,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `short_description`, `description`, `regular_price`, `sale_price`, `SKU`, `stock_status`, `featured`, `quantity`, `image`, `images`, `category_id`, `created_at`, `updated_at`, `subcategory_id`) VALUES
-(2, 'mollitia optio', 'mollitia-optio', 'Quia aut quia quia voluptatem. Commodi quia modi facere qui ut necessitatibus ullam.', 'Ab molestiae libero id iusto sequi doloremque. Aliquam ullam ipsum aut quam illo veritatis. Et ut non aspernatur ut voluptates. Deserunt consequatur id soluta ullam et non officiis. Fuga distinctio repudiandae nihil voluptas. Incidunt voluptatibus delectus quo ut libero omnis eius. Voluptatum minima iure ut molestiae recusandae consequatur eos. Corporis at atque eum dolor qui maxime et. Voluptas aut ipsum maxime est. Dolore tempora est minima.', '425.00', '400.00', 'DIGI416', 'in_stock', 0, 187, 'digital_13.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-22 00:32:34', NULL),
-(4, 'aut inventore', 'aut-inventore', 'Corporis fugit explicabo et consequuntur. Velit sunt repudiandae excepturi voluptas velit saepe labore culpa. Facilis iusto numquam minima iusto alias corrupti quam quas.', 'Labore voluptates sed nesciunt nam distinctio maxime. Distinctio provident vero natus distinctio quo qui fugiat. Aut dolores mollitia cum et dignissimos. Optio deleniti hic ut repellendus. Qui vero doloribus dolores assumenda voluptatum explicabo rem officiis. Ea sequi qui voluptatum. Sint vel qui repudiandae culpa. Autem sit esse dolor provident fugit molestias. Quidem qui odio labore eaque voluptatem ullam vero.', '103.00', NULL, 'DIGI389', 'in_stock', 0, 131, 'digital_18.jpg', NULL, 1, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
-(6, 'aut quia', 'aut-quia', 'Est esse odit fugiat nulla. Sint occaecati vel illo ipsum. Ipsum pariatur enim et velit ipsa architecto.', 'Temporibus nostrum dolorum officiis. Eaque qui at sit odit nobis velit. Et quia ipsam aliquid enim quisquam. Rerum sit consequatur quia culpa laboriosam dolorem quibusdam. Repellendus asperiores molestias beatae cumque illo. Iusto quia officia est voluptatem dicta et nobis. Et non magni odio voluptas iste. Doloribus quia sunt quas voluptas. Ea expedita qui velit sunt vel quasi. Officia perferendis omnis soluta reiciendis veritatis.', '387.00', NULL, 'DIGI131', 'in_stock', 0, 143, 'digital_3.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
-(7, 'architecto est', 'architecto-est', 'Quis iusto eaque sint voluptatem laboriosam. Excepturi illo id quia aut. Inventore expedita earum fugiat officia rerum est voluptas.', 'Pariatur dolores pariatur ducimus dolor. Totam impedit quod et voluptatem corporis. Ea et non odio qui qui. Ea et molestias excepturi. Iusto quia eum reprehenderit deserunt quod nesciunt sequi. Culpa sint quas temporibus quis voluptas. Nihil aliquid nihil at et animi et. Eveniet sit quidem dolorum. Eum doloribus molestias aut sequi. Deserunt necessitatibus aut id doloremque sed eos. Nam ut sint sunt qui veniam.', '396.00', NULL, 'DIGI139', 'in_stock', 0, 168, 'digital_7.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
-(8, 'nihil et', 'nihil-et', 'Veritatis rem est sed. Accusantium qui sint sunt blanditiis magni ab. Fugiat fuga totam esse et molestiae corrupti sequi. Facere nisi veritatis ut fuga commodi.', 'In sed soluta et aliquam. Totam quia itaque tempore nam. Est est similique omnis ipsam quae quis dolorem. Consequatur blanditiis rerum nostrum aut dolore quia. Rerum ratione aut nostrum. Distinctio asperiores id esse ea qui accusantium modi. Quis odio voluptatem qui. Dolor error totam impedit aspernatur. Autem voluptatem et eos commodi sit consequatur. Amet voluptas qui nesciunt at laborum at possimus. Tempore adipisci quae non voluptatem nihil dolor.', '403.00', NULL, 'DIGI408', 'in_stock', 0, 193, 'digital_9.jpg', NULL, 4, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
-(13, 'atque dolorem', 'atque-dolorem', 'Voluptas omnis voluptas qui earum incidunt ut. Qui rerum qui delectus maxime nihil.', 'Et rerum exercitationem placeat veniam est at voluptatibus. Placeat et magnam aut sapiente aliquid eum reiciendis. Incidunt accusamus enim sint laudantium. Sint necessitatibus doloremque aut veniam laborum. Mollitia praesentium sint natus dolorem. Qui quaerat ipsam quidem eum et. Mollitia consequatur a illo qui. Quia minima sequi fugit similique aut quod magni. Sed ipsa aut dignissimos modi at. Nostrum animi quis hic et maxime repellendus minus.', '86.00', NULL, 'DIGI313', 'in_stock', 0, 168, 'digital_10.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
-(15, 'voluptates maxime', 'voluptates-maxime', 'Cumque sunt sapiente ut numquam omnis delectus aut. Dolores doloremque ab quidem et. Incidunt nesciunt quae eos sunt et quod. Enim voluptatibus consequatur eaque fugiat quo.', 'Vel incidunt sapiente quidem. Ut eum quis harum a amet sit. Suscipit est ullam repellendus iste possimus nemo ex. Officiis molestias iure doloribus reiciendis. Qui labore architecto qui id. Quis libero praesentium commodi voluptatem maxime. Nostrum qui repudiandae non ut et facilis error nulla. Dolores consequatur rerum aut in.', '180.00', NULL, 'DIGI456', 'in_stock', 0, 199, 'digital_12.jpg', NULL, 1, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
-(16, 'sequi enim', 'sequi-enim', 'Sunt et commodi dolores tempore expedita vel. Enim id ratione voluptatem nemo eaque corporis et. Quisquam nemo dolorum sint provident. Ut magnam veritatis labore voluptas.', 'Tempore molestiae itaque beatae qui et at esse atque. Aperiam nobis eum quae aut excepturi fugit non. Corporis autem a similique magni eum voluptate nihil. Officiis alias architecto quam eum. Dicta voluptate et fugiat quia necessitatibus sunt dignissimos. Tempora dolores reprehenderit rerum id consectetur voluptatem. Temporibus ex saepe deleniti tenetur soluta. Praesentium praesentium est enim quia saepe officiis aliquid aut.', '278.00', NULL, 'DIGI273', 'in_stock', 0, 169, 'digital_2.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
-(17, 'impedit ut', 'impedit-ut', 'Aut soluta ducimus atque ex atque debitis molestias. Ex distinctio quibusdam fugit blanditiis sed deleniti. Qui eius minus sed perspiciatis deserunt enim ut. Soluta quia quis fuga numquam vero.', 'Velit corrupti recusandae non quis ipsum. Laboriosam ullam eum ea nesciunt dolore. Quis sunt omnis voluptas quos molestiae ab voluptatem. Maiores non qui ut et quo soluta. Voluptatem quia quam explicabo blanditiis iure dolor voluptate et. Nulla eos aut occaecati expedita possimus voluptatem dolor eos.', '266.00', '230.00', 'DIGI189', 'in_stock', 0, 163, 'digital_14.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-22 00:33:00', NULL),
-(18, 'eos beatae', 'eos-beatae', 'Hic nemo quaerat qui quia. Unde facere ipsum aliquid rem. Tempora et occaecati perferendis id est. Odio incidunt beatae quis illum delectus.', 'Necessitatibus rem incidunt ducimus et omnis. Voluptatibus et numquam nisi unde delectus placeat. Consectetur doloribus architecto iure omnis occaecati optio. Sint dolore et harum. Adipisci tenetur quisquam quia odit voluptatem corporis repellat. Quam velit velit aperiam. Cum est maiores unde eligendi excepturi voluptatum tempore. Labore quos non ut beatae sed architecto. Et in ab ea quis est veniam nostrum.', '372.00', NULL, 'DIGI262', 'in_stock', 0, 106, 'digital_15.jpg', NULL, 5, '2022-11-19 01:33:26', '2022-11-19 01:33:26', NULL),
-(24, 'New test product 1', 'new-test-product-1', '<p><strong>New test product 1&nbsp;</strong>short description</p>', '<p><strong>New test product 1</strong>&nbsp;description</p>', '555.00', '650.00', 'DIGI434', 'in_stock', 0, 11, '1669542685.jpg', ',16695426850.jpg,16695426851.jpg', 5, '2022-11-27 02:51:25', '2022-11-27 02:51:25', NULL);
+(1, 'Cơm tấm', 'com-tam', 'Cơm tấm Sài Gòn', 'Cơm tấm Sài Gòn có nguồn gốc không rõ', '42000', '40000', 'DIGI416', 'in_stock', 0, 187, 'digital_13.jpg', NULL, 1, '2022-11-19 01:33:26', '2022-11-22 00:32:34', 1);
 
 -- --------------------------------------------------------
 
@@ -399,7 +370,7 @@ CREATE TABLE `product_attributes` (
 --
 
 INSERT INTO `product_attributes` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(2, 'Cay', '2022-11-28 23:50:22', '2022-11-28 23:50:22');
+(1, 'Cay', '2022-11-28 23:50:22', '2022-11-28 23:50:22');
 
 -- --------------------------------------------------------
 

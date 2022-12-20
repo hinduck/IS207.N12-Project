@@ -56,12 +56,9 @@ class CheckoutComponent extends Component
         'transactionEmit' => 'paidOnlineOrder'
     ];
 
-    // public function paidOnlineOrder($order_id) {
-    //     $this->order_id = $order_id;
-    //     $this->payment_mode = 'paypal';
-
-
-    // }
+    public function paidOnlineOrder($value) {
+        $this->makeTransaction($value);
+    }
 
     public function validationForAll() {
         $this->validate();
