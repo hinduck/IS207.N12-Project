@@ -217,6 +217,9 @@
                                                 aria-hidden="true"></i></a>
                                 </li>
                                 <li class="menu-item">
+                                    <a href="/about-us" class="link-term mercado-item-title">Về chúng tôi</a>
+                                </li>
+                                <li class="menu-item">
                                     <a href="/shop" class="link-term mercado-item-title">Đặt hàng ngay</a>
                                 </li>
                                 <li class="menu-item">
@@ -224,9 +227,6 @@
                                 </li>
                                 <li class="menu-item">
                                     <a href="/checkout" class="link-term mercado-item-title">Xác nhận thanh toán</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="/about-us" class="link-term mercado-item-title">Về chúng tôi</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/contact-us" class="link-term mercado-item-title">Liên hệ</a>
