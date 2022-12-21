@@ -47,22 +47,22 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="aboutus-info style-small-left">
                         <b class="box-title">Sứ mệnh</b>
-                        <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                        <p class="txt-content">BaoThuFood luôn cam kết đảm bảo về chất lượng sản phẩm và dịch vụ ở mức tốt nhất. Với sứ mệnh đem lại một cách thức mới trong việc tiếp cận đến việc thưởng thức các món ăn theo xu hướng mới.</p>
                     </div>
                     <div class="aboutus-info style-small-left">
-                        <b class="box-title">History of the Company</b>
-                        <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                        <b class="box-title">Tầm nhìn</b>
+                        <p class="txt-content">Chúng tôi - BaoThuFood luôn không ngại thử thách, sẵn sàng vươn tầm trở thành một nhà phân phối chuỗi thức ăn mạnh mẽ của Việt Nam và khắp Đông Nam Á.</p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="aboutus-info style-small-left">
-                        <b class="box-title">Our Vision</b>
-                        <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                        <b class="box-title">Định hướng</b>
+                        <p class="txt-content">Trong tương lai, chúng tôi sẽ phát triển trở thành một trong những chuỗi cửa hàng cung cấp thức ăn hàng đầu tại Việt Nam. Khách hàng chính là đồng lực cho chúng tôi ngày càng phát triển vững mạnh.</p>
                     </div>
                     <div class="aboutus-info style-small-left">
-                        <b class="box-title">Cooperate with Us!</b>
-                        <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                        <b class="box-title">Hãy đến với chúng tôi!</b>
+                        <p class="txt-content">Vui lòng liên hệ đến các cổng thông tin trên website hoặc <a href="/contact-us">bấm vào đây</a> để trở thành một phần trong sự phát triển của BaoThuFood!</p>
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
             </div>
 
             <div class="our-team-info">
-                <h4 class="title-box">Những đồng đội</h4>
+                <h4 class="title-box">Những người đồng đội</h4>
                 <div class="our-staff">
                     <div 
                         class="slide-carousel owl-carousel style-nav-1 equal-container" 

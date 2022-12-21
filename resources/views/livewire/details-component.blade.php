@@ -81,10 +81,6 @@
                         <div class="short-desc">
                             {!! $product->short_description !!}
                         </div>
-                        <div class="wrap-social">
-                            <a class="link-socail" href="#"><img
-                                    src="{{ asset('assets/images/social-list.png') }}" alt=""></a>
-                        </div>
                         @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                             <div class="wrap-price">
                                 <span class="product-price">{{ currency_format($product->sale_price) }}</span>
@@ -157,32 +153,11 @@
                     <div class="advance-info">
                         <div class="tab-control normal">
                             <a href="#description" class="tab-control-item active">Mô tả</a>
-                            <a href="#add_infomation" class="tab-control-item">Chi tiết về sản phẩm</a>
                             <a href="#review" class="tab-control-item">Đánh giá</a>
                         </div>
                         <div class="tab-contents">
                             <div class="tab-content-item active" id="description">
                                 {!! $product->description !!}
-                            </div>
-                            <div class="tab-content-item " id="add_infomation">
-                                <table class="shop_attributes">
-                                    <tbody>
-                                        <tr>
-                                            <th>Weight</th>
-                                            <td class="product_weight">1 kg</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Dimensions</th>
-                                            <td class="product_dimensions">12 x 15 x 23 cm</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Color</th>
-                                            <td>
-                                                <p>Black, Blue, Grey, Violet, Yellow</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
                             <div class="tab-content-item " id="review">
 
@@ -264,7 +239,7 @@
             <!--end main products area-->
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
-                <div class="widget widget-our-services ">
+                {{-- <div class="widget widget-our-services ">
                     <div class="widget-content">
                         <ul class="our-services">
 
@@ -303,8 +278,7 @@
                             </li>
                         </ul>
                     </div>
-                </div><!-- Categories widget-->
-
+                </div><!-- Categories widget--> --}}
                 <div class="widget mercado-widget widget-product">
                     <h2 class="widget-title">Phổ biến</h2>
                     <div class="widget-content">
@@ -333,7 +307,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
             <!--end sitebar-->
 
