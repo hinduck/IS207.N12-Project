@@ -30,7 +30,7 @@ Primary use:    Ecommerce
 /*------------------------------------------------------------------
 [Color codes]
 
-    Option Color 1 : #ff2832;
+    Option Color 1 : #dc1c16;
 
     Option Color 2 : #365db5;
 
@@ -51,7 +51,7 @@ Primary use:    Ecommerce
 
 
 body{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	font-size: 13px;
 	color: #444444;
 	overflow-x: hidden;
@@ -142,7 +142,7 @@ input,textarea{
     padding: 0 0 30px 0;
 }
 .mercado-clone-wrap .megamenu-item li > a{
-    font-family:'Lato', san-serif;
+    font-family: 'Oswald', ;
 }
 .mercado-clone-wrap .megamenu-item li.menu-item > a{
     display: inline-block;
@@ -463,6 +463,7 @@ input,textarea{
 	position: relative;
 	max-width: 522px;
 	width: 100%;
+    border-radius: 5px;
 }
 .header.fill-color .center-section .wrap-search-form{
     border-color: #ffffff;
@@ -696,11 +697,11 @@ li.menu-item .nav-label.new-label::before{
 }
 
 li.menu-item .nav-label.sale-label{
-	background: #ff2832;
+	background: #dc1c16;
 }
 li.menu-item .nav-label.sale-label::before{
-	border-top-color: #ff2832;
-	border-left-color: #ff2832;
+	border-top-color: #dc1c16;
+	border-left-color: #dc1c16;
 }
 
 .header-nav-section li:not(:last-child)::after{
@@ -1058,7 +1059,7 @@ li.menu-item .nav-label.sale-label::before{
 }
 .wrap-main-slide .slide-1 .sale-info .price{
     font-weight: 700;
-    color: #ff2832;
+    color: #dc1c16;
     font-size: 24px;
 }
 .wrap-main-slide .slide-3 .btn-link,
@@ -1080,7 +1081,7 @@ li.menu-item .nav-label.sale-label::before{
 .wrap-main-slide .slide-2 .f-title{
     font-size: 40px;
     line-height: 35px;
-    color: #ff2832;
+    color: #dc1c16;
     font-weight: 700;
     display: inline-block;
     text-transform: uppercase;
@@ -1155,7 +1156,7 @@ li.menu-item .nav-label.sale-label::before{
 .wrap-main-slide .slide-3 .sale-info .price{
     font-weight: 700;
     font-size: 25px;
-    color: #ff2832;
+    color: #dc1c16;
 }
 
 /* main slide's animate */
@@ -1589,7 +1590,7 @@ li.menu-item .nav-label.sale-label::before{
     width: 100%;
     /*float: left;*/
     text-align: left;
-    background-color: #ff2832;
+    background-color: #dc1c16;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -1771,12 +1772,12 @@ li.menu-item .nav-label.sale-label::before{
     border-left-color: #365db5;
 }
 .product .product-thumnail .group-flash .flash-item.sale-label{
-    background-color: #ff2832;
+    background-color: #dc1c16;
     margin-left: 8px;
 }
 .product .product-thumnail .group-flash .flash-item.sale-label::before{
-    border-top-color: #ff2832;
-    border-left-color: #ff2832;
+    border-top-color: #dc1c16;
+    border-left-color: #dc1c16;
 }
 .product .product-info .product-name span,
 .product-style-2 .product-info .product-name span{
@@ -1837,22 +1838,22 @@ li.menu-item .nav-label.sale-label::before{
 }
 .product .product-info .wrap-price span.product-price,
 .product-style-2 .product-info .wrap-price span.product-price{
-    font-family: 'Lato', san-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    color: #ff2832;
+    color: #dc1c16;
 }
 .wrap-product-detail .detail-info .wrap-price ins>p,
 .product .product-info .wrap-price ins>p,
 .product-style-2 .product-info .wrap-price ins>p{
     font-weight: 600;
-    color: #ff2832;
+    color: #dc1c16;
     text-align: left;
     padding-right: 8px;
 }
 .wrap-product-detail .detail-info .wrap-price del>p,
 .product .product-info .wrap-price del>p,
 .product-style-2 .product-info .wrap-price del>p{
-    font-family: 'Lato', san-serif;
+    font-family: 'Oswald';
     font-weight: 300;
     font-size: 13px !important;
     color: #aaaaaa;
@@ -2743,7 +2744,7 @@ li.menu-item .nav-label.sale-label::before{
 .ui-slider-horizontal .ui-slider-handle {
     top: -5px;
     margin-left: 0;
-    background-color: #ff2832;
+    background-color: #dc1c16;
 }
 .ui-slider-horizontal .ui-slider-range {
     top: 0;
@@ -2866,7 +2867,7 @@ vertical-align: top;
     border-radius: 50%;
 }
 .product-list-style .product-attribute li .attr-red-color{
-    background-color: #ff2832;
+    background-color: #dc1c16;
 }
 .product-list-style .product-attribute li .attr-yellow-color{
     background-color: #ecbf33;
@@ -2925,12 +2926,12 @@ vertical-align: top;
 }
 .product-list-style .advance-info .wrap-price ins>p{
     font-weight: 600;
-    color: #ff2832;
+    color: #dc1c16;
     text-align: left;
     padding-right: 8px;
 }
 .product-list-style .advance-info .wrap-price del>p{
-    font-family: 'Lato', san-serif;
+    font-family: 'Oswald';
     font-weight: 300;
     color: #aaaaaa;
     position: relative;
@@ -3185,7 +3186,7 @@ vertical-align: top;
     font-weight: 400;
 }
 .wrap-contacts .contact-box label>span{
-    color: #ff2832;
+    color: #dc1c16;
     margin: 0;
     padding: 0;
 }
@@ -3791,7 +3792,7 @@ article.single-post blockquote p:first-child::before{
     color: #555555;
     display: inline-block;
     font-style: italic;
-    font-family: 'Georgia', sans-serif;
+    font-family: 'Oswald';
     float: left;
     font-weight: bold;
     line-height: 15px;
@@ -3802,7 +3803,7 @@ article.single-post blockquote p:last-child::after{
     color: #555555;
     display: inline-block;
     font-style: italic;
-    font-family: 'Georgia', sans-serif;
+    font-family: 'Oswald';
     float: right;
     font-weight: bold;
     line-height: 24px;
@@ -4089,7 +4090,7 @@ article.single-post blockquote p:last-child::after{
     outline: none;
 }
 .wrap-iten-in-cart .products-cart .delete a.btn:hover i{
-    color: #ff2832;
+    color: #dc1c16;
 }
 .shopping-cart .summary{
     display: inline-block;
@@ -4488,12 +4489,12 @@ article.single-post blockquote p:last-child::after{
 }
 .wrap-product-detail .detail-info .wrap-price ins>p{
     font-weight: 600;
-    color: #ff2832;
+    color: #dc1c16;
     text-align: left;
     padding-right: 8px;
 }
 .wrap-product-detail .detail-info .wrap-price del>p{
-    font-family: 'Lato', san-serif;
+    font-family: 'Raleway';
     font-weight: 300;
     font-size: 20px !important;
     color: #aaaaaa;
@@ -4506,7 +4507,7 @@ article.single-post blockquote p:last-child::after{
     text-align: left;
 }
 .wrap-product-detail .detail-info .stock-info.in-stock b{
-    color: #ff2832;
+    color: #dc1c16;
 }
 .wrap-product-detail .advance-info .tab-control,
 .wrap-product-detail .advance-info .tab-contents{
@@ -4846,7 +4847,7 @@ table.shop_attributes tbody{
     text-transform: uppercase;
 }
 .wrap-address-billing .row-in-form label span{
-    color: #ff2832;
+    color: #dc1c16;
 }
 .wrap-address-billing .row-in-form input[type=email],
 .wrap-address-billing .row-in-form input[type=text],
@@ -4970,7 +4971,7 @@ table.shop_attributes tbody{
 }
 .summary-item .summary-info.grand-total span.grand-total-price{
     margin-left: 37px;
-    color: #ff2832;
+    color: #dc1c16;
 }
 .summary-item .btn.btn-medium{
     max-width: 249px;
@@ -5598,7 +5599,7 @@ table.shop_attributes tbody{
 }
 .wrap-footer-item .wrap-hotline-footer .phone-number,
 .topbar-menu-area .topbar-menu .label-before.fa-mobile{
-    color: #ff2832 !important;
+    color: #dc1c16 !important;
 }
 .fill-color .header-nav-section ul li a{
     color: #ffffff;
@@ -5994,7 +5995,7 @@ background-color: #888888;
     filter: alpha(opacity=0);
     visibility: hidden;
     content: "view demo";
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
     text-align: center;
     font-size: 14px;
     color: #ffffff;
@@ -7138,7 +7139,7 @@ background-color: #888888;
 }
 
 .btn-submitx {
-	background: #ff2832;
+	background: #dc1c16;
 	font-size: 17px;
 	color: #ffffff;
 	line-height: 19px;

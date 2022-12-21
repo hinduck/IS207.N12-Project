@@ -1,53 +1,15 @@
 <div>
     <footer id="footer">
         <div class="wrap-footer-content footer-style-1">
-
-            <div class="wrap-function-info">
-                <div class="container">
-                    <ul>
-                        <li class="fc-info-item">
-                            <i class="fa fa-truck" aria-hidden="true"></i>
-                            <div class="wrap-left-info">
-                                <h4 class="fc-name">Ship thần tốc</h4>
-                                <p class="fc-desc">Trợ giá cho đơn hàng nội thành</p>
-                            </div>
-
-                        </li>
-                        <li class="fc-info-item">
-                            <i class="fa fa-recycle" aria-hidden="true"></i>
-                            <div class="wrap-left-info">
-                                <h4 class="fc-name">Đảm bảo nóng hổi</h4>
-                                <p class="fc-desc">Trong vòng 30 phút</p>
-                            </div>
-
-                        </li>
-                        <li class="fc-info-item">
-                            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-                            <div class="wrap-left-info">
-                                <h4 class="fc-name">Thanh toán an toàn</h4>
-                                <p class="fc-desc">Bảo mật khách hàng</p>
-                            </div>
-
-                        </li>
-                        <li class="fc-info-item">
-                            <i class="fa fa-life-ring" aria-hidden="true"></i>
-                            <div class="wrap-left-info">
-                                <h4 class="fc-name">Hỗ trợ trực tuyến</h4>
-                                <p class="fc-desc">Hỗ trợ khách hàng 24/7</p>
-                            </div>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--End function info-->
-
+            <style>
+                .main-footer-content {
+                    background: #FFEAE3;
+                    padding: 30px 0;
+                }
+            </style>
             <div class="main-footer-content">
-
                 <div class="container">
-
                     <div class="row">
-
                         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                             <div class="wrap-footer-item">
                                 <h3 class="item-header">Thông tin liên hệ</h3>
@@ -184,38 +146,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                            <div class="wrap-footer-item">
-                                <h3 class="item-header">Tải xuống</h3>
-                                <div class="item-content">
-                                    <div class="wrap-list-item apps-list">
-                                        <ul>
-                                            <li><a href="#" class="link-to-item"
-                                                    title="our application on apple store">
-                                                    <figure><img src="assets/images/brands/apple-store.png"
-                                                            alt="apple store" width="128" height="36"></figure>
-                                                </a></li>
-                                            <li><a href="#" class="link-to-item"
-                                                    title="our application on google play store">
-                                                    <figure><img src="assets/images/brands/google-play-store.png"
-                                                            alt="google play store" width="128" height="36">
-                                                    </figure>
-                                                </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="wrap-back-link">
-                    <div class="container">
-                        <!-- <div class="back-link-box">
-                            <h3 class="backlink-title">Đường dẫn nhanh</h3>
-                        </div> -->
                     </div>
                 </div>
 
