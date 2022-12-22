@@ -138,7 +138,10 @@
                                             @endif
                                         </div>
                                         <a href="#" class="btn add-to-cart"
-                                            wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Thêm vào Giỏ Hàng</a>
+                                            wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">
+                                            <i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>
+                                            Thêm vào Giỏ Hàng
+                                        </a>
                                         <div class="product-wishlist">
                                             @if ($wproducts->contains($product->id))
                                                 <a href="#"

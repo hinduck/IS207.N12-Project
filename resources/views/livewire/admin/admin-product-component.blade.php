@@ -9,6 +9,16 @@
         }
     </style>
     <div class="container" style="padding: 30px 0;">
+        @php
+            if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = 'đ')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
+                    }
+                }
+            }
+        @endphp
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -18,14 +28,15 @@
                                 <h4>Danh sách các sản phẩm</h4>
                             </div>
                             <div class="col-md-6">
-                                <button wire:click="export('pdf')" href="{{ route('admin.exportproductpdf') }}" class="btn btn-danger">
+                                <button wire:click="export('pdf')" href="{{ route('admin.exportproductpdf') }}"
+                                    class="btn btn-danger">
                                     <i class="fa fa-print"></i>
                                     Xuất PDF</button>
                                 <a href="{{ route('admin.addproduct') }}" class="btn btn-success">Thêm sản
                                     phẩm mới</a>
                             </div>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Search..."
+                                <input type="text" class="form-control" placeholder="Tìm kiếm..."
                                     wire:model="searchTerm">
                             </div>
                         </div>
@@ -60,11 +71,17 @@
                                         <td>
                                             <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
                                                 width="60">
-                                        </td>
+                                        </td>   
                                         <td>{{ $product->name }}</td>
-                                        <td>{{ $product->stock_status }}</td>
-                                        <td>{{ $product->regular_price }}</td>
-                                        <td>{{ $product->sale_price }}</td>
+
+                                        @if ( $product->stock_status  == 'in_stock')
+                                            <td>Còn Hàng</td> 
+                                        @else
+                                            <td>Hết Hàng</td>
+                                        @endif
+
+                                        <td>{{ currency_format($product->regular_price) }}</td>
+                                        <td>{{ currency_format($product->sale_price) }}</td>
                                         <td>{{ $product->category->name }}</td>
                                         <td>{{ $product->created_at }}</td>
                                         <td>
