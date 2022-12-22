@@ -243,7 +243,7 @@
                                         <a href="{{ route('product.details', ['slug' => $r_product->slug]) }}"
                                             class="product-name"><span>{{ $r_product->name }}</span></a>
                                         <div class="wrap-price"><span
-                                                class="product-price">{{ $r_product->regular_price }}đ</span></div>
+                                                class="product-price">{{ currency_format($r_product->regular_price) }}</span></div>
                                     </div>
                                 </div>
                             @endforeach

@@ -590,7 +590,6 @@ input,textarea{
 	display: inline-block;
 	width: 50%;
 	float: left;
-    border: 1px solid #ff0000;
 }
 header.fill-color .right-section .wrap-icon-section .title{
     color: #ffffff;
@@ -1768,7 +1767,7 @@ li.menu-item .nav-label.sale-label::before{
 }
 .product .product-thumnail .group-flash .flash-item.new-label{
     background-color: #365db5;
-    margin-left: 8px;
+    margin: 8px 10px;
 }
 .product .product-thumnail .group-flash .flash-item.new-label::before{
     border-top-color: #365db5;

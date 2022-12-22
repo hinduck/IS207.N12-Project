@@ -156,19 +156,6 @@
                     <div class="coppy-right-item item-left">
                         <p class="coppy-right-text">Copyright © 2022 Bao Thu Food - IS207.N12</p>
                     </div>
-                    <div class="coppy-right-item item-right">
-                        <div class="wrap-nav horizontal-nav">
-                            <ul>
-                                <li class="menu-item"><a href="about-us.html" class="link-term">Về chúng tôi</a></li>
-                                <li class="menu-item"><a href="privacy-policy.html" class="link-term">Chính sách bảo
-                                        mật</a></li>
-                                <li class="menu-item"><a href="terms-conditions.html" class="link-term">Điều khoản
-                                        dịch vụ</a></li>
-                                <li class="menu-item"><a href="return-policy.html" class="link-term">Chính sách hoàn
-                                        trả</a></li>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
