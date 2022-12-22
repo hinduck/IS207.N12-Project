@@ -590,6 +590,7 @@ input,textarea{
 	display: inline-block;
 	width: 50%;
 	float: left;
+    border: 1px solid #ff0000;
 }
 header.fill-color .right-section .wrap-icon-section .title{
     color: #ffffff;
@@ -610,6 +611,8 @@ header.fill-color .main-info-area .right-section .wrap-icon-section .index{
 }
 header.fill-color .main-info-area .right-section .wrap-icon-section.minicart .index{
     background-color: #ff0000;
+    align-items: center;
+    justify-content: center;
 }
 .main-info-area .right-section .wrap-icon-section .index{
 	color: #fff;
@@ -1773,7 +1776,7 @@ li.menu-item .nav-label.sale-label::before{
 }
 .product .product-thumnail .group-flash .flash-item.sale-label{
     background-color: #dc1c16;
-    margin-left: 8px;
+    margin: 8px 10px;
 }
 .product .product-thumnail .group-flash .flash-item.sale-label::before{
     border-top-color: #dc1c16;
@@ -1831,6 +1834,7 @@ li.menu-item .nav-label.sale-label::before{
 }
 .product .product-info .wrap-price .product-price,
 .product-style-2 .product-info .wrap-price .product-price{
+    font-family: 'Oswald', sans-serif;
     font-size: 14px;
     line-height: 24px;
     display: inline-block;
@@ -2915,6 +2919,7 @@ vertical-align: top;
     margin-bottom: 17px;
 }
 .product-list-style .advance-info .wrap-price .product-price{
+    font-family: 'Oswald', sans-serif;
     font-size: 22px;
     line-height: 18px;
     display: inline-block;

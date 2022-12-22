@@ -63,10 +63,10 @@
                                     title="{{ $sproduct->name }}">
                                     <figure><img src="{{ asset('assets/images/products') }}/{{ $sproduct->image }}"
                                             width="800" height="800"
-                                            alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                            alt=""></figure>
                                 </a>
                                 <div class="group-flash">
-                                    <span class="flash-item sale-label">sale</span>
+                                    <span class="flash-item sale-label">Sale</span>
                                 </div>
                             </div>
                             <div class="product-info">
