@@ -154,9 +154,9 @@
                                 @endif
                                 @else
                                 <li class="menu-item"><a title="Register or Login"
-                                                href="{{ route('login') }}">Đăng nhập</a></li>
+                                                href="{{ route('login') }}">ĐĂNG NHẬP</a></li>
                                 <li class="menu-item"><a title="Register or Login"
-                                                href="{{ route('register') }}">Đăng ký</a></li>
+                                                href="{{ route('register') }}">ĐĂNG KÝ</a></li>
                                 @endif
 
                                 @endif
