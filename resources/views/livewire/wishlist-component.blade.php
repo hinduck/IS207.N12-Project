@@ -63,7 +63,7 @@
                                             class="product-price">{{ currency_format($item->model->regular_price) }}</span>
                                     </div>
                                     <a href="#" class="btn add-to-cart"
-                                        wire:click.prevent="moveProductFromWishlistToCart('{{ $item->rowID }}')">Thêm
+                                        wire:click.prevent="moveProductFromWishlistToCart('{{ $item->rowId }}')">Thêm
                                         vào Giỏ Hàng</a>
                                     <div class="product-wish">
                                         <a href="#"

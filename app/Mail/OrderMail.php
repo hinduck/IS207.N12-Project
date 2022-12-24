@@ -32,7 +32,7 @@ class OrderMail extends Mailable
      * @return $this
      */
     public function build() {
-        return $this->subject('Order Confirmation')->view('mails.order-mail');
+        return $this->subject('Xác nhận đơn hàng')->view('mails.order-mail');
     }
 
     // /**

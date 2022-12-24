@@ -80,7 +80,7 @@
                                     @csrf
                                     <fieldset class="wrap-title">
                                         <h3 class="form-title">Đăng ký tài khoản mới</h3>
-                                        <h4 class="form-subtitle">Thông Tin Cá Nhân</h4>
+                                        <h4 class="form-subtitle">THÔNG TIN CÁ NHÂN</h4>
                                     </fieldset>
                                     <fieldset class="wrap-input">
                                         <label for="frm-reg-lname">Họ và Tên <span class="text-red-600">*</span></label>
