@@ -75,7 +75,7 @@
                                     <div class="product-thumnail">
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
                                             title="{{ $product->name }}">
-                                            <figure><img src="{{ 'assets/images/products' }}/{{ $product->image }}"
+                                            <figure><img src="{{ asset('assets/images/products/') }}/{{ $product->image }}"
                                                     alt="{{ $product->name }}"></figure>
                                         </a>
                                     </div>
@@ -83,10 +83,10 @@
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
                                             class="product-name"><span>{{ $product->name }}</span></a>
                                         <div class="wrap-price"><span
-                                                class="product-price">{{ $product->regular_price }}</span></div>
+                                                class="product-price">{{ currency_format($product->regular_price) }}</span></div>
                                         <a href="#" class="btn add-to-cart"
-                                            wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Thêm
-                                            vào Giỏ</a>
+                                            wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ currency_format($product->regular_price) }})">Thêm
+                                            vào Giỏ Hàng</a>
                                     </div>
                                 </div>
                             </li>

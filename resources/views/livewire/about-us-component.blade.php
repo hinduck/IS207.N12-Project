@@ -68,31 +68,31 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="aboutus-info style-small-left">
-                        <b class="box-title">Cooperate with Us!</b>
+                        <b class="box-title">Hợp tác với chúng tôi!</b>
                         <div class="list-showups">
                             <label>
                                 <input type="radio" class="hidden" name="showup" id="shoup1" value="shoup1" checked="checked">
                                 <span class="check-box"></span>
-                                <span class='function-name'>Support 24/7</span>
-                                <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                                <span class='function-name'>Hỗ trợ 24/7</span>
+                                <span class="desc">Chúng tôi luôn chào mừng bạn đén với BaoThuFood! Để lại liên hệ của bạn <a href="/contact-us">tại đây!</a></span>
                             </label>
                             <label>
                                 <input type="radio" class="hidden" name="showup" id="shoup2" value="shoup2">
                                 <span class="check-box"></span>
-                                <span class='function-name'>Best Quanlity</span>
-                                <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                                <span class='function-name'>Chất lượng tốt nhất</span>
+                                <span class="desc">Sản phẩm của chúng tôi luôn đảm bảo tiêu chuẩn an toàn vệ sinh thực phẩm và được cấp giấy chứng nhận của Cục An toàn Vệ sinh Thực phẩm.</span>
                             </label>
                             <label>
                                 <input type="radio" class="hidden" name="showup" id="shoup3" value="shoup3">
                                 <span class="check-box"></span>
-                                <span class='function-name'>Fastest Delivery</span>
-                                <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                                <span class='function-name'>Vận chuyển nhanh chóng</span>
+                                <span class="desc">Sản phẩm khi đến tay khách hàng luôn đảm bảo an toàn cho sức khỏe, chất lượng tốt nhất trong vòng 2h.</span>
                             </label>
                             <label>
                                 <input type="radio" class="hidden" name="showup" id="shoup4" value="shoup4">
                                 <span class="check-box"></span>
-                                <span class='function-name'>Customer Care</span>
-                                <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                                <span class='function-name'>Chăm sóc khách hàng</span>
+                                <span class="desc">Nếu khách không hài lòng với dịch vụ của chúng tôi vui lòng liên hệ đến hotline +84 937 811 400, hệ thống chat bên dưới hoặc <a href="/contact-us">tại đây!</a> </span>
                             </label>
                         </div>
                     </div>
@@ -113,8 +113,8 @@
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="https://www.facebook.com/hinduck.0611/" title="DUC" target="_blank">
-                                    <figure><img src="assets/images/hindu.jpg" alt="DUC"></figure>
+                                <a href="https://www.facebook.com/hinduck.0611/" title="Nguyễn Hiền Đức" target="_blank">
+                                    <figure><img src="assets/images/hindu.jpg" alt="Nguyễn Hiền Đức"></figure>
                                 </a>
                             </div>
                             <div class="info">
@@ -126,8 +126,8 @@
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="https://www.facebook.com/banh.2992" title="ANH">
-                                    <figure><img src="assets/images/member-braum.jpg" alt="ANH"></figure>
+                                <a href="https://www.facebook.com/banh.2992" title="Nguyễn Bảo Anh">
+                                    <figure><img src="assets/images/banh.jpg" alt="Nguyễn Bảo Anh"></figure>
                                 </a>
                             </div>
                             <div class="info">
@@ -139,13 +139,26 @@
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="#" title="QUOC">
-                                    <figure><img src="assets/images/member-lucia.jpg" alt="QUOC"></figure>
+                                <a href="https://www.facebook.com/43quocnguyen" title="Nguyễn Huỳnh Vương Quốc">
+                                    <figure><img src="assets/images/coup.jpg" alt="Nguyễn Huỳnh Vương Quốc"></figure>
                                 </a>
                             </div>
                             <div class="info">
                                 <b class="name">N. H. VƯƠNG QUỐC</b>
                                 <span class="title">KHDL2020</span>
+                                <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            </div>
+                        </div>
+
+                        <div class="team-member equal-elem">
+                            <div class="media">
+                                <a href="#" title="The Coffee House">
+                                    <figure><img src="assets/images/tch.jpg" alt="The Coffee House"></figure>
+                                </a>
+                            </div>
+                            <div class="info">
+                                <b class="name">The Coffee House</b>
+                                <span class="title">Milk Coffee</span>
                                 <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                             </div>
                         </div>
