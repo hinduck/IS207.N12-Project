@@ -169,7 +169,7 @@
 
             <div class="wrap-iten-in-cart">
                 <h3 class="title-box" style="border-bottom: 1px solid; padding-bottom: 15px;">
-                    {{ Cart::instance('saveForLater')->count() }} sản phẩm lưu để sau</h3>
+                    <b class="text-red-600">{{ Cart::instance('saveForLater')->count() }}</b> sản phẩm lưu để sau</h3>
                 @if (Session::has('s_success_message'))
                     <div class="alert alert-success">
                         <strong>Thành công</strong> {{ Session::get('s_success_message') }}
@@ -210,8 +210,6 @@
                             </li>
                         @endforeach
                     </ul>
-                @else
-                    <h3>KHÔNG CÓ sản phẩm nào trong danh sách lưu để sau</h3>
                 @endif
             </div>
 

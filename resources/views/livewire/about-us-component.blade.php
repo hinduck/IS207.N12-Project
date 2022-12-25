@@ -100,7 +100,7 @@
             </div>
 
             <div class="our-team-info">
-                <h4 class="title-box">Những người đồng đội</h4>
+                <h4 class="title-box">Những người bạn đồng hành</h4>
                 <div class="our-staff">
                     <div 
                         class="slide-carousel owl-carousel style-nav-1 equal-container" 
@@ -120,46 +120,59 @@
                             <div class="info">
                                 <b class="name">NGUYỄN HIỀN ĐỨC</b>
                                 <span class="title">HTTT2020</span>
-                                <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                                <p class="desc">Nhóm trưởng - lập kế hoạch, phân tích - lập trình viên Back-End.</p>
                             </div>
                         </div>
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="https://www.facebook.com/banh.2992" title="Nguyễn Bảo Anh">
+                                <a href="https://www.facebook.com/banh.2992" title="Nguyễn Bảo Anh" target="_blank">
                                     <figure><img src="assets/images/banh.jpg" alt="Nguyễn Bảo Anh"></figure>
                                 </a>
                             </div>
                             <div class="info">
                                 <b class="name">NGUYỄN BẢO ANH</b>
                                 <span class="title">HTTT2020</span>
-                                <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                                <p class="desc">Lập trình viên Full Stack.</p>
                             </div>
                         </div>
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="https://www.facebook.com/43quocnguyen" title="Nguyễn Huỳnh Vương Quốc">
+                                <a href="https://www.facebook.com/43quocnguyen" title="Nguyễn Huỳnh Vương Quốc" target="_blank">
                                     <figure><img src="assets/images/coup.jpg" alt="Nguyễn Huỳnh Vương Quốc"></figure>
                                 </a>
                             </div>
                             <div class="info">
                                 <b class="name">N. H. VƯƠNG QUỐC</b>
                                 <span class="title">KHDL2020</span>
-                                <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                                <p class="desc">Lập trình viên Front-End.</p>
                             </div>
                         </div>
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="#" title="The Coffee House">
+                                <a href="https://thecoffeehouse.com/" title="The Coffee House" target="_blank">
                                     <figure><img src="assets/images/tch.jpg" alt="The Coffee House"></figure>
                                 </a>
                             </div>
                             <div class="info">
                                 <b class="name">The Coffee House</b>
                                 <span class="title">Milk Coffee</span>
-                                <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                                <p class="desc">Giúp cơ thể luôn đạt trạng thái tỉnh táo trong việc coding.</p>
+                            </div>
+                        </div>
+
+                        <div class="team-member equal-elem">
+                            <div class="media">
+                                <a href="https://www.mihaohao.vn/" title="Mì Hảo Hảo" target="_blank">
+                                    <figure><img src="assets/images/mi-hao-hao.jpg" alt="Mì Hảo Hảo"></figure>
+                                </a>
+                            </div>
+                            <div class="info">
+                                <b class="name">Mì Hảo Hảo Chua Cay</b>
+                                <span class="title">Cứu đói</span>
+                                <p class="desc">Giải quyết vấn đề của dạ dày trong thời gian bụng đói.</p>
                             </div>
                         </div>
                     </div>

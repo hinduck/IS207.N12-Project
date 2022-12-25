@@ -199,7 +199,7 @@
                                                 aria-hidden="true"></i></a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/shop" class="link-term mercado-item-title">Đặt hàng ngay</a>
+                                    <a href="/shop" class="link-term mercado-item-title">Cửa hàng</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/cart" class="link-term mercado-item-title">Giỏ hàng</a>
