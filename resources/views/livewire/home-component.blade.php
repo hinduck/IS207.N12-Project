@@ -21,7 +21,7 @@
                         <div class="slide-info slide-1">
                             <h2 class="f-title"> <b>{{ $slider->title }}</b></h2>
                             <span class="subtitle">{{ $slider->subtitle }}</span>
-                            <p class="sale-info">Only price: <span class="price">{{ $slider->price }}</span></p>
+                            <p class="sale-info">Giá chỉ từ: <span class="price">{{ currency_format($slider->price) }}</span></p>
                             <a href="{{ $slider->link }}" class="btn-link">Vào cửa hàng</a>
                         </div>
                     </div>

@@ -28,10 +28,6 @@
                                 <h4>Danh sách các sản phẩm</h4>
                             </div>
                             <div class="col-md-6">
-                                <button wire:click="export('pdf')" href="{{ route('admin.exportproductpdf') }}"
-                                    class="btn btn-danger">
-                                    <i class="fa fa-print"></i>
-                                    Xuất PDF</button>
                                 <a href="{{ route('admin.addproduct') }}" class="btn btn-success">Thêm sản
                                     phẩm mới</a>
                             </div>
@@ -40,7 +36,7 @@
                                     wire:model="searchTerm">
                             </div>
                         </div>
-                    </div>
+                    </div>  
 
                     <div class="panel-body">
                         @if (Session::has('message'))
@@ -49,7 +45,6 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th></th>
                                     <th>ID</th>
                                     <th>Hình ảnh</th>
                                     <th>Tên</th>
@@ -64,9 +59,6 @@
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
-                                        <td>
-                                            <input type="checkbox" wire:model="selectedProducts.{{ $product->id }}">
-                                        </td>
                                         <td>{{ $product->id }}</td>
                                         <td>
                                             <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
@@ -100,7 +92,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- {{ $products->links() }} --}}
+                        {{ $products->links() }}
                     </div>
                 </div>
             </div>

@@ -300,11 +300,6 @@
                                 <span>Thẻ tín dụng / Thẻ ghi nợ</span>
                                 <span class="payment-desc">Vui lòng điền đầy đủ thông tin để xác nhận thanh toán</span>
                             </label>
-                            hoặc
-                            <div style="padding-top: 10px;" id="paypal-button-container" value="paypal" wire:model="payment_mode" wire:ignore></div>
-                            @error('payment_mode')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
                         </div>
 
                         @php
@@ -353,35 +348,3 @@
     <!--end container-->
 
 </main>
-
-@push('scripts')
-    <script
-        src="https://www.paypal.com/sdk/js?client-id=AawEuua7BSrWK6hraVKElNDWaKgyIDoQ_xW_FBYILMijvkfuSro-58WfSxNSzSSRlMqy2nbieiXAk72I&currency=USD&intent=capture"
-        data-sdk-integration-source="integrationbuilder"></script>
-
-    <script>
-        paypal.Buttons({
-            // Sets up the transaction when a payment button is clicked
-            createOrder: (data, actions) => {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '{{ $total_paypal }}' // Can also reference a variable or function
-                        }
-                    }]
-                });
-            },
-            // Finalize the transaction after payer approval
-            onApprove: (data, actions) => {
-                return actions.order.capture().then(function(orderData) {
-                    // Successful capture! For dev/demo purposes:
-                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                    const transaction = orderData.purchase_units[0].payments.captures[0];
-                    if (transaction.status == "COMPLETED") {
-                        Livewire.emit('transactionEmit', transaction.id)
-                    }
-                });
-            }
-        }).render('#paypal-button-container');
-    </script>
-@endpush

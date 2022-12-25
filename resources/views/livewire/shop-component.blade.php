@@ -66,8 +66,6 @@
 
                         <div class="change-display-mode">
                             <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Lưới</a>
-                            <a href="#" class="list-mode display-mode"><i class="fa fa-th-list"></i>Danh
-                                sách</a>
                         </div>
 
                     </div>
