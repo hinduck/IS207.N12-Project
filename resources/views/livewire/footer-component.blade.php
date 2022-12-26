@@ -53,7 +53,7 @@
                                         <form action="" class="frm-newletter" id="frm-newletter">
                                             <input type="email" class="input-email" name="email" value=""
                                                 placeholder="Nhập email của bạn...">
-                                            <a href="/login" class="btn-submit">Đăng ký</a>
+                                            <a href="/register" class="btn-submit">Đăng ký</a>
                                         </form>
                                     </div>
                                 </div>

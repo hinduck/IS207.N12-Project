@@ -12,41 +12,50 @@
     <p>BaoThuFood xin chân thành cảm ơn!</p>
     <p>Trân trọng.</p>
 
+    @php
+        if (!function_exists('currency_format')) {
+            function currency_format($number, $suffix = 'đ')
+            {
+                if (!empty($number)) {
+                    return number_format($number, 0, ',', '.') . "{$suffix}";
+                }
+            }
+        }
+    @endphp
+
     <table style="width: 600px; text-align:right;">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Tổng</th>
             </tr>
         </thead>
         <tbody>
             @foreach($order->orderItems as $item)
                 <tr>
-                    <td>
-                        <img src="{{asset('assets/images/products')}}/{{$item->product->image}}" width="100" alt="">
-                    </td>
                     <td>{{$item->product->name}}</td>
                     <td>{{$item->quantity}}</td>
-                    <td>{{$item->price * $item->quantity}}</td>
+                    <td>{{ currency_format($item->price)}}</td>
+                    <td>{{ currency_format($item->price * $item->quantity)}}</td>
                 </tr>
             @endforeach
             <tr>
                 <td colspan="3" style="font-size: 15px; font-weight: bold; border-top: 1px solid #ccc"></td>
-                <td style="font-size: 15px; font-weight: bold; border-top: 1px solid #ccc">Subtotal: ${{$order->subtotal}}</td>
+                <td style="font-size: 15px; font-weight: bold; border-top: 1px solid #ccc">Tổng giá trị sản phẩm: {{ currency_format($order->subtotal)}}</td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td style="font-size: 15px; font-weight: bold;">Tax: ${{$order->tax}}</td>
+                <td style="font-size: 15px; font-weight: bold;">Thuế: {{ currency_format($order->tax)}}</td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td style="font-size: 15px; font-weight: bold;">Shipping: Free Shipping</td>
+                <td style="font-size: 15px; font-weight: bold;">Phí vận chuyển: Miễn phí</td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td style="font-size: 22px; font-weight: bold;">Total: ${{$order->total}}</td>
+                <td style="font-size: 22px; font-weight: bold;">Tổng hóa đơn: {{ currency_format($order->total)}}</td>
             </tr>
         </tbody>
     </table>

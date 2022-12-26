@@ -29,7 +29,8 @@
                         <div id="respond" class="comment-respond">
                             <form wire:submit.prevent="addReview" method="post" id="commentform" class="comment-form">
                                 <div class="comment-form-rating">
-                                    <span>Đánh giá</span>
+                                    <span>Đánh giá <span
+                                        class="required text-red-600">*</span></span>
                                     <p class="stars">
                                         <label for="rated-1"></label>
                                         <input type="radio" id="rated-1" name="rating" value="1"
@@ -60,7 +61,7 @@
                                     @enderror
                                 </p>
                                 <p class="form-submit">
-                                    <input name="submit" type="submit" id="submit" class="submit" value="Submit">
+                                    <input name="submit" type="submit" id="submit" class="submit" value="Gửi">
                                 </p>
                             </form>
 
