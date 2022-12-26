@@ -40,7 +40,7 @@ class UserReviewComponent extends Component
         $orderItem->rstatus = true;
         $orderItem->save();
 
-        session()->flash('message', 'Review has been submitted successfully!');
+        session()->flash('message', 'Gửi đánh giá thành công!');
     }
 
     public function render()
