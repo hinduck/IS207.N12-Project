@@ -29,38 +29,60 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+# IS207.N12 - Group 16 - BaoThuFood eCommerce Website
+### Members
+| ID   | Full Name                        | Student ID     | Phone        | Performance  | Rate |
+| --- |----------------------------|----------|------------|-----------|----------|
+| 1 | [Nguyễn Hiền Đức - Hinduck](https://www.facebook.com/hinduck.0611) | 20520450 | 0937811400 | Leader, thiết kế hệ thống, thiết kế database, quản lý công việc chung, xử lý back-end, tìm hiểu chức năng nâng cao, viết báo cáo | 100% |
+| 2 | [Nguyễn Huỳnh Vương Quốc - Coup](https://www.facebook.com/43quocnguyen) | 20521813 | 0797129609 | Thiết kế giao diện, viết front-end, hỗ trợ xây dựng database, viết báo cáo | 100% |
+| 3 | [Nguyễn Bảo Anh - Banh](https://www.facebook.com/banh.2992) | 20521068 | 0866414791 | Hỗ trợ full-stack, viết báo cáo, thiết kế các chức năng nâng cao, đưa ra các yêu cầu cho hệ thống | 100% |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+# Instruction set up Project
+This is the guideline about setting up The BaoThuFood - eCommerce Website at localhost - A Project of Web Development Subject - IS207.N12 at The University of Information Technology.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Applications need to run project
 
-## Contributing
+1. ### Xampp/Wamp
+Xampp or Wamp is used as a local development server. But we recommend to install Xampp since it works with almost platforms like Mac, Linux, Windows, etc,...and Xampp also supports Perl, PHP, MySQL whereas WAMP supports only PHP & MySQL and is not available for Mac.
+So, all the steps below will be instructed as using Xampp.
+Link download Xampp: https://www.apachefriends.org/download.html
+After installing, open "XAMPP Control Panel" and start two modules "Apache" and "MySQL". When two modules turns green it means XAMPP is available.
+* If two modules that you have started doesn't turn to green (maybe yellow or red) that means you have some trouble in the default port (80).
+* But it doesn't matter! You could solve this problem by the keyword "change XAMPP apache server port".
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. ### Visual Studio Code
+VSCode is an IDE used to develop the website.
+Link download VSCode: https://code.visualstudio.com/
 
-## Code of Conduct
+3. ### Composer
+A Dependency Manager for PHP
+Link download Composer: https://getcomposer.org/download/
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## How to running
+1. ### Step 1:
+* Go to the "xampp" folder that you have install in your computer (find in the main hard disk (C:)).
+* Then go to "htdocs" folder and git clone the repo here (Usually C:/xampp/htdocs> git clone https://github.com/hinduck/IS207.N12-Project).
 
-## Security Vulnerabilities
+2. ### Step 2:
+* Open the "IS207.N12-Project" folder that you have just cloned by VSCode, so you could edit codes from now.
+* You can open this folder in after open VSCode or right click on the folder and choose "Open with VSCode".
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. ### Step 3:
+* Open "xampp" on your browser (Ex: http://localhost/phpmyadmin).
+* Create new Database with random name (Ex: web).
+* Set DB collation as "utf8_unicode_ci".
+* Choose "Import" database file: web.sql.
+* Click "Go" if you don't want to change in database.
+* After that, your database has been created.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4. ### Step 4:
+* Open terminal in VSCode.
+* Type: "composer install/update --ignore-platform-reqs" to install/update composer to running app.
+* Type: "cp .env.example .env" to copy file ".env" from ".env.example".
+* Edit DB_NAME in ".env" file as your database name in step 3.
+* Running 3 commands:
+    - "php artisan key:generate" to generate project's key.
+    - "php artisan migrate" to migrate your database.
+    - "php artisan serve" and open your browser with link appear in the command line.
+* Now you can run project with database in localhost.
