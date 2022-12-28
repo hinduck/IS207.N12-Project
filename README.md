@@ -29,6 +29,23 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
+<!-- Banner -->
+<p align="center">
+  <a href="https://www.uit.edu.vn/" title="Trường Đại học Công nghệ Thông tin" style="border: none;">
+    <img src="https://i.imgur.com/WmMnSRt.png" alt="Trường Đại học Công nghệ Thông tin | University of Information Technology">
+  </a>
+</p>
+
+<h1 align="center"><b>Phát triển ứng dụng web - IS207.N12</b></h>
+
+## GIỚI THIỆU MÔN HỌC
+
+- **Tên môn học:** Phát triển ứng dụng web
+- **Mã môn học:** IS207
+- **Mã lớp:** IS207.N12
+- **Năm học:** HK1 (2022 - 2023)
+- **Giảng viên**: ThS Mai Xuân Hùng
+
 # IS207.N12 - Group 16 - BaoThuFood eCommerce Website
 ### Members
 | ID   | Full Name                        | Student ID     | Phone        | Performance  | Rate |
