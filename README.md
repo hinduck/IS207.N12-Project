@@ -7,13 +7,17 @@
 
 <h1 align="center"><b>Phát triển ứng dụng web - IS207.N12</b></h>
 
-## GIỚI THIỆU MÔN HỌC
+## COURSE INTRODUCTION
 
-- **Tên môn học:** Phát triển ứng dụng web
-- **Mã môn học:** IS207
-- **Mã lớp:** IS207.N12
-- **Năm học:** HK1 (2022 - 2023)
-- **Giảng viên**: ThS Mai Xuân Hùng
+- **Name:** Phát triển ứng dụng web - Web Application Development
+- **Course ID:** IS207
+- **Class ID:** IS207.N12
+- **Year:** First Semester (2022 - 2023)
+- **Lecturer**: MSc. Mai Xuân Hùng
+
+## <h2 id="muctieu">Project's Introduction</h2>
+This is the final project of the Web Application Development. <br>
+Target: Building a Food eCommerce Website - BaoThuFood.
 
 # IS207.N12 - Group 16 - BaoThuFood eCommerce Website
 ### Members
@@ -22,7 +26,6 @@
 | 1 | [Nguyễn Hiền Đức - Hinduck](https://www.facebook.com/hinduck.0611) | 20520450 | 0937811400 | Leader, thiết kế hệ thống, thiết kế database, quản lý công việc chung, xử lý back-end, tìm hiểu chức năng nâng cao, viết báo cáo | 100% |
 | 2 | [Nguyễn Huỳnh Vương Quốc - Coup](https://www.facebook.com/43quocnguyen) | 20521813 | 0797129609 | Thiết kế giao diện, viết front-end, hỗ trợ xây dựng database, viết báo cáo | 100% |
 | 3 | [Nguyễn Bảo Anh - Banh](https://www.facebook.com/banh.2992) | 20521068 | 0866414791 | Hỗ trợ full-stack, viết báo cáo, thiết kế các chức năng nâng cao, đưa ra các yêu cầu cho hệ thống | 100% |
-
 
 # Instruction set up Project
 This is the guideline about setting up The BaoThuFood - eCommerce Website at localhost - A Project of Web Development Subject - IS207.N12 at The University of Information Technology.
